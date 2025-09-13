@@ -1,0 +1,13 @@
+{
+  "name": "mobilede",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./input.css -o ./assets/tailwind.min.css --minify",
+    "watch": "npx tailwindcss -i ./input.css -o ./assets/tailwind.min.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
