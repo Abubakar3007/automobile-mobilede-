@@ -28,8 +28,29 @@
             opacity: 1;
         }
 
-        .menu-header.active{
+        .menu-header.active {
             transform: translateX(0%);
+        }
+
+        .ad-step.active {
+            background-color: #FFD100;
+            color: white;
+        }
+
+        .list-item.active{
+            border-color: #FFD100;
+            color:#FFD100;
+        }
+
+        .select-dropdown.show{
+            max-height:260px;
+            opacity:1;
+            visibility:visible;
+        }
+
+        input::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
         }
     </style>
 </head>
@@ -116,7 +137,8 @@
         </div>
         <!-- responsive header -->
         <div class="hidden">
-            <div class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-500 [-webkit-overflow-scrolling:touch] menu-header active">
+            <div
+                class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-500 [-webkit-overflow-scrolling:touch] menu-header active">
                 <!-- logo -->
                 <div class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6">
                     <a href="index.html" title="Go to homepage" class="text-2xl font-black">Logo</a>
@@ -170,26 +192,30 @@
                     </ul>
                     <ul class="gap-16 flex_col">
                         <li>
-                            <a href="/listing/" class="">Buy a car</a>
+                            <a href="/listing/" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Buy a car</a>
                         </li>
                         <li>
-                            <a href="/post_ad/" class="">Sell a car</a>
+                            <a href="/post_ad/" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Sell a car</a>
                         </li>
                     </ul>
                 </div>
                 <div class="absolute bottom-0 left-0 w-full p-4 text-center">
-                    <button class="max-w-[50%] w-full mx-auto bg-[#FFEF47] rounded-[5px] h-10 block font-semibold" id="register">Register</button>
+                    <button class="max-w-[50%] w-full mx-auto bg-[#FFEF47] rounded-[5px] h-10 block font-semibold"
+                        id="register">Register</button>
                 </div>
             </div>
-            <div class="opacity-0 invisible fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg show bg-[rgba(0,0,0,0.5)]">
+            <div
+                class="opacity-0 invisible fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg show bg-[rgba(0,0,0,0.5)]">
                 <button aria-label="Close responsive menu" class="absolute top-6 right-[5px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
                         <g clip-path="url(#clip0_14_9062)">
-                            <path d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z" fill="#fff"/>
+                            <path
+                                d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z"
+                                fill="#fff" />
                         </g>
                         <defs>
                             <clipPath id="clip0_14_9062">
-                                <rect width="24" height="24" fill="white"/>
+                                <rect width="24" height="24" fill="white" />
                             </clipPath>
                         </defs>
                     </svg>
@@ -413,7 +439,467 @@
             </div>
         </div>
     </header>
-    <main>
+    <main class="md:pb-[100px] pb-12">
+        <div class="max-w-[1200px] w-full mx-auto px-3">
+            <!-- breadcrumb -->
+            <div class="pt-8 sm:pb-[50px] pb-8">
+                <ul class="text-xs text-[#757575] font-medium">
+                    <li class="inline-block align-middle">
+                        <a href="index.html" title="Go to homepage" class="text-[#313131] hover:underline">Home</a>
+                    </li>
+                    <li class="inline-block align-middle">
+                        <img src="assets/images/right-chevron.svg">
+                    </li>
+                    <li class="inline-block align-middle">Post an ad</li>
+                </ul>
+            </div>
+            <!-- heading -->
+            <div class="max-w-[600px] mx-auto w-full sm:mb-20 mb-10 text-center">
+                <h1 class="text-[22px] font-medium leading-9 sm:mb-[50px] mb-6">Post Advertisement</h1>
+                <!-- post ad steps -->
+                <div class="flex items-center">
+                    <!-- which one is active add active class -->
+                    <!-- step 1 -->
+                    <a href="post-ad.html" title="Post ad step 1">
+                        <div
+                            class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step active">
+                            1</div>
+                    </a>
+                    <!-- divider -->
+                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
+                    <!-- step 2 -->
+                    <a href="post-ad-2.html" title="Post ad step 2">
+                        <div
+                            class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step">
+                            2</div>
+                    </a>
+                    <!-- divider -->
+                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
+                    <!-- step 3 -->
+                    <a href="post-ad-3.html" title="Post ad step 3">
+                        <div
+                            class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step">
+                            3</div>
+                    </a>
+                    <!-- divider -->
+                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
+                    <!-- step 4 -->
+                    <a href="post-ad-4.html" title="Post ad step 4">
+                        <div
+                            class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step">
+                            4</div>
+                    </a>
+                    <!-- divider -->
+                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
+                    <!-- step 5 -->
+                    <a href="post-ad-5.html" title="Post ad step 5">
+                        <div
+                            class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step">
+                            5</div>
+                    </a>
+                    <!-- divider -->
+                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
+                    <!-- step 6 -->
+                    <a href="post-ad-6.html" title="Post ad step 6">
+                        <div
+                            class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step">
+                            6</div>
+                    </a>
+                </div>
+            </div>
+            <!-- post ad form -->
+            <div>
+                <h2 class="mb-8 text-xl font-semibold leading-8">Basic Details</h2>
+                <form action="#" method="post">
+                    <div class="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] sm:gap-y-6 gap-3 sm:gap-x-4">
+                        <!-- title -->
+                        <div class="sm:row-start-1 sm:col-span-3">
+                            <label for="title" class="block mb-2 font-medium">Title*</label>
+                            <input type="text" id="title" name="title" placeholder="Please enter title about ad" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                            <!-- if error show here -->
+                            <p class="mt-1 text-xs font-medium text-red-600">Please enter title</p>
+                        </div>
+                        <!-- Vehicle type -->
+                        <div class="relative custom-select">
+                            <label for="vehicle-type" class="block mb-2 font-medium">Vehicle type*</label>
+                            <!-- custom select -->
+                            <div class="relative">
+                                <!-- select button -->
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <!-- when user select any value from ul li the current data-id add in input -->
+                                <input type="text" id="vehicle-type" class="select-input" name="vehicle-id" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Car</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Motorbike</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Van/Minibus</li>
+                                        <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Bus</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- vehicle category -->
+                        <div class="relative custom-select">
+                            <label for="vehicle-category" class="block mb-2 font-medium">Vehicle category*</label>
+                            <!-- custom select -->
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" name="category-id" class="select-input" id="vehicle-category" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Small car</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Sedan</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Station wagon</li>
+                                        <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Off road/Pickup truck</li>
+                                        <li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">SUV</li>
+                                        <li data-id="6" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Convertible/Roadster</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- price -->
+                        <div>
+                            <label for="price" class="block mb-2 font-medium">Price*</label>
+                            <input type="number" id="price" name="price" placeholder="€" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                        </div>
+                        <!-- brand -->
+                        <div class="relative custom-select">
+                            <label for="brand" class="block mb-2 font-medium">Brand*</label>
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" id="brand" class="select-input" name="brand" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Toyota</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Honda</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Ford</li>
+                                        <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">BMW</li>
+                                        <li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Audi</li>
+                                        <li data-id="6" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Mercedes</li>
+                                        <li data-id="7" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Tesla</li>
+                                        <li data-id="8" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Nissan</li>
+                                        <li data-id="9" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Chevrolet</li>
+                                        <li data-id="9" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Volkswagen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- model -->
+                        <div class="relative custom-select">
+                            <label for="model" class="block mb-2 font-medium">Model*</label>
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" name="model" id="model" class="select-input" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Civic</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Accord</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">CR-V</li>
+                                        <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Pilot</li>
+                                        <li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Fit</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- variant -->
+                        <div>
+                            <label for="variant" class="block mb-2 font-medium">Variant</label>
+                            <input type="text" id="variant" name="variant" placeholder="€" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                        </div>
+                        <!-- registration date -->
+                        <div class="flex gap-[10px]">
+                            <!-- select month -->
+                            <div class="flex-1 custom-select">
+                                <label for="month" class="block mb-2 font-medium">Registration date*</label>
+                                <div class="relative">
+                                    <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                    <input type="text" name="month" class="select-input" id="month" hidden>
+                                    <!-- input list or select list here -->
+                                    <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                        <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                            <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">January</li>
+                                            <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">February</li>
+                                            <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">March</li>
+                                            <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">April</li>
+                                            <li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">May</li>
+                                            <li data-id="6" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">June</li>
+                                            <li data-id="7" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">July</li>
+                                            <li data-id="8" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">August</li>
+                                            <li data-id="9" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">September</li>
+                                            <li data-id="10" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">October</li>
+                                            <li data-id="11" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">November</li>
+                                            <li data-id="12" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">December</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- select year -->
+                            <div class="flex-1 custom-select">
+                                <label for="year" class="invisible block mb-2 font-medium">year</label>
+                                <div class="relative">
+                                    <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                    <input type="text" id="year" class="select-input" name="year" hidden>
+                                    <!-- input list or select list here -->
+                                    <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                        <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                            <li data-id="2025" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2025</li>
+                                            <li data-id="2024" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2024</li>
+                                            <li data-id="2023" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2023</li>
+                                            <li data-id="2022" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2022</li>
+                                            <li data-id="2021" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2021</li>
+                                            <li data-id="2020" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2020</li>
+                                            <li data-id="2019" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2019</li>
+                                            <li data-id="2018" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2018</li>
+                                            <li data-id="2017" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2017</li>
+                                            <li data-id="2016" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2016</li>
+                                            <li data-id="2015" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2015</li>
+                                            <li data-id="2014" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2014</li>
+                                            <li data-id="2013" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2013</li>
+                                            <li data-id="2012" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2012</li>
+                                            <li data-id="2011" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2011</li>
+                                            <li data-id="2010" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2010</li>
+                                            <li data-id="2009" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2009</li>
+                                            <li data-id="2008" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2008</li>
+                                            <li data-id="2007" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2007</li>
+                                            <li data-id="2006" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2006</li>
+                                            <li data-id="2005" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2005</li>
+                                            <li data-id="2004" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2004</li>
+                                            <li data-id="2003" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2003</li>
+                                            <li data-id="2002" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2002</li>
+                                            <li data-id="2001" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2001</li>
+                                            <li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2000</li>
+                                            <li data-id="1999" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1999</li>
+                                            <li data-id="1998" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1998</li>
+                                            <li data-id="1997" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1997</li>
+                                            <li data-id="1996" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1996</li>
+                                            <li data-id="1995" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1995</li>
+                                            <li data-id="1994" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1994</li>
+                                            <li data-id="1993" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1993</li>
+                                            <li data-id="1992" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1992</li>
+                                            <li data-id="1991" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1991</li>
+                                            <li data-id="1990" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1990</li>
+                                            <li data-id="1989" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1989</li>
+                                            <li data-id="1988" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1988</li>
+                                            <li data-id="1987" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1987</li>
+                                            <li data-id="1986" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1986</li>
+                                            <li data-id="1985" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1985</li>
+                                            <li data-id="1984" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1984</li>
+                                            <li data-id="1983" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1983</li>
+                                            <li data-id="1982" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1982</li>
+                                            <li data-id="1981" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1981</li>
+                                            <li data-id="1980" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1980</li>
+                                            <li data-id="1979" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1979</li>
+                                            <li data-id="1978" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1978</li>
+                                            <li data-id="1977" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1977</li>
+                                            <li data-id="1976" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1976</li>
+                                            <li data-id="1975" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1975</li>
+                                            <li data-id="1974" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1974</li>
+                                            <li data-id="1973" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1973</li>
+                                            <li data-id="1972" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1972</li>
+                                            <li data-id="1971" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1971</li>
+                                            <li data-id="1970" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1970</li>
+                                            <li data-id="1969" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1969</li>
+                                            <li data-id="1968" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1968</li>
+                                            <li data-id="1967" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1967</li>
+                                            <li data-id="1966" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1966</li>
+                                            <li data-id="1965" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1965</li>
+                                            <li data-id="1964" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1964</li>
+                                            <li data-id="1963" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1963</li>
+                                            <li data-id="1962" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1962</li>
+                                            <li data-id="1961" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1961</li>
+                                            <li data-id="1960" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1960</li>
+                                            <li data-id="1959" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1959</li>
+                                            <li data-id="1958" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1958</li>
+                                            <li data-id="1957" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1957</li>
+                                            <li data-id="1956" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1956</li>
+                                            <li data-id="1955" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1955</li>
+                                            <li data-id="1954" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1954</li>
+                                            <li data-id="1953" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1953</li>
+                                            <li data-id="1952" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1952</li>
+                                            <li data-id="1951" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1951</li>
+                                            <li data-id="1950" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1950</li>
+                                            <li data-id="1949" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1949</li>
+                                            <li data-id="1948" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1948</li>
+                                            <li data-id="1947" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1947</li>
+                                            <li data-id="1946" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1946</li>
+                                            <li data-id="1945" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1945</li>
+                                            <li data-id="1944" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1944</li>
+                                            <li data-id="1943" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1943</li>
+                                            <li data-id="1942" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1942</li>
+                                            <li data-id="1941" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1941</li>
+                                            <li data-id="1940" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1940</li>
+                                            <li data-id="1939" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1939</li>
+                                            <li data-id="1938" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1938</li>
+                                            <li data-id="1937" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1937</li>
+                                            <li data-id="1936" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1936</li>
+                                            <li data-id="1935" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1935</li>
+                                            <li data-id="1934" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1934</li>
+                                            <li data-id="1933" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1933</li>
+                                            <li data-id="1932" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1932</li>
+                                            <li data-id="1931" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1931</li>
+                                            <li data-id="1930" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1930</li>
+                                            <li data-id="1929" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1929</li>
+                                            <li data-id="1928" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1928</li>
+                                            <li data-id="1927" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1927</li>
+                                            <li data-id="1926" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1926</li>
+                                            <li data-id="1925" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1925</li>
+                                            <li data-id="1924" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1924</li>
+                                            <li data-id="1923" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1923</li>
+                                            <li data-id="1922" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1922</li>
+                                            <li data-id="1921" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1921</li>
+                                            <li data-id="1920" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1920</li>
+                                            <li data-id="1919" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1919</li>
+                                            <li data-id="1918" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1918</li>
+                                            <li data-id="1917" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1917</li>
+                                            <li data-id="1916" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1916</li>
+                                            <li data-id="1915" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1915</li>
+                                            <li data-id="1914" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1914</li>
+                                            <li data-id="1913" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1913</li>
+                                            <li data-id="1912" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1912</li>
+                                            <li data-id="1911" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1911</li>
+                                            <li data-id="1910" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1910</li>
+                                            <li data-id="1909" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1909</li>
+                                            <li data-id="1908" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1908</li>
+                                            <li data-id="1907" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1907</li>
+                                            <li data-id="1906" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1906</li>
+                                            <li data-id="1905" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1905</li>
+                                            <li data-id="1904" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1904</li>
+                                            <li data-id="1903" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1903</li>
+                                            <li data-id="1902" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1902</li>
+                                            <li data-id="1901" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1901</li>
+                                            <li data-id="1900" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1900</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- kilometers driven -->
+                        <div>
+                            <label for="km-driven" class="block mb-2 font-medium">Kilometers driven*</label>
+                            <input type="number" id="km-driven" name="km-driven" placeholder="KM" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                        </div>
+                        <!-- condition -->
+                        <div class="custom-select">
+                            <label for="condition" class="block mb-2 font-medium">Type and condition*</label>
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" name="condition" class="select-input" id="condition" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">New</li>
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Used/Old</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- seats -->
+                        <div>
+                            <label for="seats" class="block mb-2 font-medium">No. of seats*</label>
+                            <input type="number" id="seats" name="km-driven" placeholder="KM" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                        </div>
+                        <!-- Doors -->
+                        <div>
+                            <label for="doors" class="block mb-2 font-medium">No. of doors</label>
+                            <input type="number" id="doors" name="doors" placeholder="Door" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                        </div>
+                        <!-- sliding door -->
+                        <div class="custom-select">
+                            <label for="sliding-door" class="block mb-2 font-medium">Sliding door*</label>
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" id="sliding-door" class="select-input" name="sliding-door" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Sliding door on right</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Sliding door on left</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Sliding door on both side</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Country -->
+                        <div class="custom-select">
+                            <label for="country" class="block mb-2 font-medium">Country*</label>
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" name="country" class="select-input" id="country" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Austria</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Germany</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Slovakia</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Poland</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- State -->
+                        <div class="custom-select">
+                            <label for="state" class="block mb-2 font-medium">State</label>
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" name="state" class="select-input" id="state" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Brostilava</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Solovak</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Berlin</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Austumung</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- district -->
+                        <div class="custom-select">
+                            <label for="district" class="block mb-2 font-medium">District</label>
+                            <div class="relative">
+                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+                                <input type="text" id="district" class="select-input" name="district" hidden>
+                                <!-- input list or select list here -->
+                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Brostilava</li>
+                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Solovak</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Berlin</li>
+                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Austumung</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address -->
+                        <div class="sm:row-start-7 sm:col-span-2">
+                            <label for="address" class="block mb-2 font-medium">Address</label>
+                            <input type="text" id="address" name="address" placeholder="Austria, 203 Germany" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                        </div>
+                        <!-- zip code -->
+                        <div>
+                            <label for="zip-code" class="block mb-2 font-medium">Zip code*</label>
+                            <input type="number" name="zip-code" placeholder="123456" id="zip-code" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                        </div>
+                        <!-- description -->
+                        <div class="sm:col-span-3">
+                            <label for="description" class="block mb-2 font-medium">Description*</label>
+                            <textarea type="text" name="description" id="description" class="outline-none h-[180px] resize-none p-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]" placeholder="Please enter description about ad"></textarea>
+                        </div>
+                    </div>
+                    <!-- save button -->
+                    <div class="flex justify-end sm:mt-[50px] mt-6">
+                        <button type="submit" class="h-10 max-w-[190px] px-[14px] rounded-[5px] bg-[#FFD100] transition-all ease-in duration-300 w-full font-semibold hover:bg-[#E8BE00]">
+                            <img src="assets/images/save-btn.svg" alt="save btn" class="inline-block mr-1">
+                            <span>Save & Next</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
     <!-- footer -->
     <footer
