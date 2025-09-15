@@ -53,6 +53,23 @@
             -webkit-appearance: none;
             margin: 0;
         }
+
+        .select-dropdown::-webkit-scrollbar-track {
+            border-radius: 8px;
+            background: #E9E9E9;
+        }
+
+        .select-dropdown::-webkit-scrollbar {
+            width: 8px;
+            background-color: #E9E9E9;
+            border-radius: 10px;
+        }
+
+        .select-dropdown::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: #fff;
+            width: 8px;
+        }
     </style>
 </head>
 
@@ -609,7 +626,7 @@
                         <!-- variant -->
                         <div>
                             <label for="variant" class="block mb-2 font-medium">Variant</label>
-                            <input type="text" id="variant" name="variant" placeholder="€" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                            <input type="text" id="variant" name="variant" placeholder="Enter variant" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
                         </div>
                         <!-- registration date -->
                         <div class="flex gap-[10px]">
