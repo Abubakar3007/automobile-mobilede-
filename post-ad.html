@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/tailwind.min.css">
+    <title>Automobile</title>
     <!-- google font cdn -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +69,7 @@
                     </a>
                 </li>
                 <li class="inline-block">
-                    <a href="tel:+421 8956685986">
+                    <a href="#">
                         <img src="assets/images/call.png" alt="" class="inline-block">
                         <span>+421 8956685986</span>
                     </a>
@@ -448,7 +449,7 @@
                         <a href="index.html" title="Go to homepage" class="text-[#313131] hover:underline">Home</a>
                     </li>
                     <li class="inline-block align-middle">
-                        <img src="assets/images/right-chevron.svg">
+                        <img src="assets/images/right-chevron.svg" alt="right chevron">
                     </li>
                     <li class="inline-block align-middle">Post an ad</li>
                 </ul>
@@ -639,7 +640,7 @@
                             </div>
                             <!-- select year -->
                             <div class="flex-1 custom-select">
-                                <label for="year" class="invisible block mb-2 font-medium">year</label>
+                                <label for="year" class="invisible block mb-2 font-medium">year*</label>
                                 <div class="relative">
                                     <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
                                     <input type="text" id="year" class="select-input" name="year" hidden>
@@ -800,11 +801,11 @@
                         <!-- seats -->
                         <div>
                             <label for="seats" class="block mb-2 font-medium">No. of seats*</label>
-                            <input type="number" id="seats" name="km-driven" placeholder="KM" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
+                            <input type="number" id="seats" name="km-driven" placeholder="Seats" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
                         </div>
                         <!-- Doors -->
                         <div>
-                            <label for="doors" class="block mb-2 font-medium">No. of doors</label>
+                            <label for="doors" class="block mb-2 font-medium">No. of doors*</label>
                             <input type="number" id="doors" name="doors" placeholder="Door" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
                         </div>
                         <!-- sliding door -->
@@ -842,7 +843,7 @@
                         </div>
                         <!-- State -->
                         <div class="custom-select">
-                            <label for="state" class="block mb-2 font-medium">State</label>
+                            <label for="state" class="block mb-2 font-medium">State*</label>
                             <div class="relative">
                                 <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
                                 <input type="text" name="state" class="select-input" id="state" hidden>
@@ -859,7 +860,7 @@
                         </div>
                         <!-- district -->
                         <div class="custom-select">
-                            <label for="district" class="block mb-2 font-medium">District</label>
+                            <label for="district" class="block mb-2 font-medium">District*</label>
                             <div class="relative">
                                 <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
                                 <input type="text" id="district" class="select-input" name="district" hidden>
@@ -876,7 +877,7 @@
                         </div>
                         <!-- address -->
                         <div class="sm:row-start-7 sm:col-span-2">
-                            <label for="address" class="block mb-2 font-medium">Address</label>
+                            <label for="address" class="block mb-2 font-medium">Address*</label>
                             <input type="text" id="address" name="address" placeholder="Austria, 203 Germany" class="outline-none h-11 px-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]">
                         </div>
                         <!-- zip code -->
@@ -887,7 +888,7 @@
                         <!-- description -->
                         <div class="sm:col-span-3">
                             <label for="description" class="block mb-2 font-medium">Description*</label>
-                            <textarea type="text" name="description" id="description" class="outline-none h-[180px] resize-none p-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]" placeholder="Please enter description about ad"></textarea>
+                            <textarea name="description" id="description" class="outline-none h-[180px] resize-none p-[14px] border border-[#e9e9e9] font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100]" placeholder="Please enter description about ad"></textarea>
                         </div>
                     </div>
                     <!-- save button -->

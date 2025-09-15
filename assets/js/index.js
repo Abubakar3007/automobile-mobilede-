@@ -39,22 +39,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const parent = button.closest(SELECTORS.container);
       if (!parent) return;
       const dropdown = parent.querySelector(SELECTORS.dropdown);
-
-      // Close all others
-      document
-        .querySelectorAll(SELECTORS.dropdown)
-        .forEach((d) => d.classList.remove("show"));
-
-      dropdown.classList.toggle("show");
+      let isOpen = dropdown.classList.contains("show");
+      // close if open
+      if (isOpen) {
+        dropdown.classList.remove("show");
+      }
+      else {
+        // Close all others
+        document.querySelectorAll(SELECTORS.dropdown).forEach((d) => d.classList.remove("show"));
+        dropdown.classList.add("show"); // open current dropdown
+      }
     });
   });
 
   // Close on outside click
   document.addEventListener("click", (e) => {
     if (!e.target.closest(SELECTORS.container)) {
-      document
-        .querySelectorAll(SELECTORS.dropdown)
-        .forEach((d) => d.classList.remove("show"));
+      document.querySelectorAll(SELECTORS.dropdown).forEach((d) => d.classList.remove("show"));
     }
   });
 
@@ -70,16 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!button || !dropdown || !input) return;
 
-      // Update UI
       button.textContent = option.textContent;
       input.value = option.dataset.id;
 
-      // Active state
-      parent
-        .querySelectorAll(SELECTORS.option)
-        .forEach((item) => item.classList.remove("active"));
+      parent.querySelectorAll(SELECTORS.option).forEach((item) => item.classList.remove("active"));
       option.classList.add("active");
-
       dropdown.classList.remove("show");
     });
   });
@@ -87,9 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close on Escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      document
-        .querySelectorAll(SELECTORS.dropdown)
-        .forEach((d) => d.classList.remove("show"));
+      document.querySelectorAll(SELECTORS.dropdown).forEach((d) => d.classList.remove("show"));
     }
   });
 
@@ -100,9 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const options = select.querySelectorAll(SELECTORS.option);
 
     if (input?.value) {
-      const selected = Array.from(options).find(
-        (opt) => opt.dataset.id === input.value
-      );
+      const selected = Array.from(options).find((opt) => opt.dataset.id === input.value);
       if (selected) {
         button.textContent = selected.textContent;
         selected.classList.add("active");
