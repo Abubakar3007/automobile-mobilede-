@@ -481,7 +481,9 @@
                     <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
                     <li><a href="post-ad-3.html" title="Post ad step 3" class="text-[#313131] hover:underline">Exterior details</a></li>
                     <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li aria-current="page">Interior details</li>
+                    <li><a href="post-ad-4.html" title="Post ad step 4" class="text-[#313131] hover:underline">Photos</a></li>
+                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
+                    <li aria-current="page">Photos</li>
                 </ul>
             </nav>
             <!--post ad heading -->
@@ -524,15 +526,17 @@
                     <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
                     <!-- step 4 -->
                     <a href="post-ad-4.html" title="Post ad step 4">
-                        <div aria-label="Step 4 active" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step active">
-                            <span>4</span>
+                        <div aria-label="Step 4 completed" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step success">
+                            <!-- <span>4</span> -->
+                            <!-- if step is success then show this image-->
+                            <img src="assets/images/success-step.svg" alt="Success step image">
                         </div>
                     </a>
                     <!-- divider -->
                     <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
                     <!-- step 5 -->
                     <a href="post-ad-5.html" title="Post ad step 5">
-                        <div aria-label="Step 5" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step">
+                        <div aria-label="Step 5 active" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step active">
                             <span>5</span>
                         </div>
                     </a>
@@ -548,492 +552,99 @@
             </div>
             <!-- post ad form -->
             <div>
-                <h2 class="mb-8 text-xl font-semibold leading-8">Interior Details</h2>
+                <h2 class="mb-8 text-xl font-semibold leading-8">Photos</h2>
                 <!-- post ad form -->
                 <form action="#" method="post">
-                    <div class="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] sm:gap-y-6 gap-3 sm:gap-x-4">
-                        <!-- Exterior color -->
-                        <div class="relative custom-select">
-                            <label for="in-color" class="block mb-2 font-medium">Interior color*</label>
-                            <!-- custom select -->
-                            <div class="relative">
-                                <!-- select button -->
-                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
-                                <!-- when user select any value from ul li the current data-id add in input -->
-                                <input type="text" id="in-color" class="select-input" name="in-color" hidden>
-                                <!-- input list or select list here -->
-                                <div
-                                    class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
-                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#D7B67C] bg-[#D7B67C] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Beige</label>
-                                        </li>
-                                        <li data-id="2"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c2"
-                                                class="w-5 h-5 rounded-[2px] border border-[#815E12] bg-[#815E12] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c2">Brown</label>
-                                        </li>
-                                        <li data-id="3"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c3"
-                                                class="w-5 h-5 rounded-[2px] border border-[#F0D000] bg-[#F0D000] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c3">Gold</label>
-                                        </li>
-                                        <li data-id="4"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c4"
-                                                class="w-5 h-5 rounded-[2px] border border-[#84BA1F] bg-[#84BA1F] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c4">Green</label>
-                                        </li>
-                                        <li data-id="5"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c5"
-                                                class="w-5 h-5 rounded-[2px] border border-[#F53D3A] bg-[#F53D3A] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c5">Red</label>
-                                        </li>
-                                        <li data-id="6"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c6"
-                                                class="w-5 h-5 rounded-[2px] border border-[#436FDE] bg-[#436FDE] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c6">Blue</label>
-                                        </li>
-                                        <li data-id="7"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c7"
-                                                class="w-5 h-5 rounded-[2px] border border-[#F1D200] bg-[#F1D200] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c7">Yellow</label>
-                                        </li>
-                                        <li data-id="8"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c8"
-                                                class="w-5 h-5 rounded-[2px] border border-[#ABABAB] bg-[#ABABAB] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c8">Gray</label>
-                                        </li>
-                                        <li data-id="9"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c9"
-                                                class="w-5 h-5 rounded-[2px] border border-[#F67E07] bg-[#F67E07] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c9">Orange</label>
-                                        </li>
-                                        <li data-id="10"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c10"
-                                                class="w-5 h-5 rounded-[2px] border border-[#333333] bg-[#333333] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c10">Black</label>
-                                        </li>
-                                        <li data-id="11"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c11"
-                                                class="w-5 h-5 rounded-[2px] border border-[#9262FF] bg-[#9262FF] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c11">Violet</label>
-                                        </li>
-                                        <li data-id="12"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c12"
-                                                class="w-5 h-5 rounded-[2px] border border-[#1E1F24] bg-[#1E1F24] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c12">Metallic</label>
-                                        </li>
-                                        <li data-id="13"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c13"
-                                                class="w-5 h-5 rounded-[2px] border border-[#F3F3F3] bg-[#F3F3F3] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c13">Silver</label>
-                                        </li>
-                                        <li data-id="14"
-                                            class="py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c14"
-                                                class="w-5 h-5 rounded-[2px] border border-[#333333] bg-[#FFFFFF] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c14">White</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- material -->
-                        <div class="relative custom-select">
-                            <label for="material" class="block mb-2 font-medium">Interior material</label>
-                            <!-- custom select -->
-                            <div class="relative">
-                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
-                                <input type="text" name="material" class="select-input" id="material" hidden>
-                                <!-- input list or select list here -->
-                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
-                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
-                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Leather</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Fabric</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Vinyl</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Alcantara</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Suede</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Wood</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Metal</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Carbon fiber</label>
-                                        </li>
-                                        <li data-id="1"
-                                            class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1"
-                                                class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Plastic</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- airbag -->
-                        <div class="relative custom-select">
-                            <label for="airbag" class="block mb-2 font-medium">Airbags*</label>
-                            <div class="relative">
-                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
-                                <input type="text" id="airbag" class="select-input" name="parking" hidden>
-                                <!-- input list or select list here -->
-                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
-                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
-                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Driver airbag</label>
-                                        </li>
-                                        <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Passenger airbag</label>
-                                        </li>
-                                        <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Side airbag</label>
-                                        </li>
-                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Curtain airbag</label>
-                                        </li>
-                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Knee airbag</label>
-                                        </li>
-                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Front airbag</label>
-                                        </li>
-                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Rear airbag</label>
-                                        </li>
-                                        <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">
-                                            <input type="checkbox" name="color_id[]" id="c1" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
-                                            <label for="c1">Center airbag</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Cruise control -->
-                        <div class="relative custom-select">
-                            <label for="conditioning" class="block mb-2 font-medium">Air conditioning*</label>
-                            <div class="relative">
-                                <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
-                                <input type="text" name="conditioning" id="conditioning" class="select-input" hidden>
-                                <!-- input list or select list here -->
-                                <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
-                                    <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
-                                        <li data-id="50" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Manual Air Conditioning</li>
-                                        <li data-id="70" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Automatic Air Conditioning</li>
-                                        <li data-id="90" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Dual-Zone Automatic Climate Control</li>
-                                        <li data-id="110" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Tri-Zone Automatic Climate Control</li>
-                                        <li data-id="130" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Rear-seat Climate Control</li>
-                                        <li data-id="150" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Multi-zone Climate Control</li>
-                                        <li data-id="170" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">No Air Conditioning</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- upload button -->
+                    <div class="flex items-center gap-6 mb-7">
+                        <label for="upload" class="h-10 px-[14px] rounded-[5px] bg-[#FFD100] transition-all ease-in duration-300 w-full max-w-[180px] text-center font-semibold hover:bg-[#E8BE00] cursor-pointer leading-[40px]">
+                            <input type="file" id="upload" name="upload" accept="image/*" multiple hidden>
+                            <svg class="inline-block mr-[2px] align-middle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+							    <path d="M3.33317 15.8333H16.6665V10H18.3332V16.6667C18.3332 16.8877 18.2454 17.0996 18.0891 17.2559C17.9328 17.4122 17.7209 17.5 17.4998 17.5H2.49984C2.27882 17.5 2.06686 17.4122 1.91058 17.2559C1.7543 17.0996 1.6665 16.8877 1.6665 16.6667V10H3.33317V15.8333ZM10.8332 7.5V13.3333H9.1665V7.5H4.99984L9.99984 2.5L14.9998 7.5H10.8332Z" fill="#313131"></path>
+						    </svg>
+                            <span>Upload</span>
+                        </label>
+                        <p class="text-[#757575] font-medium">
+                            <svg class="inline-block mr-[2px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+							    <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z" fill="#0C8CE9"></path>
+						    </svg>
+                            All images will be displayed in the order they are uploaded, 1st picture will be the cover picture
+                        </p>
                     </div>
-                    <!-- checkboxes -->
-                    <div class="sm:mt-[50px] mt-8">
-                        <h3 class="text-[16px] font-medium mb-6">Further equipment</h3>
-                        <ul class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 font-medium">
-							<li>
-								<input id="interior1" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="1">
-								<label class="align-middle cursor-pointer" for="interior1">Alarm system</label>
-							</li>
-							<li>
-								<input id="interior2" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="2">
-								<label class="align-middle cursor-pointer" for="interior2">Hands free</label>
-							</li>
-							<li>
-								<input id="interior3" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="3">
-								<label class="align-middle cursor-pointer" for="interior3">Emergency call system</label>
-							</li>
-							<li>
-								<input id="interior4" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="4">
-								<label class="align-middle cursor-pointer" for="interior4">Fatigue warning</label>
-							</li>
-							<li>
-								<input id="interior5" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="5">
-								<label class="align-middle cursor-pointer" for="interior5">Isofix passenger seat</label>
-							</li>
-							<li>
-								<input id="interior6" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="6">
-								<label class="align-middle cursor-pointer" for="interior6">Leather Seats</label>
-							</li>
-							<li>
-								<input id="interior7" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="7">
-								<label class="align-middle cursor-pointer" for="interior7">Heated Seats</label>
-							</li>
-							<li>
-								<input id="interior8" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="8">
-								<label class="align-middle cursor-pointer" for="interior8">Ventilated Seats</label>
-							</li>
-							<li>
-								<input id="interior9" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="9">
-								<label class="align-middle cursor-pointer" for="interior9">Power-adjustable Seats</label>
-							</li>
-							<li>
-								<input id="interior10" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="10">
-								<label class="align-middle cursor-pointer" for="interior10">Memory Seats</label>
-							</li>
-							<li>
-								<input id="interior11" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="11">
-								<label class="align-middle cursor-pointer" for="interior11">Rear Folding Seats</label>
-							</li>
-							<li>
-								<input id="interior12" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="12">
-								<label class="align-middle cursor-pointer" for="interior12">Ambient lighting</label>
-							</li>
-							<li>
-								<input id="interior13" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="13">
-								<label class="align-middle cursor-pointer" for="interior13">Lumbar support</label>
-							</li>
-							<li>
-								<input id="interior14" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="14">
-								<label class="align-middle cursor-pointer" for="interior14">Massage seats</label>
-							</li>
-							<li>
-								<input id="interior15" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="15">
-								<label class="align-middle cursor-pointer" for="interior15">Seat ventilation</label>
-							</li>
-							<li>
-								<input id="interior16" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="16">
-								<label class="align-middle cursor-pointer" for="interior16">Heated seats</label>
-							</li>
-							<li>
-								<input id="interior17" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="17">
-								<label class="align-middle cursor-pointer" for="interior17">Sports seats</label>
-							</li>
-							<li>
-								<input id="interior18" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="18">
-								<label class="align-middle cursor-pointer" for="interior18">Auxiliary heater</label>
-							</li>
-							<li>
-								<input id="interior19" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="19">
-								<label class="align-middle cursor-pointer" for="interior19">Heated Steering Wheel</label>
-							</li>
-							<li>
-								<input id="interior20" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="20">
-								<label class="align-middle cursor-pointer" for="interior20">Ambient Lighting</label>
-							</li>
-							<li>
-								<input id="interior21" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="21">
-								<label class="align-middle cursor-pointer" for="interior21">Keyless Entry</label>
-							</li>
-							<li>
-								<input id="interior22" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="22">
-								<label class="align-middle cursor-pointer" for="interior22">Keyless Start</label>
-							</li>
-							<li>
-								<input id="interior23" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="23">
-								<label class="align-middle cursor-pointer" for="interior23">Remote Start</label>
-							</li>
-							<li>
-								<input id="interior24" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="24">
-								<label class="align-middle cursor-pointer" for="interior24">Android Auto</label>
-							</li>
-							<li>
-								<input id="interior25" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="25">
-								<label class="align-middle cursor-pointer" for="interior25">Apple CarPlay</label>
-							</li>
-							<li>
-								<input id="interior26" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="26">
-								<label class="align-middle cursor-pointer" for="interior26">CD player</label>
-							</li>
-							<li>
-								<input id="interior27" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="27">
-								<label class="align-middle cursor-pointer" for="interior27">Music streaming integrated</label>
-							</li>
-							<li>
-								<input id="interior28" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="28">
-								<label class="align-middle cursor-pointer" for="interior28">Voice control</label>
-							</li>
-							<li>
-								<input id="interior29" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="29">
-								<label class="align-middle cursor-pointer" for="interior29">Tuner/Radio</label>
-							</li>
-							<li>
-								<input id="interior30" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="30">
-								<label class="align-middle cursor-pointer" for="interior30">TV</label>
-							</li>
-							<li>
-								<input id="interior31" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="31">
-								<label class="align-middle cursor-pointer" for="interior31">USB</label>
-							</li>
-							<li>
-								<input id="interior32" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="32">
-								<label class="align-middle cursor-pointer" for="interior32">WLAN/Wifi hotspot</label>
-							</li>
-							<li>
-								<input id="interior33" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="33">
-								<label class="align-middle cursor-pointer" for="interior33">Touchscreen Display</label>
-							</li>
-							<li>
-								<input id="interior34" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="34">
-								<label class="align-middle cursor-pointer" for="interior34">Navigation System</label>
-							</li>
-							<li>
-								<input id="interior35" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="35">
-								<label class="align-middle cursor-pointer" for="interior35">Bluetooth Connectivity</label>
-							</li>
-							<li>
-								<input id="interior36" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="36">
-								<label class="align-middle cursor-pointer" for="interior36">USB Ports</label>
-							</li>
-							<li>
-								<input id="interior37" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="37">
-								<label class="align-middle cursor-pointer" for="interior37">Wireless Charging Pad</label>
-							</li>
-							<li>
-								<input id="interior38" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="38">
-								<label class="align-middle cursor-pointer" for="interior38">Premium Sound System</label>
-							</li>
-							<li>
-								<input id="interior39" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="39">
-								<label class="align-middle cursor-pointer" for="interior39">Electric windows</label>
-							</li>
-							<li>
-								<input id="interior40" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="40">
-								<label class="align-middle cursor-pointer" for="interior40">Electric side mirror</label>
-							</li>
-							<li>
-								<input id="interior41" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="41">
-								<label class="align-middle cursor-pointer" for="interior41">Electric Seat adjustment</label>
-							</li>
-							<li>
-								<input id="interior42" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="42">
-								<label class="align-middle cursor-pointer" for="interior42">Luggage compartment partition</label>
-							</li>
-							<li>
-								<input id="interior43" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="43">
-								<label class="align-middle cursor-pointer" for="interior43">Auto interior mirror dimming</label>
-							</li>
-							<li>
-								<input id="interior44" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="44">
-								<label class="align-middle cursor-pointer" for="interior44">Leather steering wheel</label>
-							</li>
-							<li>
-								<input id="interior45" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="45">
-								<label class="align-middle cursor-pointer" for="interior45">Multifunctional steering wheel</label>
-							</li>
-							<li>
-								<input id="interior46" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="46">
-								<label class="align-middle cursor-pointer" for="interior46">Smoking package</label>
-							</li>
-							<li>
-								<input id="interior47" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="47">
-								<label class="align-middle cursor-pointer" for="interior47">Shift paddles</label>
-							</li>
-							<li>
-								<input id="interior48" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="48">
-								<label class="align-middle cursor-pointer" for="interior48">Power Door Locks</label>
-							</li>
-							<li>
-								<input id="interior49" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="49">
-								<label class="align-middle cursor-pointer" for="interior49">Power Mirrors</label>
-							</li>
-							<li>
-								<input id="interior50" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="50">
-								<label class="align-middle cursor-pointer" for="interior50">Auto-dimming Rearview Mirror</label>
-							</li>
-							<li>
-								<input id="interior51" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="51">
-								<label class="align-middle cursor-pointer" for="interior51">Push-button Start</label>
-							</li>
-							<li>
-								<input id="interior52" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="52">
-								<label class="align-middle cursor-pointer" for="interior52">Automatic Emergency Braking</label>
-							</li>
-							<li>
-								<input id="interior53" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="53">
-								<label class="align-middle cursor-pointer" for="interior53">Rearview Camera</label>
-							</li>
-							<li>
-								<input id="interior54" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="54">
-								<label class="align-middle cursor-pointer" for="interior54">360-degree Camera</label>
-							</li>
-							<li>
-								<input id="interior55" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="55">
-								<label class="align-middle cursor-pointer" for="interior55">Driver Assistance Package</label>
-							</li>
-							<li>
-								<input id="interior56" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="56">
-								<label class="align-middle cursor-pointer" for="interior56">Center Console Storage</label>
-							</li>
-							<li>
-								<input id="interior57" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="57">
-								<label class="align-middle cursor-pointer" for="interior57">Glove Compartment</label>
-							</li>
-							<li>
-								<input id="interior58" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="58">
-								<label class="align-middle cursor-pointer" for="interior58">Door Pocket Storage</label>
-							</li>
-							<li>
-								<input id="interior59" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="59">
-								<label class="align-middle cursor-pointer" for="interior59">Cup Holders</label>
-							</li>
-							<li>
-								<input id="interior60" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="60">
-								<label class="align-middle cursor-pointer" for="interior60">Fold-down Rear Armrest</label>
-							</li>
-							<li>
-								<input id="interior61" type="checkbox" name="interior_id[]" class="w-5 h-5 rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45" value="61">
-								<label class="align-middle cursor-pointer" for="interior61">Cargo Space</label>
-							</li>
-						</ul>
+                    <!-- upload images container show here -->
+                    <div>
+                        <!-- upload image -->
+                        <div class="mb-4 p-2 rounded-[8px] border border-[#e9e9e9] flex items-center justify-between">
+                            <!-- left wrapper -->
+                            <div class="flex items-center gap-6">
+                                <!-- upload image serial number -->
+                                <span class="text-xl font-semibold">1.</span>
+                                <!-- upload image show here -->
+                                <img src="assets/images/car-image1.jpg" alt="Image 1" class="h-20 w-20 rounded-[5px] object-cover" loading="lazy">
+                                <!-- image name and upload progress -->
+                                <div class="max-w-[200px] w-full text-center">
+                                    <b class="block mb-2 overflow-hidden font-medium line-clamp-1 text-ellipsis">car-image6.avif</b>
+                                    <!-- progress -->
+                                    <div class="w-[124px] bg-[#f5f5f5] h-[17px] mb-1">
+                                        <!-- progress dynamic bar -->
+                                        <div class="h-full bg-[#FFD100]"" style="width:2%"></div>
+                                    </div>
+                                    <span class="text-xs text-[#757575] w-[124px]">11%</span>
+                                </div>
+                            </div>
+                            <!-- error msg -->
+                            <p class="text-[#E53935] font-medium text-xs">Only (jpg/jpeg, png, gif) image are allowed.</p>
+                            <!-- right wrapper -->
+                            <div class="flex gap-4">
+                                <!-- replace image -->
+                                <label for="replace" class="text-[#FFD100] font-semibold cursor-pointer">
+                                    <input type="file" id="replace" hidden>
+                                    <img src="assets/images/replace-image.svg" alt="Replace image icon" class="inline-block mr-1">
+                                    <span>Replace image</span>
+                                </label>
+                                <!-- delete current image -->
+                                <button type="button" class="text-[#B10101] font-semibold">
+                                    <img src="assets/images/delete-img.svg" alt="Delete image icon" class="inline-block mr-1">
+                                    <span>Delete image</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- upload image -->
+                        <div class="mb-4 p-2 rounded-[8px] border border-[#e9e9e9] flex items-center justify-between">
+                            <!-- left wrapper -->
+                            <div class="flex items-center gap-6">
+                                <!-- upload image serial number -->
+                                <span class="text-xl font-semibold">1.</span>
+                                <!-- upload image show here -->
+                                <img src="assets/images/car-image1.jpg" alt="Image 1" class="h-20 w-20 rounded-[5px] object-cover" loading="lazy">
+                                <!-- image name and upload progress -->
+                                <div class="max-w-[200px] w-full text-center">
+                                    <b class="block mb-2 overflow-hidden font-medium line-clamp-1 text-ellipsis">car-image6.avif</b>
+                                    <!-- progress -->
+                                    <div class="w-[124px] bg-[#f5f5f5] h-[17px] mb-1">
+                                        <!-- progress dynamic bar -->
+                                        <div class="h-full bg-[#FFD100]"" style="width:2%"></div>
+                                    </div>
+                                    <span class="text-xs text-[#757575] w-[124px]">11%</span>
+                                </div>
+                            </div>
+                            <!-- error msg -->
+                            <p class="text-[#E53935] font-medium text-xs">Only (jpg/jpeg, png, gif) image are allowed.</p>
+                            <!-- right wrapper -->
+                            <div class="flex gap-4">
+                                <!-- replace image -->
+                                <label for="replace" class="text-[#FFD100] font-semibold cursor-pointer">
+                                    <input type="file" id="replace" hidden>
+                                    <img src="assets/images/replace-image.svg" alt="Replace image icon" class="inline-block mr-1">
+                                    <span>Replace image</span>
+                                </label>
+                                <!-- delete current image -->
+                                <button type="button" class="text-[#B10101] font-semibold">
+                                    <img src="assets/images/delete-img.svg" alt="Delete image icon" class="inline-block mr-1">
+                                    <span>Delete image</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <!-- save & back buttons -->
                     <div class="flex justify-end sm:mt-[50px] gap-2 mt-6">
@@ -1044,8 +655,8 @@
                         </button>
                         <button type="submit"
                             class="h-10 max-w-[190px] px-[14px] rounded-[5px] bg-[#FFD100] transition-all ease-in duration-300 w-full font-semibold hover:bg-[#E8BE00]">
-                            <img src="assets/images/save-btn.svg" alt="save btn" class="inline-block mr-1">
-                            <span>Save & Next</span>
+                            <span>Preview Details</span>
+                            <img src="assets/images/next-chevron.svg" alt="save btn" class="inline-block ml-1">
                         </button>
                     </div>
                 </form>
