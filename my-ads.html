@@ -29,51 +29,8 @@
             opacity: 1;
         }
 
-        .menu-header.active {
+        .menu-header.active{
             transform: translateX(0%);
-        }
-
-        .ad-step.active {
-            background-color: #FFD100;
-            color: white;
-        }
-
-        .list-item.active {
-            border-color: #FFD100;
-            color: #FFD100;
-        }
-
-        .select-dropdown.show {
-            max-height: 260px;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        .ad-step.success {
-            background-color: #34C759;
-            border-color: #81BF84;
-        }
-
-        .select-dropdown::-webkit-scrollbar-track {
-            border-radius: 8px;
-            background: #E9E9E9;
-        }
-
-        .select-dropdown::-webkit-scrollbar {
-            width: 8px;
-            background-color: #E9E9E9;
-            border-radius: 10px;
-        }
-
-        .select-dropdown::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background: #fff;
-            width: 8px;
         }
     </style>
 </head>
@@ -91,7 +48,7 @@
                     </a>
                 </li>
                 <li class="inline-block">
-                    <a href="#">
+                    <a href="tel:+421 8956685986">
                         <img src="assets/images/call.png" alt="" class="inline-block">
                         <span>+421 8956685986</span>
                     </a>
@@ -160,8 +117,7 @@
         </div>
         <!-- responsive header -->
         <div class="hidden">
-            <div
-                class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-500 [-webkit-overflow-scrolling:touch] menu-header active">
+            <div class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-500 [-webkit-overflow-scrolling:touch] menu-header active">
                 <!-- logo -->
                 <div class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6">
                     <a href="index.html" title="Go to homepage" class="text-2xl font-black">Logo</a>
@@ -215,34 +171,26 @@
                     </ul>
                     <ul class="gap-16 flex_col">
                         <li>
-                            <a href="/listing/"
-                                class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Buy
-                                a car</a>
+                            <a href="/listing/" class="">Buy a car</a>
                         </li>
                         <li>
-                            <a href="/post_ad/"
-                                class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Sell
-                                a car</a>
+                            <a href="/post_ad/" class="">Sell a car</a>
                         </li>
                     </ul>
                 </div>
                 <div class="absolute bottom-0 left-0 w-full p-4 text-center">
-                    <button class="max-w-[50%] w-full mx-auto bg-[#FFEF47] rounded-[5px] h-10 block font-semibold"
-                        id="register">Register</button>
+                    <button class="max-w-[50%] w-full mx-auto bg-[#FFEF47] rounded-[5px] h-10 block font-semibold" id="register">Register</button>
                 </div>
             </div>
-            <div
-                class="opacity-0 invisible fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg show bg-[rgba(0,0,0,0.5)]">
+            <div class="opacity-0 invisible fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg show bg-[rgba(0,0,0,0.5)]">
                 <button aria-label="Close responsive menu" class="absolute top-6 right-[5px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
                         <g clip-path="url(#clip0_14_9062)">
-                            <path
-                                d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z"
-                                fill="#fff" />
+                            <path d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z" fill="#fff"/>
                         </g>
                         <defs>
                             <clipPath id="clip0_14_9062">
-                                <rect width="24" height="24" fill="white" />
+                                <rect width="24" height="24" fill="white"/>
                             </clipPath>
                         </defs>
                     </svg>
@@ -305,8 +253,8 @@
                         </div>
                     </div>
                     <div class="login_info d_flex d_between">
-                        <div>
-                            <input type="checkbox" name="keep_login" id="check_login">
+                        <div class="single_radio">
+                            <input type="checkbox" name="keep_login" value="1" id="check_login">
                             <label for="check_login">Keep me logged in</label>
                         </div>
                         <a href="#" onclick="movePopup('forget_content')">Forget password?</a>
@@ -466,8 +414,7 @@
             </div>
         </div>
     </header>
-    <!-- post ad 3
-     + -->
+    <!-- my ads -->
     <main class="md:pb-[100px] pb-12">
         <div class="max-w-[1200px] w-full mx-auto px-3">
             <!-- Breadcrumb -->
@@ -475,191 +422,215 @@
                 <ul class="text-xs text-[#757575] font-medium flex items-center gap-2">
                     <li><a href="index.html" title="Go to homepage" class="text-[#313131] hover:underline">Home</a></li>
                     <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad.html" title="Post ad step 1" class="text-[#313131] hover:underline">Basic details</a></li>
+                    <li><a href="post-ad.html" title="Post ad step 1" class="text-[#313131] hover:underline">Profile</a></li>
                     <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-2.html" title="Post ad step 2" class="text-[#313131] hover:underline">Technical details</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-3.html" title="Post ad step 3" class="text-[#313131] hover:underline">Exterior details</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-4.html" title="Post ad step 4" class="text-[#313131] hover:underline">Interior details</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li aria-current="page">Photos</li>
+                    <li aria-current="page">My ads</li>
                 </ul>
             </nav>
-            <!--post ad heading -->
-            <div class="max-w-[600px] mx-auto w-full sm:mb-20 mb-10 text-center">
-                <h1 class="text-[22px] font-medium leading-9 sm:mb-[50px] mb-6">Post Advertisement</h1>
-                <!-- post ad steps -->
-                <div class="flex items-center" aria-label="Ad Posting Steps">
-                    <!-- which one is active add active class -->
-                    <!-- step 1 -->
-                    <a href="post-ad.html" title="Post ad step 1">
-                        <!-- if success then remove class active & add class success-->
-                        <div aria-label="Step 1 completed" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step success">
-                            <!-- <span>1</span> -->
-                            <!-- if step is success then show this image-->
-                            <img src="assets/images/success-step.svg" alt="Success step image">
-                        </div>
-                    </a>
-                    <!-- divider -->
-                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
-                    <!-- step 2 -->
-                    <a href="post-ad-2.html" title="Post ad step 2">
-                        <div aria-label="Step 2 completed"
-                            class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step success">
-                            <!-- <span>2</span> -->
-                            <!-- if step is success then show this image-->
-                            <img src="assets/images/success-step.svg" alt="Success step image">
-                        </div>
-                    </a>
-                    <!-- divider -->
-                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
-                    <!-- step 3 -->
-                    <a href="post-ad-3.html" title="Post ad step 3">
-                        <div aria-label="Step 3 completed" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step success">
-                            <!-- <span>3</span> -->
-                            <!-- if step is success then show this image-->
-                            <img src="assets/images/success-step.svg" alt="Success step image">
-                        </div>
-                    </a>
-                    <!-- divider -->
-                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
-                    <!-- step 4 -->
-                    <a href="post-ad-4.html" title="Post ad step 4">
-                        <div aria-label="Step 4 completed" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step success">
-                            <!-- <span>4</span> -->
-                            <!-- if step is success then show this image-->
-                            <img src="assets/images/success-step.svg" alt="Success step image">
-                        </div>
-                    </a>
-                    <!-- divider -->
-                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
-                    <!-- step 5 -->
-                    <a href="post-ad-5.html" title="Post ad step 5">
-                        <div aria-label="Step 5 active" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step active">
-                            <span>5</span>
-                        </div>
-                    </a>
-                    <!-- divider -->
-                    <div class="max-w-[95px] w-full h-1 bg-[#E9E9E9]"></div>
-                    <!-- step 6 -->
-                    <a href="post-ad-6.html" title="Post ad step 6">
-                        <div aria-label="Step 6" class="bg-[#FFFAE6] w-11 h-11 rounded-full grid place-items-center text-[#FFD100] text-xl border border-[#FFEA8A] font-semibold ad-step">
-                            <span>6</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- post ad form -->
-            <div>
-                <h2 class="mb-8 text-xl font-semibold leading-8">Photos</h2>
-                <!-- post ad form -->
-                <form action="#" method="post">
-                    <!-- upload button -->
-                    <div class="flex items-center gap-6 mb-7">
-                        <label for="upload" class="h-10 px-[14px] rounded-[5px] bg-[#FFD100] transition-all ease-in duration-300 w-full max-w-[180px] text-center font-semibold hover:bg-[#E8BE00] cursor-pointer leading-[40px]">
-                            <input type="file" id="upload" name="upload" accept="image/*" multiple hidden>
-                            <svg class="inline-block mr-[2px] align-middle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-							    <path d="M3.33317 15.8333H16.6665V10H18.3332V16.6667C18.3332 16.8877 18.2454 17.0996 18.0891 17.2559C17.9328 17.4122 17.7209 17.5 17.4998 17.5H2.49984C2.27882 17.5 2.06686 17.4122 1.91058 17.2559C1.7543 17.0996 1.6665 16.8877 1.6665 16.6667V10H3.33317V15.8333ZM10.8332 7.5V13.3333H9.1665V7.5H4.99984L9.99984 2.5L14.9998 7.5H10.8332Z" fill="#313131"></path>
-						    </svg>
-                            <span>Upload</span>
-                        </label>
-                        <p class="text-[#757575] font-medium">
-                            <svg class="inline-block mr-[2px]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-							    <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20ZM11 7H13V9H11V7ZM11 11H13V17H11V11Z" fill="#0C8CE9"></path>
-						    </svg>
-                            All images will be displayed in the order they are uploaded, 1st picture will be the cover picture
-                        </p>
-                    </div>
-                    <!-- upload images container show here -->
+            <!-- my ads -->
+            <div class="flex gap-6">
+                <!-- profile tab -->
+                <div class="max-w-[234px] w-full bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] p-4 flex flex-col justify-between min-h-[647px]">
+                    <!-- user profile pic, name & list -->
                     <div>
-                        <!-- upload image -->
-                        <div class="mb-4 p-2 rounded-[8px] border border-[#e9e9e9] flex items-center justify-between">
-                            <!-- left wrapper -->
-                            <div class="flex items-center gap-6">
-                                <!-- upload image serial number -->
-                                <span class="text-xl font-semibold">1.</span>
-                                <!-- upload image show here -->
-                                <img src="assets/images/car-image1.jpg" alt="Image 1" class="h-20 w-20 rounded-[5px] object-cover" loading="lazy">
-                                <!-- image name and upload progress -->
-                                <div class="max-w-[200px] w-full text-center">
-                                    <b class="block mb-2 overflow-hidden font-medium line-clamp-1 text-ellipsis">car-image6.avif</b>
-                                    <!-- progress -->
-                                    <div class="w-[124px] bg-[#f5f5f5] h-[17px] mb-1">
-                                        <!-- progress dynamic bar -->
-                                        <div class="h-full bg-[#FFD100]"" style="width:2%"></div>
-                                    </div>
-                                    <span class="text-xs text-[#757575] w-[124px]">11%</span>
-                                </div>
+                        <!-- user name and profile picture -->
+                        <div class="flex items-center gap-2 mb-8">
+                            <!-- profile picture -->
+                            <div class="w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
+                                <!-- if user have profile pic then show here -->
+                                <img src="assets/images/car-image1.jpg" alt="User profile picture" class="object-cover w-full h-full">
+                                <!-- otherwise show user select emoji or default user image -->
+                                <img src="assets/images/user.png" alt="User profile picture" class="object-cover w-full h-full">
                             </div>
-                            <!-- error msg -->
-                            <p class="text-[#E53935] font-medium text-xs">Only (jpg/jpeg, png, gif) image are allowed.</p>
-                            <!-- right wrapper -->
-                            <div class="flex gap-4">
-                                <!-- replace image -->
-                                <label for="replace" class="text-[#FFD100] font-semibold cursor-pointer">
-                                    <input type="file" id="replace" hidden>
-                                    <img src="assets/images/replace-image.svg" alt="Replace image icon" class="inline-block mr-1">
-                                    <span>Replace image</span>
-                                </label>
-                                <!-- delete current image -->
-                                <button type="button" class="text-[#B10101] font-semibold">
-                                    <img src="assets/images/delete-img.svg" alt="Delete image icon" class="inline-block mr-1">
-                                    <span>Delete image</span>
-                                </button>
-                            </div>
+                            <!-- user name -->
+                            <h3 class="text-[18px] font-semibold">Developer Nylon Xavior</h3>
                         </div>
-                        <!-- upload image -->
-                        <div class="mb-4 p-2 rounded-[8px] border border-[#e9e9e9] flex items-center justify-between">
-                            <!-- left wrapper -->
-                            <div class="flex items-center gap-6">
-                                <!-- upload image serial number -->
-                                <span class="text-xl font-semibold">1.</span>
-                                <!-- upload image show here -->
-                                <img src="assets/images/car-image1.jpg" alt="Image 1" class="h-20 w-20 rounded-[5px] object-cover" loading="lazy">
-                                <!-- image name and upload progress -->
-                                <div class="max-w-[200px] w-full text-center">
-                                    <b class="block mb-2 overflow-hidden font-medium line-clamp-1 text-ellipsis">car-image6.avif</b>
-                                    <!-- progress -->
-                                    <div class="w-[124px] bg-[#f5f5f5] h-[17px] mb-1">
-                                        <!-- progress dynamic bar -->
-                                        <div class="h-full bg-[#FFD100]"" style="width:2%"></div>
-                                    </div>
-                                    <span class="text-xs text-[#757575] w-[124px]">11%</span>
-                                </div>
+                        <!-- user info -->
+                        <div>
+                            <a href="my-profile.html" title="Go to my profile" class="py-4 text-[16px] font-medium text-[#757575] block">
+                                <svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M3.33398 18.333C3.33398 16.5649 4.03636 14.8692 5.28661 13.619C6.53685 12.3687 8.23254 11.6663 10.0007 11.6663C11.7688 11.6663 13.4645 12.3687 14.7147 13.619C15.9649 14.8692 16.6673 16.5649 16.6673 18.333H15.0007C15.0007 17.0069 14.4739 15.7352 13.5362 14.7975C12.5985 13.8598 11.3267 13.333 10.0007 13.333C8.67457 13.333 7.4028 13.8598 6.46512 14.7975C5.52744 15.7352 5.00065 17.0069 5.00065 18.333H3.33398ZM10.0007 10.833C7.23815 10.833 5.00065 8.59551 5.00065 5.83301C5.00065 3.07051 7.23815 0.833008 10.0007 0.833008C12.7632 0.833008 15.0007 3.07051 15.0007 5.83301C15.0007 8.59551 12.7632 10.833 10.0007 10.833ZM10.0007 9.16634C11.8423 9.16634 13.334 7.67467 13.334 5.83301C13.334 3.99134 11.8423 2.49967 10.0007 2.49967C8.15898 2.49967 6.66732 3.99134 6.66732 5.83301C6.66732 7.67467 8.15898 9.16634 10.0007 9.16634Z" fill="#757575"></path>
+                                </svg>
+                                <span>My profile</span>
+                            </a>
+                            <!-- buy options -->
+                            <div class="border-t border-[#e9e9e9] py-4 space-y-4">
+                                <h4 class="text-[16px] text-[#757575] font-medium">Buy</h4>
+                                <a href="saved-search.html" title="Go to saved searches" class="block text-[#757575] font-medium text-[16px]">
+                                    <svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16634 1.66699H15.833C16.054 1.66699 16.266 1.75479 16.4223 1.91107C16.5785 2.06735 16.6663 2.27931 16.6663 2.50033V18.4528C16.6664 18.5273 16.6465 18.6005 16.6088 18.6647C16.571 18.7289 16.5166 18.7818 16.4515 18.8179C16.3863 18.854 16.3126 18.8719 16.2381 18.8699C16.1637 18.8678 16.0911 18.8458 16.028 18.8062L9.99967 15.0253L3.97134 18.8053C3.90831 18.8449 3.83583 18.8669 3.76143 18.869C3.68702 18.8711 3.61341 18.8532 3.54825 18.8173C3.48309 18.7813 3.42876 18.7285 3.39091 18.6644C3.35306 18.6003 3.33306 18.5273 3.33301 18.4528V2.50033C3.33301 2.27931 3.42081 2.06735 3.57709 1.91107C3.73337 1.75479 3.94533 1.66699 4.16634 1.66699ZM14.9997 3.33366H4.99967V16.1937L9.99967 13.0595L14.9997 16.1937V3.33366Z" fill="#757575"></path>
+                                    </svg>
+                                    <span>Saved searches</span>
+                                </a>
+                                <a href="favorite.html" title="Go to favorites" class="block text-[#757575] font-medium text-[16px]">
+                                    <svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10.0002 3.77415C11.9577 2.01665 14.9827 2.07498 16.8685 3.96415C18.7535 5.85415 18.8185 8.86415 17.0652 10.8275L9.99852 17.9042L2.93352 10.8275C1.18019 8.86415 1.24602 5.84915 3.13019 3.96415C5.01769 2.07748 8.03685 2.01415 10.0002 3.77415ZM15.6885 5.14165C14.4385 3.88998 12.4219 3.83915 11.1135 5.01415L10.001 6.01248L8.88769 5.01498C7.57519 3.83832 5.56269 3.88998 4.30935 5.14332C3.06769 6.38498 3.00519 8.37248 4.14935 9.68582L9.99935 15.545L15.8494 9.68665C16.9944 8.37248 16.9319 6.38748 15.6885 5.14165Z" fill="#757575"></path>
+                                    </svg>
+                                    <span>Favorites</span>
+                                </a>
                             </div>
-                            <!-- error msg -->
-                            <p class="text-[#E53935] font-medium text-xs">Only (jpg/jpeg, png, gif) image are allowed.</p>
-                            <!-- right wrapper -->
-                            <div class="flex gap-4">
-                                <!-- replace image -->
-                                <label for="replace" class="text-[#FFD100] font-semibold cursor-pointer">
-                                    <input type="file" id="replace" hidden>
-                                    <img src="assets/images/replace-image.svg" alt="Replace image icon" class="inline-block mr-1">
-                                    <span>Replace image</span>
-                                </label>
-                                <!-- delete current image -->
-                                <button type="button" class="text-[#B10101] font-semibold">
-                                    <img src="assets/images/delete-img.svg" alt="Delete image icon" class="inline-block mr-1">
-                                    <span>Delete image</span>
-                                </button>
+                            <!-- sell options -->
+                            <div class="border-t border-[#e9e9e9] py-4 space-y-4">
+                                <h4 class="text-[16px] text-[#757575] font-medium">Sell</h4>
+                                <!-- current page open -->
+                                <a href="my-ads.html" aria-label="current-page" title="Go to my ads" class="block text-[#313131] font-medium text-[16px]">
+                                    <svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M6.66667 3.33366H17.5V5.00033H6.66667V3.33366ZM2.5 2.91699H5V5.41699H2.5V2.91699ZM2.5 8.75033H5V11.2503H2.5V8.75033ZM2.5 14.5837H5V17.0837H2.5V14.5837ZM6.66667 9.16699H17.5V10.8337H6.66667V9.16699ZM6.66667 15.0003H17.5V16.667H6.66667V15.0003Z" fill="#313131"></path>
+                                    </svg>
+                                    <span>My ads</span>
+                                </a>
+                                <a href="post-ad.html" title="Go to post ad" class="block text-[#757575] font-medium text-[16px]">
+                                    <svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M1.66699 14.9997H10.0003V16.6663H1.66699V14.9997ZM1.66699 9.16634H18.3337V10.833H1.66699V9.16634ZM1.66699 3.33301H18.3337V4.99967H1.66699V3.33301ZM15.0003 14.9997V12.4997H16.667V14.9997H19.167V16.6663H16.667V19.1663H15.0003V16.6663H12.5003V14.9997H15.0003Z" fill="#757575"></path>
+                                    </svg>
+                                    <span>Post an ad</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <!-- save & back buttons -->
-                    <div class="flex justify-end sm:mt-[50px] gap-2 mt-6">
-                        <button type="button" onclick="window.location='post-ad-2.html'" title="Go to post ad 2"
-                            class="h-10 max-w-[190px] px-[14px] rounded-[5px] bg-[#FFFAE6] border border-[#FFD100] w-full font-semibold">
-                            <img src="assets/images/yellow-arrow.svg" alt="save btn" class="inline-block mr-1">
-                            <span>Go Back</span>
-                        </button>
-                        <button type="submit"
-                            class="h-10 max-w-[190px] px-[14px] rounded-[5px] bg-[#FFD100] transition-all ease-in duration-300 w-full font-semibold hover:bg-[#E8BE00]">
-                            <span>Preview Details</span>
-                            <img src="assets/images/next-chevron.svg" alt="save btn" class="inline-block ml-1">
-                        </button>
+                    <!-- logout button -->
+                    <div class="border-t border-[#e9e9e9] pt-4">
+                        <a href="" title="Logout your account" class="text-[16px] font-medium text-[#757575] block">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block mr-1" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3.33366 12.5003H5.00033V16.667H15.0003V3.33366H5.00033V7.50033H3.33366V2.50033C3.33366 2.27931 3.42146 2.06735 3.57774 1.91107C3.73402 1.75479 3.94598 1.66699 4.16699 1.66699H15.8337C16.0547 1.66699 16.2666 1.75479 16.4229 1.91107C16.5792 2.06735 16.667 2.27931 16.667 2.50033V17.5003C16.667 17.7213 16.5792 17.9333 16.4229 18.0896C16.2666 18.2459 16.0547 18.3337 15.8337 18.3337H4.16699C3.94598 18.3337 3.73402 18.2459 3.57774 18.0896C3.42146 17.9333 3.33366 17.7213 3.33366 17.5003V12.5003ZM8.33366 9.16699V6.66699L12.5003 10.0003L8.33366 13.3337V10.8337H1.66699V9.16699H8.33366Z" fill="#757575"></path>
+                            </svg>
+                            <span>Logout</span>
+                        </a>
                     </div>
-                </form>
+                </div>
+                <!-- my ads content -->
+                <div class="max-w-[calc(100%-234px)] w-full">
+                    <h1 class="mb-6 text-xl font-semibold">My advertisements</h1>
+                    <!-- cars cards here -->
+                    <div class="grid grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] gap-6">
+                        <!-- car card -->
+                        <div class="single_card">
+                            <!-- card content -->
+							<a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="p-4 block border border-[#e9e9e9] rounded-[12px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
+                                <!-- car image -->
+                                <div class="relative overflow-hidden rounded-[5px] mb-4">
+                                  	<img src="assets/images/car-image1.jpg" alt="object image" class="h-[250px] w-full object-cover rounded-[5px]">
+									<div class="absolute bottom-0 left-0 bg-black/50 py-[6px] px-2 text-white font-medium flex items-center gap-1 rounded-[0px_5px_0px_0px]">
+										<img src="assets/images/more-images.svg" alt="more images">
+										<span>1 Photos</span>
+									</div>
+                                </div>
+                                <!-- card text -->
+								<div class="right_object">
+									<h3 class="text-[18px] font-medium line-clamp-1 text-ellipsis mb-4">525d F10 3 litre 6 cylinder sedan</h3>
+                                    <!-- features -->
+									<ul class="flex flex-wrap gap-4 mb-4 font-medium">
+											<li class="leding-6 before:content-[url(/assets/images/double-check.svg)] before:mr-2 before:align-middle">Adaptive cornering lights</li>
+											<li class="leading-6 text-[#757575] before:content-[url(/assets/images/plus-icon.svg)] before:mr-2 before:align-middle">19 more</li>
+									</ul>
+                                    <!-- category -->
+                                    <div class="border-b border-[#e9e9e9] mb-4 pb-4 flex">
+                                        <!-- fuel type -->
+                                        <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+											<img src="assets/images/fuel-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+											<div>
+												<span class="text-xs font-medium text-[#757575]">Fuel type</span>
+												<h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+											</div>
+										</div>
+                                        <!-- Mileage -->
+                                        <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+											<img src="assets/images/timer-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+											<div>
+												<span class="text-xs font-medium text-[#757575]">Mileage</span>
+												<h4 class="font-medium line-clamp-1 text-ellipsis">Diesel KMPL</h4>
+											</div>
+										</div>
+                                        <!-- Transmission -->
+                                        <div class="flex-1 text-center">
+											<img src="assets/images/transmission-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+											<div>
+												<span class="text-xs font-medium text-[#757575]">Transmission</span>
+												<h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+											</div>
+										</div>
+                                    </div>
+                                    <!-- price -->
+									<h4 class="text-2xl font-semibold text-[#FFD100]">$123,123</h4>
+								</div>
+                            </a>
+                            <!-- delete button -->
+							<div class="flex justify-end gap-6 mt-2">
+								<a href="" title="Edit ad details" class="font-semibold text-[#FFD100]" data-adid="39">
+									<img src="assets/images/edit-pencil-yellow.png" alt="edit vector" class="inline-block mr-1 w-[14px]">
+									<span class="align-middle">Edit Details</span>
+								</a>
+								<button class="font-semibold text-[#B10101]">
+									<img src="assets/images/delete-icon.png" alt="delete logo" class="inline-block mr-1 w-[14px]">
+									<span class="align-middle">Delete Ad</span>
+								</button>
+							</div>
+						</div>
+                        <!-- car card -->
+                        <div class="single_card">
+                            <!-- card content -->
+							<a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="p-4 block border border-[#e9e9e9] rounded-[12px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
+                                <!-- car image -->
+                                <div class="relative overflow-hidden rounded-[5px] mb-4">
+                                  	<img src="assets/images/car-image1.jpg" alt="object image" class="h-[250px] w-full object-cover rounded-[5px]">
+									<div class="absolute bottom-0 left-0 bg-black/50 py-[6px] px-2 text-white font-medium flex items-center gap-1 rounded-[0px_5px_0px_0px]">
+										<img src="assets/images/more-images.svg" alt="more images">
+										<span>1 Photos</span>
+									</div>
+                                </div>
+                                <!-- card text -->
+								<div class="right_object">
+									<h3 class="text-[18px] font-medium line-clamp-1 text-ellipsis mb-4">525d F10 3 litre 6 cylinder sedan</h3>
+                                    <!-- features -->
+									<ul class="flex flex-wrap gap-4 mb-4 font-medium">
+											<li class="leding-6 before:content-[url(/assets/images/double-check.svg)] before:mr-2 before:align-middle">Adaptive cornering lights</li>
+											<li class="leading-6 text-[#757575] before:content-[url(/assets/images/plus-icon.svg)] before:mr-2 before:align-middle">19 more</li>
+									</ul>
+                                    <!-- category -->
+                                    <div class="border-b border-[#e9e9e9] mb-4 pb-4 flex">
+                                        <!-- fuel type -->
+                                        <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+											<img src="assets/images/fuel-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+											<div>
+												<span class="text-xs font-medium text-[#757575]">Fuel type</span>
+												<h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+											</div>
+										</div>
+                                        <!-- Mileage -->
+                                        <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+											<img src="assets/images/timer-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+											<div>
+												<span class="text-xs font-medium text-[#757575]">Mileage</span>
+												<h4 class="font-medium line-clamp-1 text-ellipsis">Diesel KMPL</h4>
+											</div>
+										</div>
+                                        <!-- Transmission -->
+                                        <div class="flex-1 text-center">
+											<img src="assets/images/transmission-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+											<div>
+												<span class="text-xs font-medium text-[#757575]">Transmission</span>
+												<h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+											</div>
+										</div>
+                                    </div>
+                                    <!-- price -->
+									<h4 class="text-2xl font-semibold text-[#FFD100]">$123,123</h4>
+								</div>
+                            </a>
+                            <!-- delete button -->
+							<div class="flex justify-end gap-6 mt-2">
+								<a href="" title="Edit ad details" class="font-semibold text-[#FFD100]" data-adid="39">
+									<img src="assets/images/edit-pencil-yellow.png" alt="edit vector" class="inline-block mr-1 w-[14px]">
+									<span class="align-middle">Edit Details</span>
+								</a>
+								<button class="font-semibold text-[#B10101]">
+									<img src="assets/images/delete-icon.png" alt="delete logo" class="inline-block mr-1 w-[14px]">
+									<span class="align-middle">Delete Ad</span>
+								</button>
+							</div>
+						</div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
