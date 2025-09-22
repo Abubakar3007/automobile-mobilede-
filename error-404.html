@@ -29,7 +29,7 @@
             opacity: 1;
         }
 
-        .menu-header.active{
+        .menu-header.active {
             transform: translateX(0%);
         }
     </style>
@@ -419,3 +419,101 @@
             </div>
         </div>
     </header>
+    <main class="md:py-[60px] py-12">
+        <div class="max-w-[1200px] w-full mx-auto px-3 flex justify-between sm:flex-row flex-col-reverse sm:gap-0 gap-10 sm:text-left text-center">
+            <!-- left side content -->
+            <div class="e">
+                <h1 class="text-[40px] font-bold leading-[60px]">ERROR</h1>
+                <div class="text-[100px] font-black leading-[121px] text-[#FFD100]">404</div>
+                <p class="text-xl leading-[30px] font-semibold mb-8">Oops... the page you’ve requested has been deleted or missing.</p>
+                <a href="index.html" title="Go to homepage" class="rounded-[5px] h-10 px-[14px] bg-[#FFD100] block w-fit transition-all duration-300 ease-in leading-[40px] font-semibold hover:bg-[#E8BE00] sm:mx-0 mx-auto">Go Back To Home</a>
+            </div>
+
+            <div>
+                <img src="assets/images/error-404-image.jpg" alt="error image" loading="lazy" class="sm:w-auto w-[60%] mx-auto">
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer
+        class="relative pt-[50px] overflow-hidden border-t-[2px] [border-image:linear-gradient(150deg,rgba(255,255,255,1),rgba(255,236,150,1),rgba(255,243,188,1))_1] after:absolute before:absolute before:left-0 before:-bottom-[7px] after:top-0 after:right-0 before:content-[url('/assets/images/footer-left-bg.png')] after:content-[url('/assets/images/footer-right-bg.png')] lg:before:-z-[0] before:-z-[10] after:-z-[10]">
+        <div class="max-w-[1220px] mx-auto w-full px-3 flex justify-between gap-6 md:flex-row flex-col">
+            <!-- footer logo and paragraph -->
+            <div class="md:max-w-[560px] w-full">
+                <a href="index.html" title="Go to homepage" class="text-[28px] font-black">Logo</a>
+                <p class="text-sm text-[#757575] mt-4 leading-[21px]">Driving innovation and luxury, we offer premium
+                    automobiles designed with performance, style, and comfort at the forefront. Experience the perfect
+                    blend of power and elegance.</p>
+            </div>
+            <!-- footer links -->
+            <div class="max-w-[520px] w-full flex md:justify-between flex-wrap md:gap-0 gap-8">
+                <nav>
+                    <h4 class="text-[16px] font-semibold mb-3">Company</h4>
+                    <ul class="space-y-2 font-medium">
+                        <li>
+                            <a href="index.html" title="Go to homepage">Home</a>
+                        </li>
+                        <li>
+                            <a href="listing.html" title="Search more cars">Top brands</a>
+                        </li>
+                        <li>
+                            <a href="listing.html" title="Search latest cars">Latest cars</a>
+                        </li>
+                        <li>
+                            <a href="listing.html" title="Go to listing cars">All listings</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav>
+                    <h4 class="text-[16px] font-semibold mb-3">User</h4>
+                    <ul class="space-y-2 font-medium">
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+                        <li>
+                            <a href="login.html">Corporate login</a>
+                        </li>
+                        <li>
+                            <a href="register.html">Register</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav>
+                    <h4 class="text-[16px] font-semibold mb-3">Legal</h4>
+                    <ul class="space-y-2 font-medium">
+                        <li>
+                            <a href="about.html">About us</a>
+                        </li>
+                        <li>
+                            <a href="terms.html">Terms & conditions</a>
+                        </li>
+                        <li>
+                            <a href="privacy.html">Privacy setting</a>
+                        </li>
+                        <li>
+                            <a href="cookie.html">Cookies</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- subscribe input -->
+        <div class="mt-[50px] max-w-[420px] text-center mb-8 mx-auto w-full px-3">
+            <h4 class="text-[16px] font-semibold mb-3">Subscribe to our newsletter</h4>
+            <div class="flex">
+                <input type="text"
+                    class="h-10 rounded-l-[5px] border border-[#FFEA8A] w-full outline-none px-3 pl-10 bg-[url('/assets/images/email-icon.svg')] bg-no-repeat bg-left [background-position-x:12px]"
+                    name="newsletter" placeholder="Enter email">
+                <button
+                    class="h-10 px-[14px] bg-[#FFD100] rounded-r-[5px] font-semibold max-w-[120px] w-full flex-shrink-0 transition-all duration-200 ease-in hover:bg-[#E8BE00]">Subscribe</button>
+            </div>
+        </div>
+        <!-- copyright -->
+        <div class="border-t border-[#e9e9e9] p-[10px] text-center">
+            <p class="text-xs font-medium leading-4">© Copyright 2023. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>
