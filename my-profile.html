@@ -33,9 +33,6 @@
             transform: translateX(0%);
         }
 
-        .pic-btn.active{
-            background-color:#fff;
-        }
     </style>
 </head>
 
@@ -580,11 +577,15 @@
                         <!-- upper side form -->
 				        <div class="max-w-[344px] w-full mx-auto">
                             <div class="flex rounded-[8px] border border-[#e9e9e9] bg-[#f5f5f5] p-2">
-                                <button type="button" class="w-[50%] active block text-center h-8 font-semibold text-[#313131] pic-btn">Photo</button>
-                                <button type="button" class="w-[50%] block text-center h-8 font-semibold text-[#757575]">Character</button>
+                                <button type="button" class="w-[50%] active block text-center h-8 font-semibold text-[#313131] relative pic-btn before:w-full before:h-full before:rounded-[6px] before:block before:shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] before:transition-all before:duration-300 before:ease-in before:bg-white">
+                                    <span class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2">Photo</span>
+                                </button>
+                                <button type="button" class="w-[50%] block text-center h-8 font-semibold text-[#757575] relative">
+                                    <span class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2">Character</span>
+                                </button>
                             </div>
                             <!-- upload image container -->
-					        <div class="mt-4">
+					        <div class="hidden my-4 pic-tab">
 						        <input type="file" name="upload" id="upload-profile" hidden>
 						        <label for="upload-profile" class="cursor-pointer rounded-[10px] border border-[#e9e9e9] p-2 bg-[#f5f5f5] block text-center">
 							        <svg class="mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -599,69 +600,70 @@
                                 </div>
 					        </div>
                             <!-- user avatar select container -->
-					        <div class="tab_content">
-						        <p>Select a character that matches your personality</p>
-						        <ul id="avatarList">
-									<li class="active" data-avatarid="1">
-										<img src="/assets/img/artboard1.png" alt="logo">
+					        <div class="pic-tab">
+						        <p class="mt-4 font-medium">Select a character that matches your personality</p>
+						        <ul class="grid grid-cols-[repeat(auto-fill,_minmax(60px,_1fr))] mt-4 gap-2 rounded-[10px] bg-[#f5f5f5] p-2 border border-dashed border-[#ededed]">
+									<li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture1.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="2">
-										<img src="/assets/img/artboard2.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture2.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="3">
-										<img src="/assets/img/artboard3.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture3.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="4">
-										<img src="/assets/img/artboard4.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture4.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="5">
-										<img src="/assets/img/artboard5.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture5.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="6">
-										<img src="/assets/img/artboard6.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture6.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-								    <li class="" data-avatarid="7">
-										<img src="/assets/img/artboard7.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture7.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="8">
-										<img src="/assets/img/artboard8.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture8.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-								    <li class="" data-avatarid="9">
-										<img src="/assets/img/artboard9.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture9.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-								    <li class="" data-avatarid="10">
-										<img src="/assets/img/artboard10.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture10.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="11">
-										<img src="/assets/img/artboard11.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture11.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="12">
-										<img src="/assets/img/artboard12.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture12.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="13">
-										<img src="/assets/img/artboard13.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture13.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="14">
-										<img src="/assets/img/artboard14.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture14.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
-									<li class="" data-avatarid="15">
-										<img src="/assets/img/artboard15.png" alt="logo">
+                                    <li class="active border border-[#e9e9e9] bg-white py-[5px] px-[9px] cursor-pointer text-center rounded-[5px]">
+										<img src="assets/images/avatar-picture15.png" alt="Avatar logo" loading="lazy" class="mx-auto">
 									</li>
 								</ul>
 					        </div>
 				        </div>
-                        <div class="gap-8 d_flex profile_btns">
-                            <button type="button" class="medium_btn btn_nobg" onclick="closePopup('change_picture')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                        <!-- Save and cancel button -->
+                        <div class="flex justify-end gap-2 mt-6">
+                            <button type="button" class="h-10 max-w-[110px] w-full rounded-[5px] border border-[#FFD100] font-semibold transition-all duration-200 ease-in bg-[#FFFAE6]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none" class="inline-block mr-1">
                                     <path d="M7.02398 9.16689H17.1673V10.8336H7.02398L11.494 15.3036L10.3157 16.4819L3.83398 10.0002L10.3157 3.51855L11.494 4.69689L7.02398 9.16689Z" fill="#FFD100"></path>
                                 </svg>
-                                <span>Cancel </span>
+                                <span class="align-middle">Cancel</span>
                             </button>
-                            <button type="button" class="btn_bg medium_btn" id="saveBtn" data-upload="Photo">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <button type="button" class="h-10 max-w-[110px] w-full rounded-[5px] border border-[#FFD100] font-semibold bg-[#FFD100] transition-all duration-200 ease-in hover:bg-[#E8BE00]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
                                     <path d="M5.83333 15.8333V10.8333H14.1667V15.8333H15.8333V6.52333L13.4767 4.16667H4.16667V15.8333H5.83333ZM3.33333 2.5H14.1667L17.5 5.83333V16.6667C17.5 16.8877 17.4122 17.0996 17.2559 17.2559C17.0996 17.4122 16.8877 17.5 16.6667 17.5H3.33333C3.11232 17.5 2.90036 17.4122 2.74408 17.2559C2.5878 17.0996 2.5 16.8877 2.5 16.6667V3.33333C2.5 3.11232 2.5878 2.90036 2.74408 2.74408C2.90036 2.5878 3.11232 2.5 3.33333 2.5ZM7.5 12.5V15.8333H12.5V12.5H7.5Z" fill="#313131"></path>
                                 </svg>
-                                <span> Save </span>
+                                <span class="align-middle">Save</span>
                             </button>
                         </div>
 			        </form>
