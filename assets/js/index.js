@@ -102,3 +102,93 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Password toggle js
+document.addEventListener('DOMContentLoaded', () => {
+  const passwordToggleButtons = document.querySelectorAll(".password-toggle-btn");
+  passwordToggleButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+      this.classList.toggle("toggle");
+      let parent = this.closest(".password-wrapper");
+      if (!parent) return;
+      let input = parent.querySelector(".password-input");
+
+      // toggle input type
+      input.type = input.type == "password" ? "text" : "password";
+    })
+  })
+});
+
+// edit popup handle
+document.addEventListener('DOMContentLoaded', () => {
+
+  function handleEditPopup(popup, btn) {
+    const popupHandleButton = document.querySelector(btn);
+    const editPopup = document.querySelector(popup);
+    const cancelButton = editPopup.querySelector(".cancel-btn");
+
+    if (!popupHandleButton || !editPopup) return;
+
+    // Click on edit buttons then relative popup will open
+    popupHandleButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      editPopup.classList.add("show")
+      editPopup.setAttribute("data-open", "true");
+    });
+
+    // Cancel popup button
+    cancelButton.addEventListener("click", function () {
+      editPopup.classList.remove("show");
+      editPopup.setAttribute("data-open", "false");
+      editPopup.querySelector("form").reset();
+    })
+
+    // When click outside of popup body
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".popup-content")) {
+        editPopup.classList.remove("show");
+        editPopup.setAttribute("data-open", "false");
+      }
+    });
+  }
+
+  handleEditPopup("#profile-popup", "#profile-edit-btn") // edit profile popup
+  handleEditPopup("#email-popup", "#email-edit-btn"); // Edit user email popup
+  handleEditPopup("#password-popup", "#password-edit-btn"); // Edit password popup
+  handleEditPopup("#name-popup", "#name-edit-btn"); // edit name popup
+  handleEditPopup("#phone-popup", "#phone-edit-btn"); //  edit phone popup
+
+});
+
+// header js
+document.addEventListener('DOMContentLoaded', () => {
+  const menuButton = document.getElementById("menu-btn");
+  const responsiveMenu = document.getElementById("menu-content");
+  const menuBg = document.getElementById("menu-bg");
+  const closeMenuButton = document.getElementById("close-menu");
+
+  if (!menuButton || !responsiveMenu || !menuBg || !closeMenuButton) return;
+
+  menuButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    responsiveMenu.classList.add("active");
+    menuBg.style.display = "block";
+    document.body.style.overflowY = "hidden";
+  });
+
+  closeMenuButton.addEventListener("click", () => {
+    responsiveMenu.classList.remove("active");
+    menuBg.style.display = "none";
+    document.body.style.overflowY = "auto"
+  });
+
+  // click outside popup will close
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".menu-header")) {
+      responsiveMenu.classList.remove("active");
+      menuBg.style.display = "none";
+      document.body.style.overflowY = "auto"
+    }
+  });
+
+})
