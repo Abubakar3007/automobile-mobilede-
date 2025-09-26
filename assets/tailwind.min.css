@@ -780,6 +780,10 @@ video {
   bottom: 68px;
 }
 
+.top-1\/2 {
+  top: 50%;
+}
+
 .z-\[1000\] {
   z-index: 1000;
 }
@@ -912,6 +916,10 @@ video {
 
 .mb-14 {
   margin-bottom: 3.5rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
 }
 
 .line-clamp-1 {
@@ -2846,6 +2854,14 @@ video {
   top: 50%;
 }
 
+.peer:-moz-placeholder ~ .peer-placeholder-shown\:top-1\/2 {
+  top: 50%;
+}
+
+.peer:placeholder-shown ~ .peer-placeholder-shown\:top-1\/2 {
+  top: 50%;
+}
+
 .peer:-moz-placeholder ~ .peer-placeholder-shown\:text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -2878,6 +2894,34 @@ video {
 .peer:focus ~ .peer-focus\:text-\[\#FFD100\] {
   --tw-text-opacity: 1;
   color: rgb(255 209 0 / var(--tw-text-opacity, 1));
+}
+
+.peer:not(:-moz-placeholder) ~ .peer-\[\&\:not\(\:-moz-placeholder\)\]\:top-0 {
+  top: 0px;
+}
+
+.peer:not(:placeholder-shown) ~ .peer-\[\&\:not\(\:placeholder-shown\)\]\:top-0 {
+  top: 0px;
+}
+
+.peer:not(:-moz-placeholder) ~ .peer-\[\&\:not\(\:-moz-placeholder\)\]\:text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.peer:not(:placeholder-shown) ~ .peer-\[\&\:not\(\:placeholder-shown\)\]\:text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.peer:not(:-moz-placeholder) ~ .peer-\[\&\:not\(\:-moz-placeholder\)\]\:text-\[\#757575\] {
+  --tw-text-opacity: 1;
+  color: rgb(117 117 117 / var(--tw-text-opacity, 1));
+}
+
+.peer:not(:placeholder-shown) ~ .peer-\[\&\:not\(\:placeholder-shown\)\]\:text-\[\#757575\] {
+  --tw-text-opacity: 1;
+  color: rgb(117 117 117 / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 400px) {
@@ -3049,6 +3093,10 @@ video {
 
   .sm\:p-4 {
     padding: 1rem;
+  }
+
+  .sm\:p-6 {
+    padding: 1.5rem;
   }
 
   .sm\:py-20 {
@@ -3290,6 +3338,10 @@ video {
 
   .lg\:pt-\[100px\] {
     padding-top: 100px;
+  }
+
+  .lg\:pl-\[145px\] {
+    padding-left: 145px;
   }
 
   .lg\:text-left {

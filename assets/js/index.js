@@ -125,10 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleEditPopup(popup, btn) {
     const popupHandleButton = document.querySelector(btn);
     const editPopup = document.querySelector(popup);
-    const cancelButton = editPopup.querySelector(".cancel-btn");
 
     if (!popupHandleButton || !editPopup) return;
 
+    const cancelButton = editPopup.querySelector(".cancel-btn");
     // Click on edit buttons then relative popup will open
     popupHandleButton.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -235,5 +235,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Switch auth forms
-  
+  const buttons = [
+    { trigger: "#forgot-password-btn", show: "#forgot-box", hide: "#login-box", reset: "#login-form" },
+    { trigger: "#forgot-back-btn", show: "#login-box", hide: "#forgot-box", reset: "#forgot-form" },
+    { trigger: "#send-verification-btn", show: "#verification-box", hide: "#forgot-box" },
+    { trigger: "#verification-back-btn", show: "#login-box", hide: "#verification-box", reset: "#verification-form" },
+    { trigger: "#password-create-btn", show: "#password-box", hide: "#verification-box" },
+    { trigger: "#password-back-btn", show: "#login-box", hide: "#password-box", reset: "#password-form" }
+  ];
+
+  buttons.forEach(({ trigger, show, hide, reset }) => {
+    const btn = document.querySelector(trigger);
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+      switchAuthPopup(show, hide, reset);
+    });
+  });
+
+  function switchAuthPopup(show, hide, reset) {
+    const showEl = document.querySelector(show);
+    const hideEl = document.querySelector(hide);
+    const formEl = reset ? document.querySelector(reset) : null;
+
+    if (showEl) showEl.style.display = "block";
+    if (hideEl) hideEl.style.display = "none";
+    if (formEl) formEl.reset();
+  }
 })
