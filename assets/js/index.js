@@ -191,4 +191,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // login popup open
+  const loginButton = document.getElementById("login-btn");
+  const authPopup = document.getElementById("auth-popup");
+  const closeAuthPopup = document.getElementById("close-auth");
+  const authBoxes = document.querySelectorAll(".auth-box");
+  if (!loginButton || !authPopup || !closeAuthPopup) return;
+
+  loginButton.addEventListener("click", () => {
+    document.body.style.overflowY = "hidden";
+    authPopup.classList.add("show");
+  });
+
+  closeAuthPopup.addEventListener("click", () => {
+    document.body.style.overflowY = "auto";
+    authPopup.classList.remove("show");
+    authBoxes.forEach(ele => ele.style.display = "none");
+    authBoxes[0].style.display = "block";
+  });
+
+  const loginRegisterButtons = document.querySelectorAll(".auth-btn");
+  const authForms = document.querySelectorAll(".auth-form");
+  if (!loginRegisterButtons.length || !authForms.length) return;
+
+  const hideAllForms = () => {
+    authForms.forEach(form => form.classList.add("hidden"));
+  };
+
+  const deactivateAllButtons = () => {
+    loginRegisterButtons.forEach(btn => btn.classList.remove("active"));
+  };
+
+  loginRegisterButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      deactivateAllButtons();
+      btn.classList.add("active");
+
+      hideAllForms();
+      if (authForms[index]) {
+        authForms[index].classList.remove("hidden");
+      }
+    });
+  });
+
+  // Switch auth forms
+  
 })

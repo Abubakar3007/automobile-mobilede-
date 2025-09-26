@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ['Montserrat'],
+        racing:['Racing Sans One'],
       },
       screens: {
         mid: '900px',

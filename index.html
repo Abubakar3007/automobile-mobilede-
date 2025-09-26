@@ -9,8 +9,13 @@
     <!-- google font cdn -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Heading font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    
     <style>
         .search-input.active {
             width: 100%;
@@ -32,6 +37,32 @@
         .menu-header.active{
             transform: translateX(0%);
         }
+        
+        .marquee-inner{
+            animation: marquee 20s linear infinite;   
+        }
+
+        .marquee-inner:hover {
+	        animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: -100%;
+            }
+        }
+
+        .banner{
+            background: linear-gradient(180deg, #101010 0%, #101010 88.17%, rgba(255, 255, 255, 0.00) 100%);
+        }
+
+        .banner-container::after{
+            background: radial-gradient(50.47% 50.47% at 50% 50%, rgba(255, 209, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+        }
     </style>
 </head>
 
@@ -40,16 +71,16 @@
     <header class="sticky top-0 z-[10] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
         <!-- header black -->
         <div class="py-3 bg-[#101010] text-right lg:block hidden">
-            <ul class="text-[#FFD100] font-medium space-x-4 max-w-[1200px] w-full px-3 mx-auto">
+            <ul class="text-[#FFD100] font-medium space-x-4 max-w-[1200px] w-full sxl:px-0 px-3 mx-auto">
                 <li class="inline-block">
                     <a href="#">
-                        <img src="assets/images/time.png" alt="" class="inline-block">
+                        <img src="assets/images/time.png" alt="" class="inline-block mr-1">
                         <span>Mon - Fri ( 10:00 - 18:00 )</span>
                     </a>
                 </li>
                 <li class="inline-block">
                     <a href="tel:+421 8956685986">
-                        <img src="assets/images/call.png" alt="" class="inline-block">
+                        <img src="assets/images/call.png" alt="" class="inline-block mr-1">
                         <span>+421 8956685986</span>
                     </a>
                 </li>
@@ -57,12 +88,14 @@
         </div>
         <!-- header bottom -->
         <div class="relative">
+            <!-- Yellow bg logo here -->
             <div
-                class="absolute left-0 bg-[#FFD100] w-full content-[''] max-w-[calc(100%-(((100%-1200px)/2)+1200px)+140px)] [clip-path:polygon(100%_0,100%_0%,87%_100%,0_100%,0_0)] text-right lg:pr-16 pr-5 pl-5 lg:min-w-[144px] min-w-max lg:h-[109px] h-16 lg:-top-[46px] top-0 flex items-center lg:justify-end justify-center">
+                class="absolute left-0 bg-[#FFD100] w-full content-[''] max-w-[calc(100%-(((100%-1200px)/2)+1200px)+140px)] [clip-path:polygon(100%_0,100%_0%,87%_100%,0_100%,0_0)] text-right lg:pr-16 pr-5 pl-5 lg:min-w-[144px] min-w-max lg:h-[110px] h-16 lg:-top-[46px] top-0 flex items-center lg:justify-end justify-center">
                 <a href="index.html" title="Go to homepage" class="lg:text-[28px] text-2xl font-black">Logo</a>
             </div>
+            <!-- Right side wrapper -->
             <div
-                class="flex items-center lg:justify-between justify-end max-w-[1200px] w-full mx-auto px-3 h-16 pl-[140px]">
+                class="flex items-center lg:justify-between justify-end max-w-[1200px] w-full mx-auto sxl:pr-0 px-3 h-16 lg:pl-[140px]">
                 <!-- header left links -->
                 <div class="hidden lg:block">
                     <ul class="space-x-8 font-medium text-[#757575] capitalize">
@@ -93,328 +126,1105 @@
                             <img src="assets/images/search-icon.svg" alt="search logo">
                         </button>
                     </div>
+                    <!-- Login wrapper -->
                     <div class="lg:max-w-[150px] lg:w-full flex-shrink-0 lg:block flex gap-3 items-center">
                         <!-- login button -->
-                        <button
-                            class="lg:h-10 h-9 lg:px-[14px] px-4 lg:text-base text-[13px] lg:rounded-[5px] rounded-[25px] bg-[#FFD100] transition-all duration-300 ease-in font-semibold capitalize text-center lg:w-full hover:bg-[#E8BE00] flex-shrink-0">Login</button>
-                        <!-- favorite button -->
-                        <a href="" class="relative block lg:hidden">
+                        <button id="login-btn"
+                            class="lg:h-10 h-9 lg:px-[14px] px-4 lg:text-sm text-[13px] lg:rounded-[5px] rounded-[25px] bg-[#FFD100] transition-all duration-300 ease-in font-semibold capitalize text-center lg:w-full hover:bg-[#E8BE00] flex-shrink-0">Login</button>
+                        <!-- responsive favorite button -->
+                        <a href="favorite.html" class="relative block lg:hidden">
                             <img src="assets/images/heart-line.svg" alt="Favorite cars">
+                            <!-- total favorite items number -->
                             <div
                                 class="absolute text-white bg-[#313131] rounded-full -top-[6px] -right-[6px] h-4 w-4 text-[8px] flex items-center justify-center">
                                 2</div>
                         </a>
                         <!-- open menu button -->
-                        <button
+                        <button id="menu-btn"
                             class="lg:hidden border-2 border-[#FFD100] rounded-full h-9 w-9 grid place-items-center">
                             <img src="assets/images/menu-icon.svg" alt="Open menu button" class="w-[14px]">
                         </button>
                     </div>
-                    <!-- login button -->
                 </div>
-
             </div>
         </div>
-        <!-- responsive header -->
-        <div class="hidden">
-            <div class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-500 [-webkit-overflow-scrolling:touch] menu-header active">
+        <!-- responsive menu content -->
+        <div class="lg:hidden">
+            <!-- header content -->
+            <div id="menu-content"
+                class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-300 [-webkit-overflow-scrolling:touch] menu-header">
                 <!-- logo -->
-                <div class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6">
+                <div
+                    class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6 flex justify-between items-center">
                     <a href="index.html" title="Go to homepage" class="text-2xl font-black">Logo</a>
+                    <!--Close button  -->
+                    <button id="close-menu" aria-label="Close responsive menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <g clip-path="url(#clip0_14_9062)">
+                                <path
+                                    d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z"
+                                    fill="#313131" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_14_9062">
+                                    <rect width="24" height="24" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
                 </div>
-                <div class="nav-top">
-                    <ul class="gap-16 flex_col">
+                <!-- User info list -->
+                <div class="font-medium">
+                    <ul class="pb-4 mb-4 space-y-6 border-b border-[#e9e9e9]">
                         <li>
-                            <a href="/profile/">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
+                            <a href="my-profile.html" title="Go to my profile">
+                                <svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 20 20" fill="none">
                                     <path
                                         d="M3.33398 18.333C3.33398 16.5649 4.03636 14.8692 5.28661 13.619C6.53685 12.3687 8.23254 11.6663 10.0007 11.6663C11.7688 11.6663 13.4645 12.3687 14.7147 13.619C15.9649 14.8692 16.6673 16.5649 16.6673 18.333H15.0007C15.0007 17.0069 14.4739 15.7352 13.5362 14.7975C12.5985 13.8598 11.3267 13.333 10.0007 13.333C8.67457 13.333 7.4028 13.8598 6.46512 14.7975C5.52744 15.7352 5.00065 17.0069 5.00065 18.333H3.33398ZM10.0007 10.833C7.23815 10.833 5.00065 8.59551 5.00065 5.83301C5.00065 3.07051 7.23815 0.833008 10.0007 0.833008C12.7632 0.833008 15.0007 3.07051 15.0007 5.83301C15.0007 8.59551 12.7632 10.833 10.0007 10.833ZM10.0007 9.16634C11.8423 9.16634 13.334 7.67467 13.334 5.83301C13.334 3.99134 11.8423 2.49967 10.0007 2.49967C8.15898 2.49967 6.66732 3.99134 6.66732 5.83301C6.66732 7.67467 8.15898 9.16634 10.0007 9.16634Z"
-                                        fill="#fff"></path>
+                                        fill="#313131"></path>
                                 </svg>
-                                <span>My Profile</span>
+                                <span class="align-middle">My Profile</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/profile/saved_search/">
+                            <a href="saved-searches.html" title="Go to saved searches">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
+                                    fill="none" class="inline-block mr-1">
                                     <path
                                         d="M4.16634 1.66699H15.833C16.054 1.66699 16.266 1.75479 16.4223 1.91107C16.5785 2.06735 16.6663 2.27931 16.6663 2.50033V18.4528C16.6664 18.5273 16.6465 18.6005 16.6088 18.6647C16.571 18.7289 16.5166 18.7818 16.4515 18.8179C16.3863 18.854 16.3126 18.8719 16.2381 18.8699C16.1637 18.8678 16.0911 18.8458 16.028 18.8062L9.99967 15.0253L3.97134 18.8053C3.90831 18.8449 3.83583 18.8669 3.76143 18.869C3.68702 18.8711 3.61341 18.8532 3.54825 18.8173C3.48309 18.7813 3.42876 18.7285 3.39091 18.6644C3.35306 18.6003 3.33306 18.5273 3.33301 18.4528V2.50033C3.33301 2.27931 3.42081 2.06735 3.57709 1.91107C3.73337 1.75479 3.94533 1.66699 4.16634 1.66699ZM14.9997 3.33366H4.99967V16.1937L9.99967 13.0595L14.9997 16.1937V3.33366Z"
-                                        fill="#ffffff"></path>
+                                        fill="#313131"></path>
                                 </svg>
                                 <span>Saved Searches</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/profile/my_favorite/">
+                            <a href="favorite.html" title="Go to favorite">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
+                                    fill="none" class="inline-block mr-1">
                                     <path
                                         d="M10.0002 3.77415C11.9577 2.01665 14.9827 2.07498 16.8685 3.96415C18.7535 5.85415 18.8185 8.86415 17.0652 10.8275L9.99852 17.9042L2.93352 10.8275C1.18019 8.86415 1.24602 5.84915 3.13019 3.96415C5.01769 2.07748 8.03685 2.01415 10.0002 3.77415ZM15.6885 5.14165C14.4385 3.88998 12.4219 3.83915 11.1135 5.01415L10.001 6.01248L8.88769 5.01498C7.57519 3.83832 5.56269 3.88998 4.30935 5.14332C3.06769 6.38498 3.00519 8.37248 4.14935 9.68582L9.99935 15.545L15.8494 9.68665C16.9944 8.37248 16.9319 6.38748 15.6885 5.14165Z"
-                                        fill="#ffffff"></path>
+                                        fill="#313131"></path>
                                 </svg>
                                 <span>Favorite</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/profile/my_ads/">
+                            <a href="my-ads.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
+                                    fill="none" class="inline-block mr-1">
                                     <path
                                         d="M6.66667 3.33366H17.5V5.00033H6.66667V3.33366ZM2.5 2.91699H5V5.41699H2.5V2.91699ZM2.5 8.75033H5V11.2503H2.5V8.75033ZM2.5 14.5837H5V17.0837H2.5V14.5837ZM6.66667 9.16699H17.5V10.8337H6.66667V9.16699ZM6.66667 15.0003H17.5V16.667H6.66667V15.0003Z"
-                                        fill="#ffffff"></path>
+                                        fill="#313131"></path>
                                 </svg>
                                 <span>My ads</span>
                             </a>
                         </li>
                     </ul>
-                    <ul class="gap-16 flex_col">
+                    <ul class="space-y-6">
                         <li>
-                            <a href="/listing/" class="">Buy a car</a>
+                            <a href="listing.html" title="Buy a used cars">Buy a car</a>
                         </li>
                         <li>
-                            <a href="/post_ad/" class="">Sell a car</a>
+                            <a href="post-ad.html" title="Go to sell car">Sell a car</a>
                         </li>
                     </ul>
                 </div>
+                <!-- Register button -->
                 <div class="absolute bottom-0 left-0 w-full p-4 text-center">
-                    <button class="max-w-[50%] w-full mx-auto bg-[#FFEF47] rounded-[5px] h-10 block font-semibold" id="register">Register</button>
+                    <button class="max-w-[50%] w-full mx-auto bg-[#FFD100] rounded-[5px] h-10 block font-semibold"
+                        id="register">Register</button>
                 </div>
             </div>
-            <div class="opacity-0 invisible fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg show bg-[rgba(0,0,0,0.5)]">
-                <button aria-label="Close responsive menu" class="absolute top-6 right-[5px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
-                        <g clip-path="url(#clip0_14_9062)">
-                            <path d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z" fill="#fff"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_14_9062">
-                                <rect width="24" height="24" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </button>
+            <!-- header bg  -->
+            <div id="menu-bg"
+                class="fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg hidden bg-black/80">
             </div>
         </div>
-        <div class="hidden popup auth_pop" data-popup="login_popup">
-            <!-- login and register popup -->
-            <div class="popup_content auth_hidden login_pop active" data-content="login_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Welcome <span>Back</span>
-                    </h2>
-                    <div class="flex auth_tab">
-                        <button class="active">Login</button>
-                        <button>Signup</button>
-                    </div>
-                </div>
-                <form id="loginSignupForm">
-                    <div class="gap-16 form_input flex_col">
-                        <div class="single_input">
-                            <!-- <div class="form-item input_text error_class"> -->
-                            <div class="form-item input_text">
-                                <input type="text" id="email" name="email" autocomplete="off" required="">
-                                <label for="email">Email</label>
-                                <!-- <p class="error_msg">Please enter valid.</p> -->
-                            </div>
-                        </div>
-                        <div class="single_input">
-                            <div class="form-item input_text">
-                                <input type="password" id="password" name="password" autocomplete="off" required=""
-                                    onclick="showSuggestion(event,this)">
-                                <label for="password">Password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/show_password.svg" alt="password logo">
-                                </span>
-                                <div class="suggestion">
-                                    <p>Password must have :</p>
-                                    <ul>
-                                        <li>min. 8 characters</li>
-                                        <li>a special character</li>
-                                        <li>a number</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_input confirm_passwd">
-                            <div class="form-item input_text">
-                                <input type="password" id="re-password" name="confirm_password" autocomplete="off"
-                                    required="">
-                                <label for="re-password">Re-enter password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/show_password.svg" alt="password logo">
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="login_info d_flex d_between">
-                        <div class="single_radio">
-                            <input type="checkbox" name="keep_login" value="1" id="check_login">
-                            <label for="check_login">Keep me logged in</label>
-                        </div>
-                        <a href="#" onclick="movePopup('forget_content')">Forget password?</a>
-                    </div>
-                    <div class="gap-32 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="loginBtn">
-                            <img src="/assets/img/login_auth.svg" alt="login image">
-                            <span>Login</span>
-                        </button>
-                        <div class="gap-8 divider d_flex">
-                            <span></span>
-                            <span>Or Signup with</span>
-                            <span></span>
-                        </div>
-                        <div class="flex gap-8 social_btn">
-                            <a href="#">
-                                <img src="/assets/img/facebook.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/assets/img/google.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- forget password popup -->
-            <div class="popup_content forget_popup" data-content="forget_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Forgot password</h2>
-                    <p>You will receive an verification code on the registered email id to reset your password.</p>
-                </div>
-                <form id="forgotPasswordForm">
-                    <div class="single_input">
-                        <div class="form-item input_text">
-                            <input type="text" name="email" id="email2" autocomplete="off" required="">
-                            <label for="email2">Email</label>
-                        </div>
-                    </div>
-                    <div class="gap-16 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="sendCodeBtn"> Send verification Code
-                            <img src="/assets/img/forget_pass.png" alt="login image">
-                        </button>
-                        <a href="#!" onclick="movePopup('login_content')">Back to login</a>
-                    </div>
-                </form>
-            </div>
-            <!-- verification code popup -->
-            <div class="popup_content forget_popup otp_popup" data-content="otp_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Enter verification code</h2>
-                    <p>Enter the verification code you received on your email. <br>
-                        <span>kindly check your spam section too.</span>
-                    </p>
-                </div>
-                <form id="otpForm">
-                    <div class="gap-16 otp_inputs flex_col d_center">
-                        <ul class="gap-16 d_flex">
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                        </ul>
-                        <p>Didn’t receive OTP ? <a href="#" id="sendAgain"> Send again.</a>
-                        </p>
-                    </div>
-                    <div class="gap-16 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="createPasswordBtn"> Create new password
-                            <img src="/assets/img/forget_pass.png" alt="login image">
-                        </button>
-                        <a href="#" onclick="movePopup('forget_content')">Back</a>
-                    </div>
-                </form>
-            </div>
-            <!-- change password -->
-            <div class="popup_content forget_popup" data-content="update_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Create new password</h2>
-                    <p>Enter the verification code you received on your email.</p>
-                </div>
-                <form id="updatePasswordForm">
-                    <div class="gap-16 form_input flex_col">
-                        <div class="single_input">
-                            <div class="form-item input_text">
-                                <input type="password" name="password" id="password2" autocomplete="off" required=""
-                                    onclick="showSuggestion(event,this)">
-                                <label for="password2">New Password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                </span>
-                                <div class="suggestion">
-                                    <p>Password must have :</p>
-                                    <ul>
-                                        <li>min. 8 characters</li>
-                                        <li>a special character</li>
-                                        <li>a number</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_input confirm_passwd">
-                            <div class="form-item input_text">
-                                <input type="password" name="confirm_password" id="re-password2" autocomplete="off"
-                                    required="">
-                                <label for="re-password2">Re-enter password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gap-16 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="updatePasswordBtn"> Update password <img
-                                src="/assets/img/forget_pass.png" alt="login image">
-                        </button>
-                        <a href="#!" onclick="movePopup('otp_content')">Back</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- success popup for all-->
-        <div class="hidden popup success_popup" data-popup="success_popup">
-            <div class="success_content">
-                <p>Your email has been updated successfully.</p>
-            </div>
-        </div>
-        <!-- logout pop up -->
-        <div class="hidden popup logout" data-popup="logout_popup">
-            <div class="popup_content">
-                <span class="close_popup" onclick="closePopup('logout_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <h3>Confirm Logout</h3>
-                <p>Are you sure you want to logout?</p>
-                <div class="gap-16 d_flex">
-                    <button class="btn_nobg medium_btn">Cancel</button>
-                    <button class="btn_bg medium_btn">Logout</button>
-                </div>
-            </div>
+        <!-- Login popup -->
+        <div id="auth-popup" class="fixed inset-0 invisible w-full opacity-0 bg-black/80 h-[100vh] z-[1000]">
+        	<div class="grid w-full h-full p-2 place-items-center">
+        		<!-- Popup box -->
+        		<div class="bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[15px] p-6 relative max-w-[480px] w-full">
+        			<!-- Close login popup -->
+        			<button id="close-auth" class="absolute right-4 top-4" aria-label="Close login popup" title="Close popup">
+        				<img src="assets/images/cross-icon.svg" alt="Close login popup" class="w-4">
+        			</button>
+        			<!-- Login & Register popup -->
+        			<div id="login-box" class="auth-box">
+        				<h3 class="mb-4 text-xl font-semibold text-center">Welcome Back</h3>
+        				<!-- Select tab for login or register -->
+        				<div class="flex mb-[50px] p-1 rounded-[50px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] max-w-[259px] w-full mx-auto">
+        					<button class="h-8 font-semibold rounded-[50px] text-base flex-1 text-[#757575] active auth-btn">Login</button>
+        					<button class="h-8 font-medium rounded-[50px] text-base flex-1 text-[#757575] auth-btn">Signup</button>
+        				</div>
+        				<!-- Login form -->
+        				<form id="login-form" class="auth-form">
+        					<!-- email and password -->
+        					<div class="space-y-4">
+        						<!-- email -->
+        						<div>
+        							<div class="relative">
+        								<input type="text" id="email" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        								<label for="email" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Email</label>
+        							</div>
+        							<!-- Error show here -->
+        							<p class="mt-1 text-xs font-medium text-red">Please enter valid email</p>
+        						</div>
+        						<div>
+        							<div class="relative">
+        								<input type="password" id="password" name="password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        								<label for="password" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Password</label>
+        								<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+        							</div>
+        							<!-- Error show here -->
+        							<p class="mt-1 text-xs font-medium text-red">Please enter correct password</p>
+        						</div>
+        					</div>
+        					<!-- forget password link -->
+        					<div class="flex items-center justify-between mt-2">
+        						<!-- remember checkbox -->
+        						<div>
+        							<input type="checkbox" name="remember" id="remember" class="h-[18px] w-[18px] border border-[#FFD100] mr-1 appearance-none rounded-[2px] align-middle">
+        							<label for="remember" class="align-middle font-medium text-[#757575]">Keep me logged in</label>
+        						</div>
+        						<!-- forget link -->
+        						<button id="forgot-password-btn" class="font-semibold">Forgot password?</button>
+        					</div>
+        					<div class="mt-[50px] text-center">
+        						<!-- login button -->
+        						<button type="button" class="h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+        							<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+        							<span class="align-middle">Login</span>
+        						</button>
+        					</div>
+        				</form>
+        				<!-- Register form -->
+        				<form id="register-form" class="hidden auth-form">
+        					<!-- email and password -->
+        					<div class="space-y-4">
+        						<!-- email -->
+        						<div>
+        							<div class="relative">
+        								<input type="text" id="email" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        								<label for="email" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Email</label>
+        							</div>
+        							<!-- Error show here -->
+        							<p class="mt-1 text-xs font-medium text-red">Please enter valid email</p>
+        						</div>
+        						<div>
+        							<div class="relative">
+        								<input type="password" id="password" name="password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        								<label for="password" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Password</label>
+        								<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+        							</div>
+        							<!-- Error show here -->
+        							<p class="mt-1 text-xs font-medium text-red">Please enter correct password</p>
+        						</div>
+        						<div>
+        							<div class="relative">
+        								<input type="password" id="c-password" name="c-password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        								<label for="c-password" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Re-enter password</label>
+        								<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+        							</div>
+        							<!-- Error show here -->
+        							<p class="mt-1 text-xs font-medium text-red">Please enter correct password</p>
+        						</div>
+        					</div>
+        					<div class="mt-[50px] text-center">
+        						<!-- login button -->
+        						<button type="button" class="h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+        							<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+        							<span class="align-middle">Sign up</span>
+        						</button>
+        					</div>
+        				</form>
+        				<!-- divider -->
+        				<div class="flex gap-2 text-[#757575] font-medium mt-8 text-center before:flex-1 after:flex-1 before:h-[0.5px] after:h-[0.5px] before:bg-[#DEDEDE] after:bg-[#DEDEDE] before:block after:block items-center">
+        					<span>Or Signup with</span>
+        				</div>
+        				<!-- facebook and google button -->
+        				<div class="flex gap-2 mt-8">
+        					<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+        						<img src="assets/images/facebook.svg" alt="Facebook login" class="mx-auto">
+        					</button>
+        					<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+        						<img src="assets/images/google.svg" alt="Google login" class="mx-auto">
+        					</button>
+        				</div>
+        			</div>
+        			<!-- forget password popup -->
+        			<div id="forgot-box" class="hidden auth-box">
+        				<div class="text-center mb-[50px]">
+        					<h3 class="mb-4 text-xl font-semibold">Forgot password</h3>
+        					<p class="text-[#757575] leading-[21px] font-medium">You will receive an verification code on the registered email id to reset your password.</p>
+        				</div>
+        				<!-- Forget password form -->
+        				<form>
+        					<!-- email -->
+        					<div class="mb-[50px]">
+        						<div class="relative">
+        							<input type="text" id="email" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        							<label for="email" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Email</label>
+        						</div>
+        						<!-- Error show here -->
+        						<p class="mt-1 text-xs font-medium text-red">Please enter valid email</p>
+        					</div>
+        					<!-- Submit button -->
+        					<button type="button" class="h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+        						<span class="align-middle">Send verification code</span>
+        						<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+        					</button>
+        				</form>
+        				<!-- Back button -->
+        				<button class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+        			</div>
+        			<!-- verification code popup -->
+        			<div id="verification-box" class="hidden auth-box">
+        				<div class="text-center mb-9">
+        					<h3 class="mb-4 text-xl font-semibold">Enter verification code</h3>
+        					<p class="font-medium leading-[21px] text-[#757575]">Enter the verification code you received on your email. <br>
+        						<span class="text-[#BFBFBF]">kindly check your spam section too.</span>
+        					</p>
+        				</div>
+        				<form>
+        					<div class="flex justify-center gap-4 mb-4">
+        						<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+        						<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+        						<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+        						<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+        					</div>
+        					<p class="text-center font-medium text-[#757575]">Didn’t receive OTP ? <a href="#" class="font-semibold text-[#313131]">Send again.</a>
+        					</p>
+        					<!-- Submit button -->
+        					<button type="button" class="h-10 mt-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+        						<span class="align-middle">Create new password</span>
+        						<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+        					</button>
+        				</form>
+        				<!-- Back button -->
+        				<button class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+        			</div>
+        			<!-- change password -->
+        			<div id="password-box" class="hidden auth-box">
+        				<div class="text-center mb-[50px]">
+        					<h3 class="mb-4 text-xl font-semibold">Create new password</h3>
+        					<p class="font-medium text-[#757575] leading-[21px]">Enter the verification code you received on your email.</p>
+        				</div>
+        				<!-- change password form -->
+        				<form>
+        					<div class="mb-4">
+        						<div class="relative">
+        							<input type="password" id="password" name="password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        							<label for="password" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Password</label>
+        							<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+        						</div>
+        						<!-- Error show here -->
+        						<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+        					</div>
+        					<div>
+        						<div class="relative">
+        							<input type="password" id="c-password" name="c-password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+        							<label for="c-password" class="absolute left-[14px] top-[50%] font-medium -translate-y-1/2 text-[#757575] bg-white px-1 transition-all duration-300 ease peer-placeholder-shown:top-[50%] peer-placeholder-shown:text-[#757575] peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100]">Re-enter password</label>
+        							<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+        						</div>
+        						<!-- Error show here -->
+        						<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+        					</div>
+        					<button type="button" class="h-10 mt-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+        						<span class="align-middle">Update password</span>
+        						<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+        					</button>
+        				</form>
+        				<!-- Back button -->
+        				<button class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+        			</div>
+        		</div>
+        	</div>
         </div>
     </header>
-    <main></main>
+    <!-- main -->
+    <main class="md:pb-[100px] pb-[60px]">
+        <!-- Banner -->
+        <div class="sm:min-h-[644px] relative banner transition-all duration-300 ease-in lg:pt-[100px] pt-12 sm:mb-[100px]">
+            <!-- Shadow of banner -->
+            <div class="absolute top-[10px]">
+                <img src="assets/images/white-shadow.png" alt="White shadow" loading="lazy">
+            </div>
+            <!-- Banner container -->
+            <div class="max-w-[1200px] lg:flex-row lg:gap-0 gap-10 flex-col w-full mx-auto sxl:px-0 px-3 flex justify-between relative after:content-[''] after:max-w-[762px] after:w-full after:h-[762px] after:block after:absolute after:left-[50%] after:-translate-x-1/2 after:-top-[300px] after:rounded-full after:z-[1] banner-container">
+                <!-- Banner left -->
+                <div class="max-w-[578px] w-full text-white relative z-[2]">
+                    <h1 class="sm:text-[64px] text-4xl font-light capitalize mb-4 font-racing leading-[initial]">FIND YOUR DRIVE</h1>
+                    <p class="mb-8 font-medium sm:leading-[21px] leading-[18px] capitalize italic sm:text-sm text-xs">Redefining innovation and luxury, we present premium automobiles crafted to deliver unmatched performance, timeless style, and supreme comfort. Every drive becomes an experience of power, precision, and elegance—where cutting-edge engineering meets refined sophistication.</p>
+                    <!-- Recommended cars link -->
+                    <a href="listing.html" target="_blank" title="Search new cars" class="max-w-[206px] h-10 leading-9 inline-block w-full border border-[#FFEA8A] text-center text-[#FFD100]">
+                        <span class="align-middle">Recommended Cars</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block ml-1">
+                            <path d="M15.8333 16.6667H4.16667V17.5C4.16667 17.721 4.07887 17.933 3.92259 18.0893C3.76631 18.2455 3.55435 18.3333 3.33334 18.3333H2.50001C2.27899 18.3333 2.06703 18.2455 1.91075 18.0893C1.75447 17.933 1.66667 17.721 1.66667 17.5V10L3.76084 4.41499C3.87995 4.09724 4.09322 3.82341 4.37213 3.63012C4.65105 3.43683 4.98233 3.33329 5.32167 3.33333H14.6783C15.0177 3.33329 15.349 3.43683 15.6279 3.63012C15.9068 3.82341 16.1201 4.09724 16.2392 4.41499L18.3333 10V17.5C18.3333 17.721 18.2455 17.933 18.0893 18.0893C17.933 18.2455 17.721 18.3333 17.5 18.3333H16.6667C16.4457 18.3333 16.2337 18.2455 16.0774 18.0893C15.9211 17.933 15.8333 17.721 15.8333 17.5V16.6667ZM3.44667 10H16.5533L14.6783 4.99999H5.32167L3.44667 10ZM5.41667 14.1667C5.74819 14.1667 6.06613 14.035 6.30056 13.8005C6.53498 13.5661 6.66667 13.2482 6.66667 12.9167C6.66667 12.5851 6.53498 12.2672 6.30056 12.0328C6.06613 11.7984 5.74819 11.6667 5.41667 11.6667C5.08515 11.6667 4.76721 11.7984 4.53279 12.0328C4.29837 12.2672 4.16667 12.5851 4.16667 12.9167C4.16667 13.2482 4.29837 13.5661 4.53279 13.8005C4.76721 14.035 5.08515 14.1667 5.41667 14.1667ZM14.5833 14.1667C14.9149 14.1667 15.2328 14.035 15.4672 13.8005C15.7016 13.5661 15.8333 13.2482 15.8333 12.9167C15.8333 12.5851 15.7016 12.2672 15.4672 12.0328C15.2328 11.7984 14.9149 11.6667 14.5833 11.6667C14.2518 11.6667 13.9339 11.7984 13.6995 12.0328C13.465 12.2672 13.3333 12.5851 13.3333 12.9167C13.3333 13.2482 13.465 13.5661 13.6995 13.8005C13.9339 14.035 14.2518 14.1667 14.5833 14.1667Z" fill="#FFD100"></path>
+                        </svg>
+                    </a>
+                </div>
+                <!-- Banner right side wrapper -->
+                <div class="lg:max-w-[512px] sm:relative w-full sm:z-[2] sm:mx-auto fixed z-[112] inset-0 sm:block hidden">
+                    <!-- Search box -->
+                    <div class="border border-white bg-white shadow-[8px_8px_0px_0px_#FFD100] p-6 relative transition-all duration-200 ease">
+                        <!-- heading -->
+                        <div class="mb-4">
+                            <h4 class="text-base font-medium leading-6">What are you looking for :</h4>
+                            <!-- Responsive close button -->
+                            <button aria-label="Close search filter" class="sm:hidden">
+                                <img src="assets/images/cross-icon.svg" alt="Close search filter">
+                            </button>
+                        </div>
+                        <!-- Search filter form -->
+                        <form id="searchForm">
+                            <!-- Select vehicles type -->
+                            <div class="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-2 transition-all duration-200 ease-in font-medium text-center">
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/car-logo.png" alt="Car logo" class="mx-auto" loading="lazy">
+                                    <span>Car</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/bike-logo.png" alt="Motor bike logo" class="mx-auto" loading="lazy">
+                                    <span>Motorbike</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/bus-logo.png" alt="Van/Minibus logo" class="mx-auto" loading="lazy">
+                                    <span>Van/Minibus</span>
+                                </div>
+                                <!-- View more button -->
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/view-more.png" alt="View more button" class="mx-auto" loading="lazy">
+                                    <span>View more</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/big-bus.png" alt="Bus logo" class="mx-auto" loading="lazy">
+                                    <span>Bus</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/tractor.png" alt="Tractor logo" class="mx-auto" loading="lazy">
+                                    <span>Agricultural</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/small-truck.png" alt="Small truck logo" class="mx-auto" loading="lazy">
+                                    <span>Truck under 7.5 ft</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/heavy-truck.png" alt="Heavy truck" class="mx-auto" loading="lazy">
+                                    <span>Truck above 7.5ft</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/truck.png" alt="Truck logo" class="mx-auto" loading="lazy">
+                                    <span>Truck</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/crane.png" alt="Constructional truck logo" class="mx-auto" loading="lazy">
+                                    <span>Constructional truck</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/stacker.png" alt="Stacker logo" class="mx-auto" loading="lazy">
+                                    <span>Stacker</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/semi-trailer.png" alt="Semi-trailer logo" class="mx-auto" loading="lazy">
+                                    <span>Semi-trailer</span>
+                                </div>
+                                <div class="flex flex-col justify-center gap-2 bg-white border border-[#ededed] select-vehicle min-h-[110px] cursor-pointer">
+                                    <img src="assets/images/trailer.png" alt="Trailer logo" class="mx-auto" loading="lazy">
+                                    <span>Trailer</span>
+                                </div>
+                            </div>
+                            <!-- Show less button -->
+                            <div class="mt-2 text-right">
+                                <button type="button" class="font-semibold text-[#FFD100] underline">Show less</button>
+                            </div>
+                            <!-- car input wrapper -->
+                            <div class="my-4 space-y-2">
+                                <!-- Select car category -->
+                                <div class="relative custom-select">
+                                    <label for="category" class="hidden mb-2 font-medium">Select category</label>
+                                    <!-- custom select -->
+                                    <div class="relative">
+                                        <!-- select button -->
+                                        <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select category</button>
+                                        <!-- when user select any value from ul li the current data-id add in input -->
+                                        <input type="text" id="category" class="select-input" name="category" hidden>
+                                        <!-- input list or select list here -->
+                                        <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                            <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                                <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Small car</li>
+                                                <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Sedan</li>
+                                                <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Station wagon</li>
+                                                <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Convertible/Roadster</li>
+                                                <li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Off road/Pickup truck</li>
+                                                <li data-id="6" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">SUV</li>
+                                                <li data-id="7" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Convertible/Roadster</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Select car brand -->
+                                <div class="relative custom-select">
+                                    <label for="brand" class="hidden mb-2 font-medium">Select model*</label>
+                                    <!-- custom select -->
+                                    <div class="relative">
+                                        <!-- select button -->
+                                        <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select brand</button>
+                                        <!-- when user select any value from ul li the current data-id add in input -->
+                                        <input type="text" id="brand" class="select-input" name="brand" hidden>
+                                        <!-- input list or select list here -->
+                                        <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                            <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                                <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Honda</li>
+                                                <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Toyota</li>
+                                                <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Ford</li>
+                                                <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">BMW</li>
+                                                <li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Audi</li>
+                                                <li data-id="6" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Mercedes</li>
+                                                <li data-id="7" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Tesla</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Select car model -->
+                                <div class="relative custom-select">
+                                    <label for="model" class="hidden mb-2 font-medium">Select model*</label>
+                                    <!-- custom select -->
+                                    <div class="relative">
+                                        <!-- select button -->
+                                        <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select model</button>
+                                        <!-- when user select any value from ul li the current data-id add in input -->
+                                        <input type="text" id="model" class="select-input" name="model" hidden>
+                                        <!-- input list or select list here -->
+                                        <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                            <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                                <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Civic</li>
+                                                <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Accord</li>
+                                                <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">CR-V</li>
+                                                <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Pilot</li>
+                                                <li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Fit</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price and km driven -->
+                                <div class="flex gap-2">
+                                    <!-- price -->
+                                    <div class="relative custom-select w-[50%] flex-shrink-0">
+                                        <label for="price" class="hidden mb-2 font-medium">Select price*</label>
+                                        <!-- custom select -->
+                                        <div class="relative">
+                                            <!-- select button -->
+                                            <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select price</button>
+                                            <!-- when user select any value from ul li the current data-id add in input -->
+                                            <input type="text" id="price" class="select-input" name="price" hidden>
+                                            <!-- input list or select list here -->
+                                            <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                                <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                                                                        <li data-id="0" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Any</li>
+                                                                                        <li data-id="500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 500</li>
+                                                                                        <li data-id="1000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 1,000</li>
+                                                                                        <li data-id="1500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 1,500</li>
+                                                                                        <li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 2,000</li>
+                                                                                        <li data-id="2500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 2,500</li>
+                                                                                        <li data-id="3000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 3,000</li>
+                                                                                        <li data-id="3500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 3,500</li>
+                                                                                        <li data-id="4000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 4,000</li>
+                                                                                        <li data-id="4500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 4,500</li>
+                                                                                        <li data-id="5000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 5,000</li>
+                                                                                        <li data-id="6000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 6,000</li>
+                                                                                        <li data-id="7000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 7,000</li>
+                                                                                        <li data-id="8000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 8,000</li>
+                                                                                        <li data-id="9000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 9,000</li>
+                                                                                        <li data-id="10000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 10,000</li>
+                                                                                        <li data-id="11000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 11,000</li>
+                                                                                        <li data-id="12000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 12,000</li>
+                                                                                        <li data-id="13000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 13,000</li>
+                                                                                        <li data-id="14000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 14,000</li>
+                                                                                        <li data-id="15000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 15,000</li>
+                                                                                        <li data-id="17500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 17,500</li>
+                                                                                        <li data-id="20000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 20,000</li>
+                                                                                        <li data-id="22500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 22,500</li>
+                                                                                        <li data-id="25000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 25,000</li>
+                                                                                        <li data-id="30000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 30,000</li>
+                                                                                        <li data-id="35000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 35,000</li>
+                                                                                        <li data-id="40000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 40,000</li>
+                                                                                        <li data-id="45000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 45,000</li>
+                                                                                        <li data-id="50000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 50,000</li>
+                                                                                        <li data-id="60000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 60,000</li>
+                                                                                        <li data-id="70000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 70,000</li>
+                                                                                        <li data-id="80000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 80,000</li>
+                                                                                        <li data-id="90000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 90,000</li>
+                                                                                        <li data-id="100000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 100,000</li>
+                                                                                        <li data-id="110000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 110,000</li>
+                                                                                        <li data-id="120000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 120,000</li>
+                                                                                        <li data-id="130000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 130,000</li>
+                                                                                        <li data-id="140000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 140,000</li>
+                                                                                        <li data-id="150000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 150,000</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- km driven -->
+                                    <div class="relative custom-select w-[50%] flex-shrink-0">
+                                        <label for="driven" class="hidden mb-2 font-medium">Select price*</label>
+                                        <!-- custom select -->
+                                        <div class="relative">
+                                            <!-- select button -->
+                                            <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">KMS. Driven</button>
+                                            <!-- when user select any value from ul li the current data-id add in input -->
+                                            <input type="text" id="driven" class="select-input" name="driven" hidden>
+                                            <!-- input list or select list here -->
+                                            <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                                <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                                    <li data-id="0" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Any</li>
+                                                                                        <li data-id="500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">500 km</li>
+                                                                                        <li data-id="1000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1,000 km</li>
+                                                                                        <li data-id="1500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1,500 km</li>
+                                                                                        <li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2,000 km</li>
+                                                                                        <li data-id="2500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2,500 km</li>
+                                                                                        <li data-id="3000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">3,000 km</li>
+                                                                                        <li data-id="3500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">3,500 km</li>
+                                                                                        <li data-id="4000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">4,000 km</li>
+                                                                                        <li data-id="4500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">4,500 km</li>
+                                                                                        <li data-id="5000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">5,000 km</li>
+                                                                                        <li data-id="6000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">6,000 km</li>
+                                                                                        <li data-id="7000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">7,000 km</li>
+                                                                                        <li data-id="8000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">8,000 km</li>
+                                                                                        <li data-id="9000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">9,000 km</li>
+                                                                                        <li data-id="10000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">10,000 km</li>
+                                                                                        <li data-id="11000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">11,000 km</li>
+                                                                                        <li data-id="12000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">12,000 km</li>
+                                                                                        <li data-id="13000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">13,000 km</li>
+                                                                                        <li data-id="14000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">14,000 km</li>
+                                                                                        <li data-id="15000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">15,000 km</li>
+                                                                                        <li data-id="17500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">17,500 km</li>
+                                                                                        <li data-id="20000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">20,000 km</li>
+                                                                                        <li data-id="22500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">22,500 km</li>
+                                                                                        <li data-id="25000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">25,000 km</li>
+                                                                                        <li data-id="30000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">30,000 km</li>
+                                                                                        <li data-id="35000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">35,000 km</li>
+                                                                                        <li data-id="40000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">40,000 km</li>
+                                                                                        <li data-id="45000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">45,000 km</li>
+                                                                                        <li data-id="50000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">50,000 km</li>
+                                                                                        <li data-id="60000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">60,000 km</li>
+                                                                                        <li data-id="70000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">70,000 km</li>
+                                                                                        <li data-id="80000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">80,000 km</li>
+                                                                                        <li data-id="90000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">90,000 km</li>
+                                                                                        <li data-id="100000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">100,000 km</li>
+                                                                                        <li data-id="110000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">110,000 km</li>
+                                                                                        <li data-id="120000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">120,000 km</li>
+                                                                                        <li data-id="130000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">130,000 km</li>
+                                                                                        <li data-id="140000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">140,000 km</li>
+                                                                                        <li data-id="150000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">150,000 km</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- year & location -->
+                                <div class="flex gap-2">
+                                    <!-- year select -->
+                                    <div class="relative w-[50%] custom-select flex-shrink-0">
+                                        <label for="year" class="hidden mb-2 font-medium">Select price*</label>
+                                        <!-- custom select -->
+                                        <div class="relative">
+                                            <!-- select button -->
+                                            <button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select year</button>
+                                            <!-- when user select any value from ul li the current data-id add in input -->
+                                            <input type="text" id="year" class="select-input" name="year" hidden>
+                                            <!-- input list or select list here -->
+                                            <div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                                <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                                                                        <li data-id="2025" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2025</li>
+                                                                                        <li data-id="2024" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2024</li>
+                                                                                        <li data-id="2023" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2023</li>
+                                                                                        <li data-id="2022" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2022</li>
+                                                                                        <li data-id="2021" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2021</li>
+                                                                                        <li data-id="2020" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2020</li>
+                                                                                        <li data-id="2019" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2019</li>
+                                                                                        <li data-id="2018" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2018</li>
+                                                                                        <li data-id="2017" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2017</li>
+                                                                                        <li data-id="2016" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2016</li>
+                                                                                        <li data-id="2015" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2015</li>
+                                                                                        <li data-id="2014" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2014</li>
+                                                                                        <li data-id="2013" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2013</li>
+                                                                                        <li data-id="2012" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2012</li>
+                                                                                        <li data-id="2011" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2011</li>
+                                                                                        <li data-id="2010" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2010</li>
+                                                                                        <li data-id="2009" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2009</li>
+                                                                                        <li data-id="2008" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2008</li>
+                                                                                        <li data-id="2007" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2007</li>
+                                                                                        <li data-id="2006" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2006</li>
+                                                                                        <li data-id="2005" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2005</li>
+                                                                                        <li data-id="2004" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2004</li>
+                                                                                        <li data-id="2003" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2003</li>
+                                                                                        <li data-id="2002" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2002</li>
+                                                                                        <li data-id="2001" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2001</li>
+                                                                                        <li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2000</li>
+                                                                                        <li data-id="1999" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1999</li>
+                                                                                        <li data-id="1998" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1998</li>
+                                                                                        <li data-id="1997" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1997</li>
+                                                                                        <li data-id="1996" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1996</li>
+                                                                                        <li data-id="1995" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1995</li>
+                                                                                        <li data-id="1994" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1994</li>
+                                                                                        <li data-id="1993" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1993</li>
+                                                                                        <li data-id="1992" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1992</li>
+                                                                                        <li data-id="1991" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1991</li>
+                                                                                        <li data-id="1990" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1990</li>
+                                                                                        <li data-id="1989" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1989</li>
+                                                                                        <li data-id="1988" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1988</li>
+                                                                                        <li data-id="1987" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1987</li>
+                                                                                        <li data-id="1986" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1986</li>
+                                                                                        <li data-id="1985" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1985</li>
+                                                                                        <li data-id="1984" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1984</li>
+                                                                                        <li data-id="1983" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1983</li>
+                                                                                        <li data-id="1982" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1982</li>
+                                                                                        <li data-id="1981" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1981</li>
+                                                                                        <li data-id="1980" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1980</li>
+                                                                                        <li data-id="1979" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1979</li>
+                                                                                        <li data-id="1978" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1978</li>
+                                                                                        <li data-id="1977" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1977</li>
+                                                                                        <li data-id="1976" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1976</li>
+                                                                                        <li data-id="1975" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1975</li>
+                                                                                        <li data-id="1974" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1974</li>
+                                                                                        <li data-id="1973" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1973</li>
+                                                                                        <li data-id="1972" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1972</li>
+                                                                                        <li data-id="1971" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1971</li>
+                                                                                        <li data-id="1970" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1970</li>
+                                                                                        <li data-id="1969" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1969</li>
+                                                                                        <li data-id="1968" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1968</li>
+                                                                                        <li data-id="1967" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1967</li>
+                                                                                        <li data-id="1966" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1966</li>
+                                                                                        <li data-id="1965" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1965</li>
+                                                                                        <li data-id="1964" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1964</li>
+                                                                                        <li data-id="1963" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1963</li>
+                                                                                        <li data-id="1962" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1962</li>
+                                                                                        <li data-id="1961" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1961</li>
+                                                                                        <li data-id="1960" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1960</li>
+                                                                                        <li data-id="1959" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1959</li>
+                                                                                        <li data-id="1958" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1958</li>
+                                                                                        <li data-id="1957" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1957</li>
+                                                                                        <li data-id="1956" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1956</li>
+                                                                                        <li data-id="1955" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1955</li>
+                                                                                        <li data-id="1954" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1954</li>
+                                                                                        <li data-id="1953" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1953</li>
+                                                                                        <li data-id="1952" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1952</li>
+                                                                                        <li data-id="1951" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1951</li>
+                                                                                        <li data-id="1950" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1950</li>
+                                                                                        <li data-id="1949" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1949</li>
+                                                                                        <li data-id="1948" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1948</li>
+                                                                                        <li data-id="1947" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1947</li>
+                                                                                        <li data-id="1946" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1946</li>
+                                                                                        <li data-id="1945" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1945</li>
+                                                                                        <li data-id="1944" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1944</li>
+                                                                                        <li data-id="1943" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1943</li>
+                                                                                        <li data-id="1942" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1942</li>
+                                                                                        <li data-id="1941" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1941</li>
+                                                                                        <li data-id="1940" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1940</li>
+                                                                                        <li data-id="1939" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1939</li>
+                                                                                        <li data-id="1938" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1938</li>
+                                                                                        <li data-id="1937" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1937</li>
+                                                                                        <li data-id="1936" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1936</li>
+                                                                                        <li data-id="1935" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1935</li>
+                                                                                        <li data-id="1934" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1934</li>
+                                                                                        <li data-id="1933" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1933</li>
+                                                                                        <li data-id="1932" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1932</li>
+                                                                                        <li data-id="1931" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1931</li>
+                                                                                        <li data-id="1930" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1930</li>
+                                                                                        <li data-id="1929" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1929</li>
+                                                                                        <li data-id="1928" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1928</li>
+                                                                                        <li data-id="1927" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1927</li>
+                                                                                        <li data-id="1926" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1926</li>
+                                                                                        <li data-id="1925" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1925</li>
+                                                                                        <li data-id="1924" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1924</li>
+                                                                                        <li data-id="1923" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1923</li>
+                                                                                        <li data-id="1922" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1922</li>
+                                                                                        <li data-id="1921" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1921</li>
+                                                                                        <li data-id="1920" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1920</li>
+                                                                                        <li data-id="1919" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1919</li>
+                                                                                        <li data-id="1918" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1918</li>
+                                                                                        <li data-id="1917" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1917</li>
+                                                                                        <li data-id="1916" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1916</li>
+                                                                                        <li data-id="1915" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1915</li>
+                                                                                        <li data-id="1914" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1914</li>
+                                                                                        <li data-id="1913" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1913</li>
+                                                                                        <li data-id="1912" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1912</li>
+                                                                                        <li data-id="1911" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1911</li>
+                                                                                        <li data-id="1910" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1910</li>
+                                                                                        <li data-id="1909" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1909</li>
+                                                                                        <li data-id="1908" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1908</li>
+                                                                                        <li data-id="1907" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1907</li>
+                                                                                        <li data-id="1906" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1906</li>
+                                                                                        <li data-id="1905" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1905</li>
+                                                                                        <li data-id="1904" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1904</li>
+                                                                                        <li data-id="1903" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1903</li>
+                                                                                        <li data-id="1902" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1902</li>
+                                                                                        <li data-id="1901" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1901</li>
+                                                                                        <li data-id="1900" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1900</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- search location -->
+                                    <div class="relative w-[50%] flex-shrink-0">
+                                        <input type="text" value="" name="location" class="h-11 rounded-[5px] border border-[#e9e9e9] transition-all duration-200 ease focus:border-[#FFD100] outline-none px-[14px] font-medium w-full" id="loction" data-search="location" placeholder="Enter location">
+                                        <ul class="select_list"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- search button -->
+                            <button type="submit" class="block w-full bg-[#FFD100] transition-all duration-300 ease hover:bg-[#E8BE00] capitalize px-[14px] font-semibold h-10 rounded-[5px]" id="searchBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none" class="inline-block mr-1">
+                                    <path d="M15.5259 13.8475L19.095 17.4158L17.9159 18.595L14.3475 15.0258C13.0198 16.0902 11.3684 16.6691 9.66669 16.6667C5.52669 16.6667 2.16669 13.3067 2.16669 9.16666C2.16669 5.02666 5.52669 1.66666 9.66669 1.66666C13.8067 1.66666 17.1667 5.02666 17.1667 9.16666C17.1691 10.8683 16.5902 12.5198 15.5259 13.8475ZM13.8542 13.2292C14.9118 12.1416 15.5024 10.6837 15.5 9.16666C15.5 5.94333 12.8892 3.33333 9.66669 3.33333C6.44335 3.33333 3.83335 5.94333 3.83335 9.16666C3.83335 12.3892 6.44335 15 9.66669 15C11.1837 15.0024 12.6416 14.4118 13.7292 13.3542L13.8542 13.2292Z" fill="#313131"></path>
+                                </svg>
+                                <span class="align-middle">Find a car</span>
+                            </button>
+                            <!-- advance search & clear search buttons -->
+                            <div class="flex items-center justify-between gap-4 mt-3">
+                                <!-- Clear search button -->
+                                <button type="button" class="font-medium">
+                                    <span class="align-middle">Clear search</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 21" fill="none" class="inline-block ml-1">
+                                        <path d="M5.83335 3.83333V2.16666H14.1667V3.83333H18.3334V5.5H16.6667V18C16.6667 18.221 16.5789 18.433 16.4226 18.5893C16.2663 18.7455 16.0544 18.8333 15.8334 18.8333H4.16669C3.94567 18.8333 3.73371 18.7455 3.57743 18.5893C3.42115 18.433 3.33335 18.221 3.33335 18V5.5H1.66669V3.83333H5.83335ZM5.00002 5.5V17.1667H15V5.5H5.00002ZM7.50002 8H9.16669V14.6667H7.50002V8ZM10.8334 8H12.5V14.6667H10.8334V8Z" fill="#313131"></path>
+                                    </svg>
+                                </button>
+                                <!-- Advance search button -->
+                                <a href="advance-search.html" title="Go to advance search" class="font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 21" fill="none" class="inline-block mr-1">
+                                        <path d="M5.14169 15.5C5.31386 15.0121 5.63314 14.5895 6.05552 14.2907C6.4779 13.9918 6.98259 13.8313 7.50002 13.8313C8.01745 13.8313 8.52214 13.9918 8.94452 14.2907C9.3669 14.5895 9.68619 15.0121 9.85835 15.5H18.3334V17.1667H9.85835C9.68619 17.6546 9.3669 18.0771 8.94452 18.376C8.52214 18.6749 8.01745 18.8354 7.50002 18.8354C6.98259 18.8354 6.4779 18.6749 6.05552 18.376C5.63314 18.0771 5.31386 17.6546 5.14169 17.1667H1.66669V15.5H5.14169ZM10.1417 9.66667C10.3139 9.17873 10.6331 8.7562 11.0555 8.45733C11.4779 8.15846 11.9826 7.99796 12.5 7.99796C13.0174 7.99796 13.5221 8.15846 13.9445 8.45733C14.3669 8.7562 14.6862 9.17873 14.8584 9.66667H18.3334V11.3333H14.8584C14.6862 11.8213 14.3669 12.2438 13.9445 12.5427C13.5221 12.8415 13.0174 13.002 12.5 13.002C11.9826 13.002 11.4779 12.8415 11.0555 12.5427C10.6331 12.2438 10.3139 11.8213 10.1417 11.3333H1.66669V9.66667H10.1417ZM5.14169 3.83334C5.31386 3.34539 5.63314 2.92286 6.05552 2.62399C6.4779 2.32512 6.98259 2.16463 7.50002 2.16463C8.01745 2.16463 8.52214 2.32512 8.94452 2.62399C9.3669 2.92286 9.68619 3.34539 9.85835 3.83334H18.3334V5.5H9.85835C9.68619 5.98795 9.3669 6.41047 8.94452 6.70934C8.52214 7.00821 8.01745 7.16871 7.50002 7.16871C6.98259 7.16871 6.4779 7.00821 6.05552 6.70934C5.63314 6.41047 5.31386 5.98795 5.14169 5.5H1.66669V3.83334H5.14169ZM7.50002 5.5C7.72103 5.5 7.933 5.4122 8.08928 5.25592C8.24556 5.09964 8.33335 4.88768 8.33335 4.66667C8.33335 4.44566 8.24556 4.23369 8.08928 4.07741C7.933 3.92113 7.72103 3.83334 7.50002 3.83334C7.27901 3.83334 7.06705 3.92113 6.91077 4.07741C6.75448 4.23369 6.66669 4.44566 6.66669 4.66667C6.66669 4.88768 6.75448 5.09964 6.91077 5.25592C7.06705 5.4122 7.27901 5.5 7.50002 5.5ZM12.5 11.3333C12.721 11.3333 12.933 11.2455 13.0893 11.0893C13.2456 10.933 13.3334 10.721 13.3334 10.5C13.3334 10.279 13.2456 10.067 13.0893 9.91075C12.933 9.75447 12.721 9.66667 12.5 9.66667C12.279 9.66667 12.067 9.75447 11.9108 9.91075C11.7545 10.067 11.6667 10.279 11.6667 10.5C11.6667 10.721 11.7545 10.933 11.9108 11.0893C12.067 11.2455 12.279 11.3333 12.5 11.3333ZM7.50002 17.1667C7.72103 17.1667 7.933 17.0789 8.08928 16.9226C8.24556 16.7663 8.33335 16.5543 8.33335 16.3333C8.33335 16.1123 8.24556 15.9004 8.08928 15.7441C7.933 15.5878 7.72103 15.5 7.50002 15.5C7.27901 15.5 7.06705 15.5878 6.91077 15.7441C6.75448 15.9004 6.66669 16.1123 6.66669 16.3333C6.66669 16.5543 6.75448 16.7663 6.91077 16.9226C7.06705 17.0789 7.27901 17.1667 7.50002 17.1667Z" fill="#313131"></path>
+                                    </svg>
+                                    <span class="align-middle">Advance search</span>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Car logo -->
+            <div class="sm:absolute sm:mt-0 mt-10 left-0 -bottom-[60px] banner-cars">
+                <!-- When all category of cars then this will show -->
+                <img src="assets/images/banner-big-car-logo.png" alt="Big car logo" loading="lazy" class="hidden">
+                <!-- Otherwise this image will show -->
+                <img src="assets/images/banner-small-car-logo.png" alt="Small car logo" loading="lazy">
+            </div>
+            <!-- Responsive search button -->
+            <div class="sm:hidden sticky p-3 bg-white bottom-0 z-[2] w-full shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] left-0 mt-10">
+                <button class="font-semibold w-full block rounded-[5px] bg-[#FFD100] transition-all duration-300 ease h-11 px-4 capitalize">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none" class="inline-block mr-1">
+                        <path d="M15.5259 13.8475L19.095 17.4158L17.9159 18.595L14.3475 15.0258C13.0198 16.0902 11.3684 16.6691 9.66669 16.6667C5.52669 16.6667 2.16669 13.3067 2.16669 9.16666C2.16669 5.02666 5.52669 1.66666 9.66669 1.66666C13.8067 1.66666 17.1667 5.02666 17.1667 9.16666C17.1691 10.8683 16.5902 12.5198 15.5259 13.8475ZM13.8542 13.2292C14.9118 12.1416 15.5024 10.6837 15.5 9.16666C15.5 5.94333 12.8892 3.33333 9.66669 3.33333C6.44335 3.33333 3.83335 5.94333 3.83335 9.16666C3.83335 12.3892 6.44335 15 9.66669 15C11.1837 15.0024 12.6416 14.4118 13.7292 13.3542L13.8542 13.2292Z" fill="#313131"></path>
+                    </svg>
+                    <span class="align-middle">Find a ride</span>
+                </button>
+            </div>
+	    </div>
+        <!-- car brands -->
+        <section class="sm:py-20 py-14">
+            <div class="max-w-[1200px] w-full mx-auto px-3">
+                <!-- header -->
+                <div class="text-center sm:mb-[50px] mb-7">
+                    <div class="rounded-[5px] border border-[#FFEA8A] py-1 px-2 text-[#FFD100] w-fit font-medium mx-auto bg-[#FFFAE6] mb-1 sm:text-sm text-xs">Top brands</div>
+                    <h2 class="sm:text-[28px] text-xl font-semibold sm:leading-[42px] mb-4">Choose Cars From Top Brands</h2>
+                    <p class="font-medium text-[#757575] sm:leading-[21px] sm:text-sm text-xs">Dive into automotive luxury and power with our Top Brands selection</p>
+                </div>
+            </div>
+            <!-- car brands here -->
+            <div class="sm:h-[200px] h-[120px] overflow-hidden relative">
+                <ul class="flex w-[200%] absolute marquee-inner py-8 sm:gap-8 gap-3">
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo1.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo2.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo3.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo4.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo5.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo6.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo7.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo8.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo9.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo10.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo11.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo1.png" alt="Brand logo" loading="lazy">
+                    </li>
+                   <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo2.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo3.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo4.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo5.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo7.png" alt="Brand logo" loading="lazy">
+                    </li>
+                    <li class="sm:w-[160px] flex-shrink-0 sm:h-[160px] h-20 w-20 grid place-items-center shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[8px] bg-white p-4 transition-all duration-200 ease-in-out">
+                        <img src="assets/images/brand-logo8.png" alt="Brand logo" loading="lazy">
+                    </li>
+                </ul>
+	        </div>
+        </section>
+        <!-- explore cars -->
+        <section class="bg-[url(/assets/images/explore-bg.jpg)] min-h-[448px] lg:py-0 py-14">
+            <div class="max-w-[1200px] w-full mx-auto px-3 flex items-center lg:gap-[50px] gap-8 min-h-[inherit] lg:flex-row flex-col">
+                <!-- Left wrapper -->
+                <div class="lg:max-w-[440px] w-full text-white lg:text-left text-center">
+                    <div class="rounded-[5px] border border-[#FFEA8A] py-1 px-2 text-[#FFD100] w-fit font-medium lg:mx-0 mx-auto sm:text-sm text-xs">Browse by body</div>
+                    <h2 class="mt-1 mb-4 sm:text-[28px] text-xl font-semibold sm:leading-[42px]">Explore Our Diverse Fleet</h2>
+                    <p class="font-medium sm:leading-[21px] leading-[18px] text-white/80 lg:mb-8 sm:text-sm text-xs">Discover the perfect vehicle tailored to your preferences with our 'Browse Cars by Type' section. From sleek sedans to rugged SUVs and eco-friendly hybrids, explore our diverse range of automobiles designed to cater to every lifestyle. </p>
+                    <!-- View all cars -->
+                    <a href="listing.html" class="h-10 lg:mx-0 lg:block hidden mx-auto rounded-[5px] font-semibold px-[14px] bg-[#FFD100] text-[#313131] hover:bg-[#E8BE00] leading-[40px] capitalize w-fit">View all listings</a>
+                </div>
+                <!-- Explore right wrapper -->
+                <div class="max-w-[708px] w-full text-center grid sm:grid-cols-[repeat(auto-fill,_minmax(180px,_1fr))] grid-cols-2 sm:gap-6 gap-3">
+                    <a href="listing.html" title="Search small cars" target="_blank" class="px-4 py-2 text-sm font-semibold bg-white sm:text-base sm:rounded-[0px] rounded-[12px]">
+                        <img src="assets/images/small-car.png" alt="Small car image" loading="lazy" class="mx-auto">
+                        <h3 class="mt-2 break-all sm:mt-4">Small car</h3>
+                    </a>
+                    <a href="listing.html" title="Search sedan cars" target="_blank" class="px-4 py-2 text-sm font-semibold bg-white sm:text-base sm:rounded-[0px] rounded-[12px]">
+                        <img src="assets/images/sedan-car.png" alt="Sedan car image" loading="lazy" class="mx-auto">
+                        <h3 class="mt-2 break-all sm:mt-4">Sedan</h3>
+                    </a>
+                    <a href="listing.html" title="Search car Station wagon" target="_blank" class="px-4 py-2 text-sm font-semibold bg-white sm:text-base sm:rounded-[0px] rounded-[12px]">
+                        <img src="assets/images/station-wagon.png" alt="Station car image" loading="lazy" class="mx-auto">
+                        <h3 class="mt-2 break-all sm:mt-4">Station wagon</h3>
+                    </a>
+                    <a href="listing.html" title="Search car Convertible" target="_blank" class="px-4 py-2 text-sm font-semibold bg-white sm:text-base sm:rounded-[0px] rounded-[12px]">
+                        <img src="assets/images/rodster.png" alt="Convertible car image" loading="lazy" class="mx-auto">
+                        <h3 class="mt-2 break-all sm:mt-4">Convertible/Roadster</h3>
+                    </a>
+                    <a href="listing.html" title="Search car Pickup" target="_blank" class="px-4 py-2 text-sm font-semibold bg-white sm:text-base sm:rounded-[0px] rounded-[12px]">
+                        <img src="assets/images/pickup.png" alt="Pickup car image" loading="lazy" class="mx-auto">
+                        <h3 class="mt-2 break-all sm:mt-4">Off road/Pickup truck</h3>
+                    </a>
+                    <a href="listing.html" title="Search car SUV" target="_blank" class="px-4 py-2 text-sm font-semibold bg-white sm:text-base sm:rounded-[0px] rounded-[12px]">
+                        <img src="assets/images/suv-car.png" alt="SUV car image" loading="lazy" class="mx-auto">
+                        <h3 class="mt-2 break-all sm:mt-4">SUV</h3>
+                    </a>
+                </div>
+                <!-- View all car responsive button -->
+                <a href="listing.html" class="h-10 lg:mx-0 block lg:hidden mx-auto rounded-[5px] font-semibold px-[14px] bg-[#FFD100] text-[#313131] hover:bg-[#E8BE00] leading-[40px] capitalize w-fit">View all listings</a>
+            </div>
+	    </section>
+        <!-- car section -->
+        <section class="sm:py-20 py-14">
+            <div class="max-w-[1200px] w-full mx-auto px-3">
+                <!-- header -->
+                <div class="sm:mb-[50px] mb-7 text-center">
+			        <div class="rounded-[5px] border border-[#FFEA8A] py-1 px-2 text-[#FFD100] w-fit font-medium mx-auto bg-[#FFFAE6] mb-1 sm:text-sm text-xs">New Arrivals</div>
+			        <h2 class="mb-4 text-xl sm:text-[28px] font-semibold sm:leading-[42px]">Explore Our Latest Arrivals</h2>
+			        <p class="text-[#757575] font-medium text-xs leading-[18px] sm:text-sm sm:leading-[21px]">Discover the excitement of driving with our newest arrivals. From cutting-edge technology <br> to stylish designs, find your perfect ride among the latest models in our collection. </p>
+		        </div>
+                <!-- car cards -->
+                <div class="relative">
+                    <!-- slider buttons -->
+                    <!-- slider left button -->
+                    <button aria-label="Slide left button" title="Slide left" class="absolute top-[50%] lg:w-auto lg:h-auto w-11 h-11 lg:border-none border-[#FFD100] border rounded-full bg-white lg:bg-transparent lg:shadow-none shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] grid place-items-center z-[10] -translate-y-1/2 lg:left-0 left-2">
+                        <img src="assets/images/yellow-left-chevron.svg" alt="slide left" class="w-[10px] lg:w-auto">
+                    </button>
+                    <!-- slider right button -->
+                    <button aria-label="Slide left button" title="Slide left" class="absolute top-[50%] lg:w-auto lg:h-auto w-11 h-11 lg:border-none border-[#FFD100] border rounded-full bg-white lg:bg-transparent lg:shadow-none shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] grid place-items-center z-[10] -translate-y-1/2 lg:right-0 right-2">
+                        <img src="assets/images/yellow-right-chevron.svg" alt="slide left" class="w-[10px] lg:w-auto">
+                    </button>
+                    <!-- similar car cards -->
+                    <div class="flex gap-4 pt-6 pb-4 overflow-x-auto max-w-[1120px] w-full mx-auto">
+                        <!-- car card -->
+                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="p-4 block border border-[#e9e9e9] rounded-[12px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] sxs:w-[362px] w-full flex-shrink-0">
+                            <!-- car image -->
+                            <div class="relative overflow-hidden rounded-[5px] mb-4">
+                                <img src="assets/images/car-image1.jpg" alt="object image" class="h-[250px] w-full object-cover rounded-[5px]">
+                                <div class="absolute bottom-0 left-0 bg-black/50 py-[6px] px-2 text-white font-medium flex items-center gap-1 rounded-[0px_5px_0px_0px]">
+                                    <img src="assets/images/more-images.svg" alt="more images">
+                                    <span>1 Photos</span>
+                                </div>
+                            </div>
+                            <!-- card text -->
+                            <div class="right_object">
+                                <h3 class="text-[18px] font-medium line-clamp-1 text-ellipsis mb-4">525d F10 3 litre 6
+                                    cylinder sedan</h3>
+                                <!-- features -->
+                                <ul class="flex flex-wrap gap-4 mb-4 font-medium">
+                                    <li class="leding-6 before:content-[url(/assets/images/double-check.svg)] before:mr-2 before:align-middle">
+                                        Adaptive cornering lights</li>
+                                    <li class="leading-6 text-[#757575] before:content-[url(/assets/images/plus-icon.svg)] before:mr-2 before:align-middle">
+                                        19 more</li>
+                                </ul>
+                                <!-- category -->
+                                <div class="border-b border-[#e9e9e9] mb-4 pb-4 flex">
+                                    <!-- fuel type -->
+                                    <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+                                        <img src="assets/images/fuel-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Fuel type</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Mileage -->
+                                    <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+                                        <img src="assets/images/timer-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Mileage</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel KMPL</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Transmission -->
+                                    <div class="flex-1 text-center">
+                                        <img src="assets/images/transmission-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Transmission</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price -->
+                                <h4 class="text-2xl font-semibold text-[#FFD100]">$123,123</h4>
+                            </div>
+                        </a>
+                        <!-- car card -->
+                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="p-4 block border border-[#e9e9e9] rounded-[12px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] sxs:w-[362px] w-full flex-shrink-0">
+                            <!-- car image -->
+                            <div class="relative overflow-hidden rounded-[5px] mb-4">
+                                <img src="assets/images/car-image1.jpg" alt="object image" class="h-[250px] w-full object-cover rounded-[5px]">
+                                <div class="absolute bottom-0 left-0 bg-black/50 py-[6px] px-2 text-white font-medium flex items-center gap-1 rounded-[0px_5px_0px_0px]">
+                                    <img src="assets/images/more-images.svg" alt="more images">
+                                    <span>1 Photos</span>
+                                </div>
+                            </div>
+                            <!-- card text -->
+                            <div class="right_object">
+                                <h3 class="text-[18px] font-medium line-clamp-1 text-ellipsis mb-4">525d F10 3 litre 6
+                                    cylinder sedan</h3>
+                                <!-- features -->
+                                <ul class="flex flex-wrap gap-4 mb-4 font-medium">
+                                    <li class="leding-6 before:content-[url(/assets/images/double-check.svg)] before:mr-2 before:align-middle">
+                                        Adaptive cornering lights</li>
+                                    <li class="leading-6 text-[#757575] before:content-[url(/assets/images/plus-icon.svg)] before:mr-2 before:align-middle">
+                                        19 more</li>
+                                </ul>
+                                <!-- category -->
+                                <div class="border-b border-[#e9e9e9] mb-4 pb-4 flex">
+                                    <!-- fuel type -->
+                                    <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+                                        <img src="assets/images/fuel-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Fuel type</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Mileage -->
+                                    <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+                                        <img src="assets/images/timer-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Mileage</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel KMPL</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Transmission -->
+                                    <div class="flex-1 text-center">
+                                        <img src="assets/images/transmission-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Transmission</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price -->
+                                <h4 class="text-2xl font-semibold text-[#FFD100]">$123,123</h4>
+                            </div>
+                        </a>
+                        <!-- car card -->
+                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="p-4 block border border-[#e9e9e9] rounded-[12px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] sxs:w-[362px] w-full flex-shrink-0">
+                            <!-- car image -->
+                            <div class="relative overflow-hidden rounded-[5px] mb-4">
+                                <img src="assets/images/car-image1.jpg" alt="object image" class="h-[250px] w-full object-cover rounded-[5px]">
+                                <div class="absolute bottom-0 left-0 bg-black/50 py-[6px] px-2 text-white font-medium flex items-center gap-1 rounded-[0px_5px_0px_0px]">
+                                    <img src="assets/images/more-images.svg" alt="more images">
+                                    <span>1 Photos</span>
+                                </div>
+                            </div>
+                            <!-- card text -->
+                            <div class="right_object">
+                                <h3 class="text-[18px] font-medium line-clamp-1 text-ellipsis mb-4">525d F10 3 litre 6
+                                    cylinder sedan</h3>
+                                <!-- features -->
+                                <ul class="flex flex-wrap gap-4 mb-4 font-medium">
+                                    <li class="leding-6 before:content-[url(/assets/images/double-check.svg)] before:mr-2 before:align-middle">
+                                        Adaptive cornering lights</li>
+                                    <li class="leading-6 text-[#757575] before:content-[url(/assets/images/plus-icon.svg)] before:mr-2 before:align-middle">
+                                        19 more</li>
+                                </ul>
+                                <!-- category -->
+                                <div class="border-b border-[#e9e9e9] mb-4 pb-4 flex">
+                                    <!-- fuel type -->
+                                    <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+                                        <img src="assets/images/fuel-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Fuel type</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Mileage -->
+                                    <div class="text-center border-r border-[#e9e9e9] pr-2 flex-1">
+                                        <img src="assets/images/timer-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Mileage</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel KMPL</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Transmission -->
+                                    <div class="flex-1 text-center">
+                                        <img src="assets/images/transmission-image.svg" alt="fuel image" class="w-6 h-6 mx-auto mb-1">
+                                        <div>
+                                            <span class="text-xs font-medium text-[#757575]">Transmission</span>
+                                            <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- price -->
+                                <h4 class="text-2xl font-semibold text-[#FFD100]">$123,123</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- sell car or buy car option -->
+        <section>
+            <div class="max-w-[1200px] w-full mx-auto px-3 flex md:flex-row flex-col">
+                <a href="listing.html" title="Buy a car" target="_blank">
+                    <img src="assets/images/buy-car-image.png" alt="Buy car image" loading="lazy">
+                </a>
+                <a href="post-ad.html" title="Sell your car" target="_blank">
+                    <img src="assets/images/sell-car-image.png" alt="Sell car image" loading="lazy">
+                </a>
+		    </div>
+        </section>
+    </main>
     <!-- footer -->
     <footer
         class="relative pt-[50px] overflow-hidden border-t-[2px] [border-image:linear-gradient(150deg,rgba(255,255,255,1),rgba(255,236,150,1),rgba(255,243,188,1))_1] after:absolute before:absolute before:left-0 before:-bottom-[7px] after:top-0 after:right-0 before:content-[url('/assets/images/footer-left-bg.png')] after:content-[url('/assets/images/footer-right-bg.png')] lg:before:-z-[0] before:-z-[10] after:-z-[10]">
