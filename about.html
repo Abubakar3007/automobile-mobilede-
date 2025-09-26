@@ -53,6 +53,18 @@
                 top:-46px
             }
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
     </style>
 </head>
 
@@ -209,7 +221,7 @@
     	<div id="auth-popup" class="fixed inset-0 invisible w-full opacity-0 bg-black/80 h-[100vh] z-[1000]">
     		<div class="grid w-full h-full p-2 place-items-center">
     			<!-- Popup box -->
-    			<div class="bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[15px] sm:p-6 p-4 relative max-w-[480px] w-full">
+    			<div class="bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[15px] sm:p-6 p-4 relative max-w-[480px] w-full box">
     				<!-- Close login popup -->
     				<button id="close-auth" class="absolute right-4 top-4" aria-label="Close login popup" title="Close popup">
     					<img src="assets/images/cross-icon.svg" alt="Close login popup" class="w-4">
@@ -249,8 +261,8 @@
     						<div class="flex items-center justify-between mt-2">
     							<!-- remember checkbox -->
     							<div>
-    								<input type="checkbox" name="remember" id="remember" class="h-[18px] w-[18px] border border-[#FFD100] mr-1 appearance-none rounded-[2px] align-middle">
-    								<label for="remember" class="align-middle font-medium text-[#757575] sm:text-sm text-xs">Keep me logged in</label>
+    								<input type="checkbox" name="remember" id="remember" class="w-[18px] h-[18px] rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-3 checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[2px] checked:after:-rotate-45">
+    								<label for="remember" class="align-middle font-medium text-[#757575] sm:text-sm text-xs cursor-pointer">Keep me logged in</label>
     							</div>
     							<!-- forget link -->
     							<button id="forgot-password-btn" type="button" class="text-xs font-semibold sm:text-sm">Forgot password?</button>
@@ -348,9 +360,11 @@
     						<p class="font-medium sm:text-sm sm:leading-[21px] text-[#757575] text-xs">Enter the verification code you received on your email. <br>
     							<span class="text-[#BFBFBF]">kindly check your spam section too.</span>
     						</p>
+                            <!-- otp send message when user click send again it button -->
+                            <p class="mt-2 text-xs font-medium text-green">Otp successfully sent on your email</p>
     					</div>
     					<form id="verification-form">
-    						<div class="flex justify-center gap-4 mb-4">
+    						<div class="flex justify-center gap-4 mb-4 otp-inputs">
     							<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
     							<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
     							<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">

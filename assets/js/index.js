@@ -182,7 +182,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflowY = "auto"
   });
 
-  // click outside popup will close
+
+
+  // login popup open
+  const loginBtn = document.getElementById("login-btn");
+  const authPopup = document.getElementById("auth-popup");
+  const closeBtn = document.getElementById("close-auth");
+  const authBoxes = document.querySelectorAll(".auth-box");
+
+  if (!loginBtn || !authPopup || !closeBtn) return;
+
+  const showPopup = () => {
+    document.body.style.overflowY = "hidden";
+    authPopup.classList.add("show");
+  };
+
+  const hidePopup = () => {
+    document.body.style.overflowY = "auto";
+    authPopup.classList.remove("show");
+    authBoxes.forEach((box, i) => box.style.display = i === 0 ? "block" : "none");
+    authPopup.querySelectorAll("form").forEach(f => f.reset());
+  };
+
+  loginBtn.addEventListener("click", e => {
+    e.preventDefault();
+    showPopup();
+  });
+
+  closeBtn.addEventListener("click", hidePopup);
+
+    // click outside popup will close
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".menu-header")) {
       responsiveMenu.classList.remove("active");
@@ -191,25 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // login popup open
-  const loginButton = document.getElementById("login-btn");
-  const authPopup = document.getElementById("auth-popup");
-  const closeAuthPopup = document.getElementById("close-auth");
-  const authBoxes = document.querySelectorAll(".auth-box");
-  if (!loginButton || !authPopup || !closeAuthPopup) return;
-
-  loginButton.addEventListener("click", () => {
-    document.body.style.overflowY = "hidden";
-    authPopup.classList.add("show");
-  });
-
-  closeAuthPopup.addEventListener("click", () => {
-    document.body.style.overflowY = "auto";
-    authPopup.classList.remove("show");
-    authBoxes.forEach(ele => ele.style.display = "none");
-    authBoxes[0].style.display = "block";
-  });
-
+  // Login register tab switch form
   const loginRegisterButtons = document.querySelectorAll(".auth-btn");
   const authForms = document.querySelectorAll(".auth-form");
   if (!loginRegisterButtons.length || !authForms.length) return;
@@ -262,4 +273,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hideEl) hideEl.style.display = "none";
     if (formEl) formEl.reset();
   }
-})
+
+  // Otp inputs auto type
+  let otpInputs = document.querySelectorAll(".otp-inputs input");
+  if (!otpInputs.length) return;
+
+  otpInputs.forEach((input, index) => {
+    input.addEventListener("input", (e) => {
+      // Replace string to integer
+      e.target.value = e.target.value.replace(/[^0-9]/g, "").slice(-1);
+      // Move next input
+      if (e.target.value && index < otpInputs.length - 1) {
+        otpInputs[index + 1].focus();
+      }
+      // Back input
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && !input.value && index > 0) {
+          otpInputs[index - 1].focus();
+        }
+      })
+    })
+    // When user paste otp then automatic handle
+    otpInputs[0].addEventListener("paste", (e) => {
+      e.preventDefault();
+      const pasteData = e.clipboardData.getData("text").replace(/\D/g, ""); // find otp in number
+      pasteData.split("").forEach((char, i) => {
+        if (i < otpInputs.length) {
+          otpInputs[i].value = char;
+        }
+      });
+
+      // If copy input text more then 4 text it will be short
+      if (pasteData.length >= otpInputs.length) {
+        otpInputs[otpInputs.length - 1].focus();
+      }
+    })
+  });
+
+});
