@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closeBtn.addEventListener("click", hidePopup);
 
-    // click outside popup will close
+  // click outside popup will close
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".menu-header")) {
       responsiveMenu.classList.remove("active");
@@ -311,3 +311,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
