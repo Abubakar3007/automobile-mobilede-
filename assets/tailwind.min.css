@@ -3017,6 +3017,10 @@ video {
     margin-top: 1rem;
   }
 
+  .sm\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
+
   .sm\:block {
     display: block;
   }
