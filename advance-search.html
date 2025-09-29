@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/tailwind.min.css">
+		<title>Automobile</title>
+		<!-- google font cdn -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<style>
+			.search-input.active {
+				width: 100%;
+				max-width: 100%;
+				border-left: 1px solid #FFEA8A;
+				padding-inline: 12px;
+			}
+
+			.search-btn.active {
+				border-left: none;
+				border-radius: 0px 5px 5px 0px;
+			}
+
+			.show {
+				visibility: visible;
+				opacity: 1;
+			}
+
+			.menu-header.active {
+				transform: translateX(0%);
+			}
+
+            .ad-step.active {
+                background-color: #FFD100;
+                color: white;
+            }
+
+            .ad-step.success{
+                background-color: #34C759;
+                border-color: #81BF84;
+            }
+
+            .list-item.active{
+                border-color: #FFD100;
+                color:#FFD100;
+            }
+
+            .select-dropdown.show{
+                max-height:260px;
+                opacity:1;
+                visibility:visible;
+            }
+
+            .no-scroll{
+                scrollbar-width:none;
+            }
+            
+            .no-scroll::-webkit-scrollbar{
+                display:none;
+            }
+
+            input::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            .select-dropdown::-webkit-scrollbar-track {
+                border-radius: 8px;
+                background: #E9E9E9;
+            }
+
+            .select-dropdown::-webkit-scrollbar {
+                width: 8px;
+                background-color: #E9E9E9;
+                border-radius: 10px;
+            }
+
+            .select-dropdown::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #fff;
+                width: 8px;
+            }
+
+            .password-toggle-btn {
+                background-image: url(/assets/images/eye-open-btn.svg);
+            }
+
+            .password-toggle-btn.toggle {
+                background-image: url(/assets/images/eye-close-btn.svg);
+            }
+
+            .auth-btn.active {
+                background-color: #FFD100;
+                color: #313131;
+                font-weight: 600;
+            }
+
+            @media(min-width:1024px){
+                .home-header{
+                    height:110px;
+                    top:-46px
+                }
+            }
+
+            /* Chrome, Safari, Edge, Opera */
+            input[type=number]::-webkit-outer-spin-button,
+            input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+            
+            .right-wrapper{
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0.04%, rgba(0, 0, 0, 0.00) 99.96%);
+                backdrop-filter: blur(5px);
+            }
+            
+            .select-dropdown.show{
+                max-height:220px;
+            }
+
+            .search-content.active{
+               opacity:1;
+               visibility: visible;
+               max-height:max-content;
+               margin-top:24px; 
+            }
+		</style>
+	</head>
+	<body class="font-montserrat text-[#313131] text-sm">
+        <!-- header -->
+		<header class="sticky top-0 z-[10] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
+			<!-- header black -->
+			<!-- Header black show only on index page -->
+			<div class="py-3 bg-[#101010] text-right lg:block hidden" style="display:none">
+				<ul class="text-[#FFD100] font-medium space-x-4 max-w-[1200px] w-full sxl:px-0 px-3 mx-auto">
+					<li class="inline-block">
+						<a href="#">
+							<img src="assets/images/time.png" alt="" class="inline-block mr-1">
+							<span>Mon - Fri ( 10:00 - 18:00 )</span>
+						</a>
+					</li>
+					<li class="inline-block">
+						<a href="#">
+							<img src="assets/images/call.png" alt="" class="inline-block mr-1">
+							<span>+421 8956685986</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- header bottom -->
+			<div class="relative">
+				<!-- Yellow bg logo here -->
+				<!-- If index page then add here class home-header otherwise remove class home-header -->
+				<div class="absolute left-0 bg-[#FFD100] w-full content-[''] max-w-[calc(100%-(((100%-1200px)/2)+1200px)+140px)] [clip-path:polygon(100%_0,100%_0%,87%_100%,0_100%,0_0)] text-right lg:pr-16 pr-5 pl-5 lg:min-w-[144px] min-w-max h-16 top-0 flex items-center lg:justify-end justify-center">
+					<a href="index.html" title="Go to homepage">
+						<img src="assets/images/logo.png" alt="Logo" loading="lazy" class="w-20">
+					</a>
+				</div>
+				<!-- Right side wrapper -->
+				<div class="flex items-center lg:justify-between justify-end max-w-[1200px] w-full mx-auto sxl:pr-0 px-3 h-16 lg:pl-[145px]">
+					<!-- header left links -->
+					<div class="hidden lg:block">
+						<ul class="space-x-8 font-medium text-[#757575] capitalize">
+							<!-- which one is current page add class='text-[#313131] font-semibold' -->
+							<li class="inline-block">
+								<a href="index.html" title="Go to homepage" class="text-[#313131] font-semibold">Home</a>
+							</li>
+							<li class="inline-block">
+								<a href="listing.html">Buy a car</a>
+							</li>
+							<li class="inline-block">
+								<a href="post-ad.html">Sell a car</a>
+							</li>
+							<li class="inline-block">
+								<a href="contact.html">Contact us</a>
+							</li>
+						</ul>
+					</div>
+					<!-- header right side wrapper -->
+					<div class="flex gap-2 max-w-[500px] w-full justify-end">
+						<!-- search input -->
+						<div class="max-w-[342px] w-full relative justify-end flex-shrink-0 lg:flex hidden">
+							<input type="text" name="keyword" placeholder="Search a car of your choice" class="search-input max-w-[0px] w-0 absolute h-10 right-10 font-medium text-xs border border-[#FFEA8A] rounded-l-[5px] border-r-0 border-l-0 outline-none transition-all duration-300 ease-in" id="search-input">
+							<button type="button" id="search-btn" class="w-10 search-btn h-10 rounded-[5px] transition-all duration-300 ease-in border border-[#FFEA8A] grid place-items-center">
+								<img src="assets/images/search-icon.svg" alt="search logo">
+							</button>
+						</div>
+						<!-- Login wrapper -->
+						<div class="lg:max-w-[150px] lg:w-full flex-shrink-0 lg:block flex gap-3 items-center">
+							<!-- login button -->
+							<button id="login-btn" class="lg:h-10 h-9 lg:px-[14px] px-4 lg:text-sm text-[13px] lg:rounded-[5px] rounded-[25px] bg-[#FFD100] transition-all duration-300 ease-in font-semibold capitalize text-center lg:w-full hover:bg-[#E8BE00] flex-shrink-0">Login</button>
+							<!-- responsive favorite button -->
+							<a href="favorite.html" class="relative block lg:hidden">
+								<img src="assets/images/heart-line.svg" alt="Favorite cars">
+								<!-- total favorite items number -->
+								<div class="absolute text-white bg-[#313131] rounded-full -top-[6px] -right-[6px] h-4 w-4 text-[8px] flex items-center justify-center">2</div>
+							</a>
+							<!-- open menu button -->
+							<button id="menu-btn" class="lg:hidden border-2 border-[#FFD100] rounded-full h-9 w-9 grid place-items-center">
+								<img src="assets/images/menu-icon.svg" alt="Open menu button" class="w-[14px]">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- responsive menu content -->
+			<div class="lg:hidden">
+				<!-- header content -->
+				<div id="menu-content" class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-300 [-webkit-overflow-scrolling:touch] menu-header">
+					<!-- logo -->
+					<div class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6 flex justify-between items-center">
+						<a href="index.html" title="Go to homepage">
+                            <img src="assets/images/logo.png" alt="Logo" loading="lazy" class="object-cover w-20 h-10">
+                        </a>
+						<!--Close button  -->
+						<button id="close-menu" aria-label="Close responsive menu">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<g clip-path="url(#clip0_14_9062)">
+									<path d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z" fill="#313131"/>
+								</g>
+								<defs>
+									<clipPath id="clip0_14_9062">
+										<rect width="24" height="24" fill="white"/>
+									</clipPath>
+								</defs>
+							</svg>
+						</button>
+					</div>
+					<!-- User info list -->
+					<div class="font-medium">
+						<ul class="pb-4 mb-4 space-y-6 border-b border-[#e9e9e9]">
+							<li>
+								<a href="my-profile.html" title="Go to my profile">
+									<svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+										<path d="M3.33398 18.333C3.33398 16.5649 4.03636 14.8692 5.28661 13.619C6.53685 12.3687 8.23254 11.6663 10.0007 11.6663C11.7688 11.6663 13.4645 12.3687 14.7147 13.619C15.9649 14.8692 16.6673 16.5649 16.6673 18.333H15.0007C15.0007 17.0069 14.4739 15.7352 13.5362 14.7975C12.5985 13.8598 11.3267 13.333 10.0007 13.333C8.67457 13.333 7.4028 13.8598 6.46512 14.7975C5.52744 15.7352 5.00065 17.0069 5.00065 18.333H3.33398ZM10.0007 10.833C7.23815 10.833 5.00065 8.59551 5.00065 5.83301C5.00065 3.07051 7.23815 0.833008 10.0007 0.833008C12.7632 0.833008 15.0007 3.07051 15.0007 5.83301C15.0007 8.59551 12.7632 10.833 10.0007 10.833ZM10.0007 9.16634C11.8423 9.16634 13.334 7.67467 13.334 5.83301C13.334 3.99134 11.8423 2.49967 10.0007 2.49967C8.15898 2.49967 6.66732 3.99134 6.66732 5.83301C6.66732 7.67467 8.15898 9.16634 10.0007 9.16634Z" fill="#313131"></path>
+									</svg>
+									<span class="align-middle">My Profile</span>
+								</a>
+							</li>
+							<li>
+								<a href="saved-searches.html" title="Go to saved searches">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M4.16634 1.66699H15.833C16.054 1.66699 16.266 1.75479 16.4223 1.91107C16.5785 2.06735 16.6663 2.27931 16.6663 2.50033V18.4528C16.6664 18.5273 16.6465 18.6005 16.6088 18.6647C16.571 18.7289 16.5166 18.7818 16.4515 18.8179C16.3863 18.854 16.3126 18.8719 16.2381 18.8699C16.1637 18.8678 16.0911 18.8458 16.028 18.8062L9.99967 15.0253L3.97134 18.8053C3.90831 18.8449 3.83583 18.8669 3.76143 18.869C3.68702 18.8711 3.61341 18.8532 3.54825 18.8173C3.48309 18.7813 3.42876 18.7285 3.39091 18.6644C3.35306 18.6003 3.33306 18.5273 3.33301 18.4528V2.50033C3.33301 2.27931 3.42081 2.06735 3.57709 1.91107C3.73337 1.75479 3.94533 1.66699 4.16634 1.66699ZM14.9997 3.33366H4.99967V16.1937L9.99967 13.0595L14.9997 16.1937V3.33366Z" fill="#313131"></path>
+									</svg>
+									<span>Saved Searches</span>
+								</a>
+							</li>
+							<li>
+								<a href="favorite.html" title="Go to favorite">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M10.0002 3.77415C11.9577 2.01665 14.9827 2.07498 16.8685 3.96415C18.7535 5.85415 18.8185 8.86415 17.0652 10.8275L9.99852 17.9042L2.93352 10.8275C1.18019 8.86415 1.24602 5.84915 3.13019 3.96415C5.01769 2.07748 8.03685 2.01415 10.0002 3.77415ZM15.6885 5.14165C14.4385 3.88998 12.4219 3.83915 11.1135 5.01415L10.001 6.01248L8.88769 5.01498C7.57519 3.83832 5.56269 3.88998 4.30935 5.14332C3.06769 6.38498 3.00519 8.37248 4.14935 9.68582L9.99935 15.545L15.8494 9.68665C16.9944 8.37248 16.9319 6.38748 15.6885 5.14165Z" fill="#313131"></path>
+									</svg>
+									<span>Favorite</span>
+								</a>
+							</li>
+							<li>
+								<a href="my-ads.html">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M6.66667 3.33366H17.5V5.00033H6.66667V3.33366ZM2.5 2.91699H5V5.41699H2.5V2.91699ZM2.5 8.75033H5V11.2503H2.5V8.75033ZM2.5 14.5837H5V17.0837H2.5V14.5837ZM6.66667 9.16699H17.5V10.8337H6.66667V9.16699ZM6.66667 15.0003H17.5V16.667H6.66667V15.0003Z" fill="#313131"></path>
+									</svg>
+									<span>My ads</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="space-y-6">
+							<li>
+								<a href="listing.html" title="Buy a used cars">Buy a car</a>
+							</li>
+							<li>
+								<a href="post-ad.html" title="Go to sell car">Sell a car</a>
+							</li>
+						</ul>
+					</div>
+					<!-- Register button -->
+					<div class="absolute bottom-0 left-0 w-full p-4 text-center">
+						<button class="max-w-[50%] w-full mx-auto bg-[#FFD100] rounded-[5px] h-10 block font-semibold" id="register">Register</button>
+					</div>
+				</div>
+				<!-- header bg  -->
+				<div id="menu-bg" class="fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg hidden bg-black/80"></div>
+			</div>
+			<!-- Login popup -->
+			<div id="auth-popup" class="fixed inset-0 invisible w-full opacity-0 bg-black/80 h-[100vh] z-[1000]">
+				<div class="grid w-full h-full p-2 place-items-center">
+					<!-- Popup box -->
+					<div class="bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[15px] sm:p-6 p-4 relative max-w-[480px] w-full box">
+						<!-- Close login popup -->
+						<button id="close-auth" class="absolute right-4 top-4" aria-label="Close login popup" title="Close popup">
+							<img src="assets/images/cross-icon.svg" alt="Close login popup" class="w-4">
+						</button>
+						<!-- Login & Register popup -->
+						<div id="login-box" class="auth-box">
+							<h3 class="mt-3 mb-4 text-xl font-semibold text-center">Welcome Back</h3>
+							<!-- Select tab for login or register -->
+							<div class="flex sm:mb-[50px] mb-7 p-1 rounded-[50px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] max-w-[259px] w-full mx-auto">
+								<button class="h-8 font-semibold rounded-[50px] sm:text-base flex-1 text-[#757575] active auth-btn">Login</button>
+								<button class="h-8 font-medium rounded-[50px] sm:text-base flex-1 text-[#757575] auth-btn">Signup</button>
+							</div>
+							<!-- Login form -->
+							<form id="login-form" class="auth-form">
+								<!-- email and password -->
+								<div class="space-y-4">
+									<!-- email -->
+									<div>
+										<div class="relative">
+											<input type="text" id="email" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="email" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+										</div>
+										<!-- Error show here -->
+										<p class="mt-1 text-xs font-medium text-red">Please enter valid email</p>
+									</div>
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="password" name="password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border password-input border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-1/2 -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<p class="mt-1 text-xs font-medium text-red">Please enter correct password</p>
+									</div>
+								</div>
+								<!-- forget password link -->
+								<div class="flex items-center justify-between mt-2">
+									<!-- remember checkbox -->
+									<div>
+										<input type="checkbox" name="remember" id="remember" class="w-[18px] h-[18px] rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-3 checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[2px] checked:after:-rotate-45">
+										<label for="remember" class="align-middle font-medium text-[#757575] sm:text-sm text-xs cursor-pointer">Keep me logged in</label>
+									</div>
+									<!-- forget link -->
+									<button id="forgot-password-btn" type="button" class="text-xs font-semibold sm:text-sm">Forgot password?</button>
+								</div>
+								<!-- login button -->
+								<button type="submit" class="h-10 sm:mt-[50px] mt-7 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+									<span class="align-middle">Login</span>
+								</button>
+							</form>
+							<!-- Register form -->
+							<form id="register-form" class="hidden auth-form">
+								<!-- email and password -->
+								<div class="space-y-4">
+									<!-- email -->
+									<div>
+										<div class="relative">
+											<input type="text" id="email-register" name="email-register" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="email-register" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter valid email</p> -->
+									</div>
+									<!-- password -->
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="password-again" name="password" placeholder=" " autocomplete="off" class="peer password-input h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="password-again" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+									</div>
+									<!-- Confirm password -->
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="c-password" name="c-password" placeholder=" " autocomplete="off" class="peer password-input h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="c-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Re-enter password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+									</div>
+								</div>
+								<!-- Sign up button -->
+								<button type="submit" class="sm:mt-[50px] mt-7 h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+									<span class="align-middle">Sign up</span>
+								</button>
+							</form>
+							<!-- divider -->
+							<div class="flex gap-2 text-[#757575] font-medium mt-8 text-center before:flex-1 after:flex-1 before:h-[0.5px] after:h-[0.5px] before:bg-[#DEDEDE] after:bg-[#DEDEDE] before:block after:block items-center">
+								<span>Or Signup with</span>
+							</div>
+							<!-- facebook and google button -->
+							<div class="flex gap-2 mt-8">
+								<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+									<img src="assets/images/facebook.svg" alt="Facebook login" class="mx-auto">
+								</button>
+								<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+									<img src="assets/images/google.svg" alt="Google login" class="mx-auto">
+								</button>
+							</div>
+						</div>
+						<!-- forget password popup -->
+						<div id="forgot-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Forgot password</h3>
+								<p class="text-[#757575] sm:text-sm text-xs sm:leading-[21px] font-medium">You will receive an verification code on the registered email id to reset your password.</p>
+							</div>
+							<!-- Forget password form -->
+							<form id="forgot-form">
+								<!-- email -->
+								<div class="sm:mb-[50px] mb-7">
+									<div class="relative">
+										<input type="text" id="email-again" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="email-again" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter valid email</p> -->
+								</div>
+								<!-- Submit button -->
+								<button type="button" id="send-verification-btn" class="h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00] capitalize">
+									<span class="align-middle">Send verification code</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="forgot-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+						<!-- verification code popup -->
+						<div id="verification-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Enter verification code</h3>
+								<p class="font-medium sm:text-sm sm:leading-[21px] text-[#757575] text-xs">Enter the verification code you received on your email. <br>
+									<span class="text-[#BFBFBF]">kindly check your spam section too.</span>
+								</p>
+								<!-- otp send message when user click send again it button -->
+								<p class="mt-2 text-xs font-medium text-green">Otp successfully sent on your email</p>
+							</div>
+							<form id="verification-form">
+								<div class="flex justify-center gap-4 mb-4 otp-inputs">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+								</div>
+								<p class="text-center font-medium text-[#757575]">Didn’t receive OTP ? <a href="#" class="font-semibold text-[#313131]">Send again.</a>
+								</p>
+								<!-- Submit button -->
+								<button type="button" id="password-create-btn" class="h-10 mt-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<span class="align-middle">Create new password</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="verification-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+						<!-- change password -->
+						<div id="password-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Create new password</h3>
+								<p class="font-medium text-[#757575] sm:leading-[21px] sm:text-sm text-xs">Enter the verification code you received on your email.</p>
+							</div>
+							<!-- change password form -->
+							<form id="password-form">
+								<!-- new password -->
+								<div class="mb-4">
+									<div class="relative password-wrapper">
+										<input type="password" id="new-password" name="new-password" placeholder=" " autocomplete="off" class="password-input peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="new-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+										<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+								</div>
+								<!-- re password -->
+								<div>
+									<div class="relative password-wrapper">
+										<input type="password" id="re-password" name="re-password" placeholder=" " autocomplete="off" class="password-input peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="re-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Re-enter password</label>
+										<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+								</div>
+								<button type="button" class="h-10 sm:mt-[50px] mt-7 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<span class="align-middle">Update password</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="password-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+        <!-- main -->
+        <main>
+            <div class="max-w-[1200px] w-full mx-auto sxl:px-0 px-3">
+                <form action="#" method="post">
+                    <!-- sticky header of search -->
+					<div class="overflow-hidden top-[88px] opacity-100 max-h-[270px] z-[50] transition-all duration-300 ease p-4 rounded-[12px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
+                        <div class="set_top">
+                            <button id="close-filter" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7.828 11.0002H20V13.0002H7.828L13.192 18.3642L11.778 19.7782L4 12.0002L11.778 4.22217L13.192 5.63617L7.828 11.0002Z" fill="#313131"></path>
+                                </svg>
+                            </button>
+                            <h3>Filter <span class="filter-num" id="in-filter">0</span></h3>
+                        </div>
+                        <!-- search list and filter button -->
+                        <div class="flex items-center justify-between">
+                            <!-- search list category -->
+                            <ul class="flex gap-8" data-select="ad_select">
+                                <li class="active" data-id="vehicle-basic">Basic details</li>
+                                <li data-id="vehicle-technical">Tech. details</li>
+                                <li data-id="vehicle-exterior">Exterior</li>
+                                <li data-id="vehicle-interior">Interior</li>
+                                <li data-id="vehicle-ad">Ad. details</li>
+                            </ul>
+                            <!-- saved search and filter button -->
+                            <div class="flex gap-4">
+                                <!-- save search button -->
+                                <button class="max-w-[150px] w-full font-medium">
+                                    <img src="assets/images/saved-search.svg" alt="Saved search icon" class="inline-block mr-1">
+                                    <span>Save this search</span>
+                                </button>
+                                <!-- sort by button -->
+                                <div class="relative w-[155px] custom-select">
+                                    <!-- select button -->
+                                    <button type="button" class="select-btn h-10 px-[14px] border border-[#FFD100] pl-9 text-[#FFD100] relative text-left font-medium w-full bg-[#FFFAE6] transition-all ease-in rounded-[5px] before:content-[url(/assets/images/sort-filter.svg)] before:absolute before:left-2 before:h-5 before:top-[50%] before:-translate-y-1/2">
+                                        <span>Sort by</span>
+                                        <span class="w-10 h-[38px] grid place-items-center absolute right-0 top-0 border-l border-[#FFD100]"><img src="assets/images/yellow-chevron-down.svg" alt="dropdown"></span>
+                                    </button>
+                                    <!-- when user select any value from ul li the current data-id add in input -->
+                                    <input type="text" id="fuel-type" class="select-input" name="fuel-type" hidden>
+                                    <!-- input list or select list here -->
+                                    <div class="select-dropdown bg-white rounded-[6px] font-medium overflow-hidden shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+                                        <ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+                                            <li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Latest</li>
+                                            <li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Oldest</li>
+                                            <li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Lowest price</li>
+                                            <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Highest price</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="advance_set d_between ">
+                            <div class="advance_tab">
+                                <ul class="li-btn " id="vehicle-basic">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                </ul>
+                                <ul class="li-btn" id="vehicle-technical">
+                                                                                                                                                                                                                                                                </ul>
+                                <ul class="li-btn" id="vehicle-exterior">
+                                                                                                                                                                            </ul>
+                                <ul class="li-btn" id="vehicle-interior">
+                                                                                                                                                                            </ul>
+                                <ul class="li-btn" id="vehicle-ad">
+                                                                                                                                                                            </ul>
+                            </div>
+                            <button type="button" id="reset-filter">
+                                <img src="/assets/img/filter_cross.svg" alt="">
+                                <span>Reset filters</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 4V2H17V4H22V6H20V21C20 21.2652 19.8946 21.5196 19.7071 21.7071C19.5196 21.8946 19.2652 22 19 22H5C4.73478 22 4.48043 21.8946 4.29289 21.7071C4.10536 21.5196 4 21.2652 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z" fill="#D13333"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="search_filters d_flex">
+                            <button type="button" onclick="openPopup('save_popup')">
+                                <img src="/assets/img/saved_search.svg" alt="">
+                                <span>Save search</span>
+                            </button>
+                            <button type="button" class="btn_bg medium_btn" id="advanceSearchBtn3">
+                                <img src="/assets/img/search_filter.svg" alt="">
+                                <span>Search Car</span>
+                            </button>
+                        </div>
+			        </div>
+                    <!-- Breadcrumb -->
+                    <nav aria-label="Breadcrumb" class="pt-8 sm:pb-[50px] pb-8 overflow-x-scroll whitespace-nowrap no-scroll">
+                        <ul class="text-xs text-[#757575] font-medium flex items-center gap-2">
+                            <li>
+                                <a href="index.html" title="Go to homepage" class="text-[#313131] hover:underline">Home</a>
+                            </li>
+                            <li class="flex-shrink-0">
+                                <img src="assets/images/right-chevron.svg" alt="Next">
+                            </li>
+                            <li aria-current="page">Advance search</li>
+                        </ul>
+                    </nav>
+                    <!-- <div class="set_top for-set" id="more-filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+                            <g clip-path="url(#clip0_14_9254)">
+                                <path d="M10 18H14V16H10V18ZM3 6V8H21V6H3ZM6 13H18V11H6V13Z" fill="#fff"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_14_9254">
+                                    <rect width="24" height="24" fill="#fff"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <h4>Filter <span class="filter-num">0</span></h4>
+                    </div> -->
+                    <h1>Detailed search : Car - used &amp; new</h1>
+                    <!-- search data -->
+                    <div class="space-y-6">
+                        <!-- Basic info search -->
+                        <div class="rounded-[15px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] p-6">
+                        	<!-- heading -->
+                            <div class="search-btn border-b border-[#e9e9e9] pb-4 relative cursor-pointer after:absolute after:right-0 after:h-5 after:transition-all after:duration-300 after:ease after:content-[url(/assets/images/chevron-down.svg)] after:top-[6px]">
+                                <h2 class="text-xl font-semibold">Basic details</h2>
+                            </div>
+                            <!-- content -->
+                        	<div class="max-h-[0px] opacity-0 invisible overflow-hidden transition-all duration-200 ease search-content active">
+                                <!-- select which type of cars -->
+                        		<div class="flex max-w-[352px] mx-auto mb-8 rounded-[8px] border border-[#e9e9e9] bg-[#f5f5f5] p-2">
+                        			<button type="button" class="active" name="listing_type_id" value="1">Buy</button>
+                        			<button type="button" name="listing_type_id" value="2">Lease</button>
+                        		</div>
+                        		<div class="input_selects">
+                        			<div class="single_input">
+                        				<label for="brand">Brand</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Select</button>
+                        					<input type="text" id="brand" value="" name="brand_id" hidden="">
+                        					<!-- input list or select list here -->
+                        					<ul data-type="brand" data-dropdown="select_list" class="select_list">
+                        						<li data-id="1" class="">Toyota</li>
+                        						<li data-id="2" class="">Honda</li>
+                        						<li data-id="3" class="">Ford</li>
+                        						<li data-id="4" class="">BMW</li>
+                        						<li data-id="5" class="">Audi</li>
+                        						<li data-id="6" class="">Mercedes</li>
+                        						<li data-id="7" class="">Tesla</li>
+                        						<li data-id="8" class="">Nissan</li>
+                        						<li data-id="9" class="">Chevrolet</li>
+                        						<li data-id="10" class="">Volkswagen</li>
+                        					</ul>
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="model">Model*</label>
+                        				<div class="input_text" id="model">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)">Select</button>
+                        					<input type="text" id="model" value="" name="model_id" hidden="">
+                        					<!-- input list or select list here -->
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="variant">Variant</label>
+                        				<div class="input_text">
+                        					<input type="text" id="variant" value="" name="variant" placeholder="€" onkeyup="inputType(event,this)">
+                        				</div>
+                        			</div>
+                        		</div>
+                        		<ul class="car_type car_check">
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ct1" value="1" name="category_id[]">
+                        				<img src="/assets/img/car1.png" alt="Small car">
+                        				<img src="/assets/img/car_copy1.png" alt="Small car">
+                        				<label for="ct1">Small car</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ct2" value="2" name="category_id[]">
+                        				<img src="/assets/img/car2.png" alt="Sedan">
+                        				<img src="/assets/img/car_copy2.png" alt="Sedan">
+                        				<label for="ct2">Sedan</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ct3" value="3" name="category_id[]">
+                        				<img src="/assets/img/car3.png" alt="Station wagon">
+                        				<img src="/assets/img/car_copy3.png" alt="Station wagon">
+                        				<label for="ct3">Station wagon</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ct4" value="4" name="category_id[]">
+                        				<img src="/assets/img/car4.png" alt="Convertible/Roadster">
+                        				<img src="/assets/img/car_copy4.png" alt="Convertible/Roadster">
+                        				<label for="ct4">Convertible/Roadster</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ct5" value="5" name="category_id[]">
+                        				<img src="/assets/img/car5.png" alt="Off road/Pickup truck">
+                        				<img src="/assets/img/car_copy5.png" alt="Off road/Pickup truck">
+                        				<label for="ct5">Off road/Pickup truck</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ct6" value="6" name="category_id[]">
+                        				<img src="/assets/img/car6.png" alt="SUV">
+                        				<img src="/assets/img/car_copy6.png" alt="SUV">
+                        				<label for="ct6">SUV</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ct7" value="7" name="category_id[]">
+                        				<img src="/assets/img/car7.png" alt="Convertible/Roadster">
+                        				<img src="/assets/img/car_copy7.png" alt="Convertible/Roadster">
+                        				<label for="ct7">Convertible/Roadster</label>
+                        			</li>
+                        		</ul>
+                        		<div class="input_selects">
+                        			<div class="multi_input">
+                        				<label>Price</label>
+                        				<div class="input-wrap">
+                        					<div class="hidden single_input">
+                        						<label for="p_from">hide</label>
+                        						<div class="input_text">
+                        							<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">From</button>
+                        							<input type="text" id="p_from" value="" name="price_from" hidden="">
+                        							<!-- input list or select list here -->
+                        							<ul class="select_list" data-dropdown="select_list" data-type="price_from">
+                        								<li data-id="0" class="">Any</li>
+                        								<li data-id="500" class="">€ 500</li>
+                        								<li data-id="1000" class="">€ 1,000</li>
+                        								<li data-id="1500" class="">€ 1,500</li>
+                        								<li data-id="2000" class="">€ 2,000</li>
+                        								<li data-id="2500" class="">€ 2,500</li>
+                        								<li data-id="3000" class="">€ 3,000</li>
+                        								<li data-id="3500" class="">€ 3,500</li>
+                        								<li data-id="4000" class="">€ 4,000</li>
+                        								<li data-id="4500" class="">€ 4,500</li>
+                        								<li data-id="5000" class="">€ 5,000</li>
+                        								<li data-id="6000" class="">€ 6,000</li>
+                        								<li data-id="7000" class="">€ 7,000</li>
+                        								<li data-id="8000" class="">€ 8,000</li>
+                        								<li data-id="9000" class="">€ 9,000</li>
+                        								<li data-id="10000" class="">€ 10,000</li>
+                        								<li data-id="11000" class="">€ 11,000</li>
+                        								<li data-id="12000" class="">€ 12,000</li>
+                        								<li data-id="13000" class="">€ 13,000</li>
+                        								<li data-id="14000" class="">€ 14,000</li>
+                        								<li data-id="15000" class="">€ 15,000</li>
+                        								<li data-id="17500" class="">€ 17,500</li>
+                        								<li data-id="20000" class="">€ 20,000</li>
+                        								<li data-id="22500" class="">€ 22,500</li>
+                        								<li data-id="25000" class="">€ 25,000</li>
+                        								<li data-id="30000" class="">€ 30,000</li>
+                        								<li data-id="35000" class="">€ 35,000</li>
+                        								<li data-id="40000" class="">€ 40,000</li>
+                        								<li data-id="45000" class="">€ 45,000</li>
+                        								<li data-id="50000" class="">€ 50,000</li>
+                        								<li data-id="60000" class="">€ 60,000</li>
+                        								<li data-id="70000" class="">€ 70,000</li>
+                        								<li data-id="80000" class="">€ 80,000</li>
+                        								<li data-id="90000" class="">€ 90,000</li>
+                        								<li data-id="100000" class="">€ 100,000</li>
+                        								<li data-id="110000" class="">€ 110,000</li>
+                        								<li data-id="120000" class="">€ 120,000</li>
+                        								<li data-id="130000" class="">€ 130,000</li>
+                        								<li data-id="140000" class="">€ 140,000</li>
+                        								<li data-id="150000" class="">€ 150,000</li>
+                        							</ul>
+                        						</div>
+                        					</div>
+                        					<div class="hidden single_input">
+                        						<label for="p_to">hide</label>
+                        						<div class="input_text">
+                        							<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Until</button>
+                        							<input type="text" id="p_to" value="" name="price_until" hidden="">
+                        							<!-- input list or select list here -->
+                        							<ul class="select_list" data-dropdown="select_list" data-type="price-end">
+                        								<li data-id="0" class="">Any</li>
+                        								<li data-id="500" class="">€ 500</li>
+                        								<li data-id="1000" class="">€ 1,000</li>
+                        								<li data-id="1500" class="">€ 1,500</li>
+                        								<li data-id="2000" class="">€ 2,000</li>
+                        								<li data-id="2500" class="">€ 2,500</li>
+                        								<li data-id="3000" class="">€ 3,000</li>
+                        								<li data-id="3500" class="">€ 3,500</li>
+                        								<li data-id="4000" class="">€ 4,000</li>
+                        								<li data-id="4500" class="">€ 4,500</li>
+                        								<li data-id="5000" class="">€ 5,000</li>
+                        								<li data-id="6000" class="">€ 6,000</li>
+                        								<li data-id="7000" class="">€ 7,000</li>
+                        								<li data-id="8000" class="">€ 8,000</li>
+                        								<li data-id="9000" class="">€ 9,000</li>
+                        								<li data-id="10000" class="">€ 10,000</li>
+                        								<li data-id="11000" class="">€ 11,000</li>
+                        								<li data-id="12000" class="">€ 12,000</li>
+                        								<li data-id="13000" class="">€ 13,000</li>
+                        								<li data-id="14000" class="">€ 14,000</li>
+                        								<li data-id="15000" class="">€ 15,000</li>
+                        								<li data-id="17500" class="">€ 17,500</li>
+                        								<li data-id="20000" class="">€ 20,000</li>
+                        								<li data-id="22500" class="">€ 22,500</li>
+                        								<li data-id="25000" class="">€ 25,000</li>
+                        								<li data-id="30000" class="">€ 30,000</li>
+                        								<li data-id="35000" class="">€ 35,000</li>
+                        								<li data-id="40000" class="">€ 40,000</li>
+                        								<li data-id="45000" class="">€ 45,000</li>
+                        								<li data-id="50000" class="">€ 50,000</li>
+                        								<li data-id="60000" class="">€ 60,000</li>
+                        								<li data-id="70000" class="">€ 70,000</li>
+                        								<li data-id="80000" class="">€ 80,000</li>
+                        								<li data-id="90000" class="">€ 90,000</li>
+                        								<li data-id="100000" class="">€ 100,000</li>
+                        								<li data-id="110000" class="">€ 110,000</li>
+                        								<li data-id="120000" class="">€ 120,000</li>
+                        								<li data-id="130000" class="">€ 130,000</li>
+                        								<li data-id="140000" class="">€ 140,000</li>
+                        								<li data-id="150000" class="">€ 150,000</li>
+                        							</ul>
+                        						</div>
+                        					</div>
+                        				</div>
+                        			</div>
+                        			<div class="multi_input">
+                        				<label>Registration year</label>
+                        				<div class="input-wrap">
+                        					<div class="hidden single_input">
+                        						<label for="r_from">hide</label>
+                        						<div class="input_text">
+                        							<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">From</button>
+                        							<input type="text" id="r_from" value="" name="reg_year_from" hidden="">
+                        							<!-- input list or select list here -->
+                        							<ul class="select_list" data-dropdown="select_list" data-type="date_from">
+                        								<li data-id="2025" class="">2025</li>
+                        								<li data-id="2024" class="">2024</li>
+                        								<li data-id="2023" class="">2023</li>
+                        								<li data-id="2022" class="">2022</li>
+                        								<li data-id="2021" class="">2021</li>
+                        								<li data-id="2020" class="">2020</li>
+                        								<li data-id="2019" class="">2019</li>
+                        								<li data-id="2018" class="">2018</li>
+                        								<li data-id="2017" class="">2017</li>
+                        								<li data-id="2016" class="">2016</li>
+                        								<li data-id="2015" class="">2015</li>
+                        								<li data-id="2014" class="">2014</li>
+                        								<li data-id="2013" class="">2013</li>
+                        								<li data-id="2012" class="">2012</li>
+                        								<li data-id="2011" class="">2011</li>
+                        								<li data-id="2010" class="">2010</li>
+                        								<li data-id="2009" class="">2009</li>
+                        								<li data-id="2008" class="">2008</li>
+                        								<li data-id="2007" class="">2007</li>
+                        								<li data-id="2006" class="">2006</li>
+                        								<li data-id="2005" class="">2005</li>
+                        								<li data-id="2004" class="">2004</li>
+                        								<li data-id="2003" class="">2003</li>
+                        								<li data-id="2002" class="">2002</li>
+                        								<li data-id="2001" class="">2001</li>
+                        								<li data-id="2000" class="">2000</li>
+                        								<li data-id="1999" class="">1999</li>
+                        								<li data-id="1998" class="">1998</li>
+                        								<li data-id="1997" class="">1997</li>
+                        								<li data-id="1996" class="">1996</li>
+                        								<li data-id="1995" class="">1995</li>
+                        								<li data-id="1994" class="">1994</li>
+                        								<li data-id="1993" class="">1993</li>
+                        								<li data-id="1992" class="">1992</li>
+                        								<li data-id="1991" class="">1991</li>
+                        								<li data-id="1990" class="">1990</li>
+                        								<li data-id="1989" class="">1989</li>
+                        								<li data-id="1988" class="">1988</li>
+                        								<li data-id="1987" class="">1987</li>
+                        								<li data-id="1986" class="">1986</li>
+                        								<li data-id="1985" class="">1985</li>
+                        								<li data-id="1984" class="">1984</li>
+                        								<li data-id="1983" class="">1983</li>
+                        								<li data-id="1982" class="">1982</li>
+                        								<li data-id="1981" class="">1981</li>
+                        								<li data-id="1980" class="">1980</li>
+                        								<li data-id="1979" class="">1979</li>
+                        								<li data-id="1978" class="">1978</li>
+                        								<li data-id="1977" class="">1977</li>
+                        								<li data-id="1976" class="">1976</li>
+                        								<li data-id="1975" class="">1975</li>
+                        								<li data-id="1974" class="">1974</li>
+                        								<li data-id="1973" class="">1973</li>
+                        								<li data-id="1972" class="">1972</li>
+                        								<li data-id="1971" class="">1971</li>
+                        								<li data-id="1970" class="">1970</li>
+                        								<li data-id="1969" class="">1969</li>
+                        								<li data-id="1968" class="">1968</li>
+                        								<li data-id="1967" class="">1967</li>
+                        								<li data-id="1966" class="">1966</li>
+                        								<li data-id="1965" class="">1965</li>
+                        								<li data-id="1964" class="">1964</li>
+                        								<li data-id="1963" class="">1963</li>
+                        								<li data-id="1962" class="">1962</li>
+                        								<li data-id="1961" class="">1961</li>
+                        								<li data-id="1960" class="">1960</li>
+                        								<li data-id="1959" class="">1959</li>
+                        								<li data-id="1958" class="">1958</li>
+                        								<li data-id="1957" class="">1957</li>
+                        								<li data-id="1956" class="">1956</li>
+                        								<li data-id="1955" class="">1955</li>
+                        								<li data-id="1954" class="">1954</li>
+                        								<li data-id="1953" class="">1953</li>
+                        								<li data-id="1952" class="">1952</li>
+                        								<li data-id="1951" class="">1951</li>
+                        								<li data-id="1950" class="">1950</li>
+                        								<li data-id="1949" class="">1949</li>
+                        								<li data-id="1948" class="">1948</li>
+                        								<li data-id="1947" class="">1947</li>
+                        								<li data-id="1946" class="">1946</li>
+                        								<li data-id="1945" class="">1945</li>
+                        								<li data-id="1944" class="">1944</li>
+                        								<li data-id="1943" class="">1943</li>
+                        								<li data-id="1942" class="">1942</li>
+                        								<li data-id="1941" class="">1941</li>
+                        								<li data-id="1940" class="">1940</li>
+                        								<li data-id="1939" class="">1939</li>
+                        								<li data-id="1938" class="">1938</li>
+                        								<li data-id="1937" class="">1937</li>
+                        								<li data-id="1936" class="">1936</li>
+                        								<li data-id="1935" class="">1935</li>
+                        								<li data-id="1934" class="">1934</li>
+                        								<li data-id="1933" class="">1933</li>
+                        								<li data-id="1932" class="">1932</li>
+                        								<li data-id="1931" class="">1931</li>
+                        								<li data-id="1930" class="">1930</li>
+                        								<li data-id="1929" class="">1929</li>
+                        								<li data-id="1928" class="">1928</li>
+                        								<li data-id="1927" class="">1927</li>
+                        								<li data-id="1926" class="">1926</li>
+                        								<li data-id="1925" class="">1925</li>
+                        								<li data-id="1924" class="">1924</li>
+                        								<li data-id="1923" class="">1923</li>
+                        								<li data-id="1922" class="">1922</li>
+                        								<li data-id="1921" class="">1921</li>
+                        								<li data-id="1920" class="">1920</li>
+                        								<li data-id="1919" class="">1919</li>
+                        								<li data-id="1918" class="">1918</li>
+                        								<li data-id="1917" class="">1917</li>
+                        								<li data-id="1916" class="">1916</li>
+                        								<li data-id="1915" class="">1915</li>
+                        								<li data-id="1914" class="">1914</li>
+                        								<li data-id="1913" class="">1913</li>
+                        								<li data-id="1912" class="">1912</li>
+                        								<li data-id="1911" class="">1911</li>
+                        								<li data-id="1910" class="">1910</li>
+                        								<li data-id="1909" class="">1909</li>
+                        								<li data-id="1908" class="">1908</li>
+                        								<li data-id="1907" class="">1907</li>
+                        								<li data-id="1906" class="">1906</li>
+                        								<li data-id="1905" class="">1905</li>
+                        								<li data-id="1904" class="">1904</li>
+                        								<li data-id="1903" class="">1903</li>
+                        								<li data-id="1902" class="">1902</li>
+                        								<li data-id="1901" class="">1901</li>
+                        								<li data-id="1900" class="">1900</li>
+                        							</ul>
+                        						</div>
+                        					</div>
+                        					<div class="hidden single_input">
+                        						<label for="vehicle-7">hide</label>
+                        						<div class="input_text">
+                        							<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Until</button>
+                        							<input type="text" id="r_to" value="" name="reg_year_until" hidden="">
+                        							<!-- input list or select list here -->
+                        							<ul class="select_list" data-dropdown="select_list" data-type="date-end">
+                        								<li data-id="2025" class="">2025</li>
+                        								<li data-id="2024" class="">2024</li>
+                        								<li data-id="2023" class="">2023</li>
+                        								<li data-id="2022" class="">2022</li>
+                        								<li data-id="2021" class="">2021</li>
+                        								<li data-id="2020" class="">2020</li>
+                        								<li data-id="2019" class="">2019</li>
+                        								<li data-id="2018" class="">2018</li>
+                        								<li data-id="2017" class="">2017</li>
+                        								<li data-id="2016" class="">2016</li>
+                        								<li data-id="2015" class="">2015</li>
+                        								<li data-id="2014" class="">2014</li>
+                        								<li data-id="2013" class="">2013</li>
+                        								<li data-id="2012" class="">2012</li>
+                        								<li data-id="2011" class="">2011</li>
+                        								<li data-id="2010" class="">2010</li>
+                        								<li data-id="2009" class="">2009</li>
+                        								<li data-id="2008" class="">2008</li>
+                        								<li data-id="2007" class="">2007</li>
+                        								<li data-id="2006" class="">2006</li>
+                        								<li data-id="2005" class="">2005</li>
+                        								<li data-id="2004" class="">2004</li>
+                        								<li data-id="2003" class="">2003</li>
+                        								<li data-id="2002" class="">2002</li>
+                        								<li data-id="2001" class="">2001</li>
+                        								<li data-id="2000" class="">2000</li>
+                        								<li data-id="1999" class="">1999</li>
+                        								<li data-id="1998" class="">1998</li>
+                        								<li data-id="1997" class="">1997</li>
+                        								<li data-id="1996" class="">1996</li>
+                        								<li data-id="1995" class="">1995</li>
+                        								<li data-id="1994" class="">1994</li>
+                        								<li data-id="1993" class="">1993</li>
+                        								<li data-id="1992" class="">1992</li>
+                        								<li data-id="1991" class="">1991</li>
+                        								<li data-id="1990" class="">1990</li>
+                        								<li data-id="1989" class="">1989</li>
+                        								<li data-id="1988" class="">1988</li>
+                        								<li data-id="1987" class="">1987</li>
+                        								<li data-id="1986" class="">1986</li>
+                        								<li data-id="1985" class="">1985</li>
+                        								<li data-id="1984" class="">1984</li>
+                        								<li data-id="1983" class="">1983</li>
+                        								<li data-id="1982" class="">1982</li>
+                        								<li data-id="1981" class="">1981</li>
+                        								<li data-id="1980" class="">1980</li>
+                        								<li data-id="1979" class="">1979</li>
+                        								<li data-id="1978" class="">1978</li>
+                        								<li data-id="1977" class="">1977</li>
+                        								<li data-id="1976" class="">1976</li>
+                        								<li data-id="1975" class="">1975</li>
+                        								<li data-id="1974" class="">1974</li>
+                        								<li data-id="1973" class="">1973</li>
+                        								<li data-id="1972" class="">1972</li>
+                        								<li data-id="1971" class="">1971</li>
+                        								<li data-id="1970" class="">1970</li>
+                        								<li data-id="1969" class="">1969</li>
+                        								<li data-id="1968" class="">1968</li>
+                        								<li data-id="1967" class="">1967</li>
+                        								<li data-id="1966" class="">1966</li>
+                        								<li data-id="1965" class="">1965</li>
+                        								<li data-id="1964" class="">1964</li>
+                        								<li data-id="1963" class="">1963</li>
+                        								<li data-id="1962" class="">1962</li>
+                        								<li data-id="1961" class="">1961</li>
+                        								<li data-id="1960" class="">1960</li>
+                        								<li data-id="1959" class="">1959</li>
+                        								<li data-id="1958" class="">1958</li>
+                        								<li data-id="1957" class="">1957</li>
+                        								<li data-id="1956" class="">1956</li>
+                        								<li data-id="1955" class="">1955</li>
+                        								<li data-id="1954" class="">1954</li>
+                        								<li data-id="1953" class="">1953</li>
+                        								<li data-id="1952" class="">1952</li>
+                        								<li data-id="1951" class="">1951</li>
+                        								<li data-id="1950" class="">1950</li>
+                        								<li data-id="1949" class="">1949</li>
+                        								<li data-id="1948" class="">1948</li>
+                        								<li data-id="1947" class="">1947</li>
+                        								<li data-id="1946" class="">1946</li>
+                        								<li data-id="1945" class="">1945</li>
+                        								<li data-id="1944" class="">1944</li>
+                        								<li data-id="1943" class="">1943</li>
+                        								<li data-id="1942" class="">1942</li>
+                        								<li data-id="1941" class="">1941</li>
+                        								<li data-id="1940" class="">1940</li>
+                        								<li data-id="1939" class="">1939</li>
+                        								<li data-id="1938" class="">1938</li>
+                        								<li data-id="1937" class="">1937</li>
+                        								<li data-id="1936" class="">1936</li>
+                        								<li data-id="1935" class="">1935</li>
+                        								<li data-id="1934" class="">1934</li>
+                        								<li data-id="1933" class="">1933</li>
+                        								<li data-id="1932" class="">1932</li>
+                        								<li data-id="1931" class="">1931</li>
+                        								<li data-id="1930" class="">1930</li>
+                        								<li data-id="1929" class="">1929</li>
+                        								<li data-id="1928" class="">1928</li>
+                        								<li data-id="1927" class="">1927</li>
+                        								<li data-id="1926" class="">1926</li>
+                        								<li data-id="1925" class="">1925</li>
+                        								<li data-id="1924" class="">1924</li>
+                        								<li data-id="1923" class="">1923</li>
+                        								<li data-id="1922" class="">1922</li>
+                        								<li data-id="1921" class="">1921</li>
+                        								<li data-id="1920" class="">1920</li>
+                        								<li data-id="1919" class="">1919</li>
+                        								<li data-id="1918" class="">1918</li>
+                        								<li data-id="1917" class="">1917</li>
+                        								<li data-id="1916" class="">1916</li>
+                        								<li data-id="1915" class="">1915</li>
+                        								<li data-id="1914" class="">1914</li>
+                        								<li data-id="1913" class="">1913</li>
+                        								<li data-id="1912" class="">1912</li>
+                        								<li data-id="1911" class="">1911</li>
+                        								<li data-id="1910" class="">1910</li>
+                        								<li data-id="1909" class="">1909</li>
+                        								<li data-id="1908" class="">1908</li>
+                        								<li data-id="1907" class="">1907</li>
+                        								<li data-id="1906" class="">1906</li>
+                        								<li data-id="1905" class="">1905</li>
+                        								<li data-id="1904" class="">1904</li>
+                        								<li data-id="1903" class="">1903</li>
+                        								<li data-id="1902" class="">1902</li>
+                        								<li data-id="1901" class="">1901</li>
+                        								<li data-id="1900" class="">1900</li>
+                        							</ul>
+                        						</div>
+                        					</div>
+                        				</div>
+                        			</div>
+                        			<div class="multi_input">
+                        				<label>Kilometers driven</label>
+                        				<div class="input-wrap">
+                        					<div class="hidden single_input">
+                        						<label for="k_from">hide</label>
+                        						<div class="input_text">
+                        							<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">From</button>
+                        							<input type="text" id="k_from" value="" name="distance_from" hidden="">
+                        							<!-- input list or select list here -->
+                        							<ul class="select_list" data-dropdown="select_list" data-type="drive_from">
+                        								<li data-id="0" class="">Any</li>
+                        								<li data-id="500" class="">500 km</li>
+                        								<li data-id="1000" class="">1,000 km</li>
+                        								<li data-id="1500" class="">1,500 km</li>
+                        								<li data-id="2000" class="">2,000 km</li>
+                        								<li data-id="2500" class="">2,500 km</li>
+                        								<li data-id="3000" class="">3,000 km</li>
+                        								<li data-id="3500" class="">3,500 km</li>
+                        								<li data-id="4000" class="">4,000 km</li>
+                        								<li data-id="4500" class="">4,500 km</li>
+                        								<li data-id="5000" class="">5,000 km</li>
+                        								<li data-id="6000" class="">6,000 km</li>
+                        								<li data-id="7000" class="">7,000 km</li>
+                        								<li data-id="8000" class="">8,000 km</li>
+                        								<li data-id="9000" class="">9,000 km</li>
+                        								<li data-id="10000" class="">10,000 km</li>
+                        								<li data-id="11000" class="">11,000 km</li>
+                        								<li data-id="12000" class="">12,000 km</li>
+                        								<li data-id="13000" class="">13,000 km</li>
+                        								<li data-id="14000" class="">14,000 km</li>
+                        								<li data-id="15000" class="">15,000 km</li>
+                        								<li data-id="17500" class="">17,500 km</li>
+                        								<li data-id="20000" class="">20,000 km</li>
+                        								<li data-id="22500" class="">22,500 km</li>
+                        								<li data-id="25000" class="">25,000 km</li>
+                        								<li data-id="30000" class="">30,000 km</li>
+                        								<li data-id="35000" class="">35,000 km</li>
+                        								<li data-id="40000" class="">40,000 km</li>
+                        								<li data-id="45000" class="">45,000 km</li>
+                        								<li data-id="50000" class="">50,000 km</li>
+                        								<li data-id="60000" class="">60,000 km</li>
+                        								<li data-id="70000" class="">70,000 km</li>
+                        								<li data-id="80000" class="">80,000 km</li>
+                        								<li data-id="90000" class="">90,000 km</li>
+                        								<li data-id="100000" class="">100,000 km</li>
+                        								<li data-id="110000" class="">110,000 km</li>
+                        								<li data-id="120000" class="">120,000 km</li>
+                        								<li data-id="130000" class="">130,000 km</li>
+                        								<li data-id="140000" class="">140,000 km</li>
+                        								<li data-id="150000" class="">150,000 km</li>
+                        							</ul>
+                        						</div>
+                        					</div>
+                        					<div class="hidden single_input">
+                        						<label for="vehicle-9">hide</label>
+                        						<div class="input_text">
+                        							<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Until</button>
+                        							<input type="text" id="k_to" value="" name="distance_until" hidden="">
+                        							<!-- input list or select list here -->
+                        							<ul class="select_list" data-dropdown="select_list" data-type="drive-end">
+                        								<li data-id="0" class="">Any</li>
+                        								<li data-id="500" class="">500 km</li>
+                        								<li data-id="1000" class="">1,000 km</li>
+                        								<li data-id="1500" class="">1,500 km</li>
+                        								<li data-id="2000" class="">2,000 km</li>
+                        								<li data-id="2500" class="">2,500 km</li>
+                        								<li data-id="3000" class="">3,000 km</li>
+                        								<li data-id="3500" class="">3,500 km</li>
+                        								<li data-id="4000" class="">4,000 km</li>
+                        								<li data-id="4500" class="">4,500 km</li>
+                        								<li data-id="5000" class="">5,000 km</li>
+                        								<li data-id="6000" class="">6,000 km</li>
+                        								<li data-id="7000" class="">7,000 km</li>
+                        								<li data-id="8000" class="">8,000 km</li>
+                        								<li data-id="9000" class="">9,000 km</li>
+                        								<li data-id="10000" class="">10,000 km</li>
+                        								<li data-id="11000" class="">11,000 km</li>
+                        								<li data-id="12000" class="">12,000 km</li>
+                        								<li data-id="13000" class="">13,000 km</li>
+                        								<li data-id="14000" class="">14,000 km</li>
+                        								<li data-id="15000" class="">15,000 km</li>
+                        								<li data-id="17500" class="">17,500 km</li>
+                        								<li data-id="20000" class="">20,000 km</li>
+                        								<li data-id="22500" class="">22,500 km</li>
+                        								<li data-id="25000" class="">25,000 km</li>
+                        								<li data-id="30000" class="">30,000 km</li>
+                        								<li data-id="35000" class="">35,000 km</li>
+                        								<li data-id="40000" class="">40,000 km</li>
+                        								<li data-id="45000" class="">45,000 km</li>
+                        								<li data-id="50000" class="">50,000 km</li>
+                        								<li data-id="60000" class="">60,000 km</li>
+                        								<li data-id="70000" class="">70,000 km</li>
+                        								<li data-id="80000" class="">80,000 km</li>
+                        								<li data-id="90000" class="">90,000 km</li>
+                        								<li data-id="100000" class="">100,000 km</li>
+                        								<li data-id="110000" class="">110,000 km</li>
+                        								<li data-id="120000" class="">120,000 km</li>
+                        								<li data-id="130000" class="">130,000 km</li>
+                        								<li data-id="140000" class="">140,000 km</li>
+                        								<li data-id="150000" class="">150,000 km</li>
+                        							</ul>
+                        						</div>
+                        					</div>
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="seats"> No of Seat</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Select</button>
+                        					<input type="text" id="seats" value="" name="seat" hidden="">
+                        					<!-- input list or select list here -->
+                        					<ul class="select_list" data-dropdown="select_list" data-type="seating-end">
+                        						<li data-id="">Any</li>
+                        						<li data-id="1" class="">1</li>
+                        						<li data-id="2" class="">2</li>
+                        						<li data-id="3" class="">3</li>
+                        						<li data-id="4" class="">4</li>
+                        						<li data-id="5" class="">5</li>
+                        						<li data-id="6" class="">6</li>
+                        						<li data-id="7" class="">7</li>
+                        						<li data-id="8" class="">8</li>
+                        						<li data-id="9" class="">9</li>
+                        						<li data-id="10" class="">10</li>
+                        					</ul>
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="doors">No of doors</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Select</button>
+                        					<input type="text" id="doors" value="" name="door" hidden="">
+                        					<!-- input list or select list here -->
+                        					<ul class="select_list" data-dropdown="select_list" data-type="seating-end">
+                        						<li data-id="">Any</li>
+                        						<li data-id="1" class="">1</li>
+                        						<li data-id="2" class="">2</li>
+                        						<li data-id="3" class="">3</li>
+                        						<li data-id="4" class="">4</li>
+                        						<li data-id="5" class="">5</li>
+                        						<li data-id="6" class="">6</li>
+                        						<li data-id="7" class="">7</li>
+                        						<li data-id="8" class="">8</li>
+                        						<li data-id="9" class="">9</li>
+                        						<li data-id="10" class="">10</li>
+                        					</ul>
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="sliding_door">Sliding doors</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Select</button>
+                        					<input type="text" id="sliding_door" value="" name="sliding_door_id" hidden="">
+                        					<!-- input list or select list here -->
+                        					<ul class="select_list" data-dropdown="select_list" data-type="seating-end">
+                        						<li data-id="">Any</li>
+                        						<li data-id="1" class="">Sliding door on right</li>
+                        						<li data-id="2" class="">Sliding door on left</li>
+                        						<li data-id="3" class="">Sliding door on both sides</li>
+                        					</ul>
+                        				</div>
+                        			</div>
+                        		</div>
+                        		<div class="condition">
+                        			<h4>Type and Condition</h4>
+                        			<ul class="condition_radio" data-radio="condition">
+                        				<li class="single_check ">
+                        					<input type="radio" name="condition_id" id="t1" value="1">
+                        					<label for="t1">New</label>
+                        				</li>
+                        				<li class="single_check ">
+                        					<input type="radio" name="condition_id" id="t2" value="2">
+                        					<label for="t2">Used/Old</label>
+                        				</li>
+                        			</ul>
+                        		</div>
+                        		<div class="input_selects">
+                        			<div class="single_input">
+                        				<label for="location">Location</label>
+                        				<div class="input_text">
+                        					<input type="text" value="" name="location" id="location" data-search="location" placeholder="Enter location">
+                        					<ul class="select_list"></ul>
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="zip_code">Zip code</label>
+                        				<div class="input_text">
+                        					<input type="text" id="zip_code" value="" name="zipcode" placeholder="Enter zip code">
+                        				</div>
+                        			</div>
+                        		</div>
+                        	</div>
+                        </div>
+                        <!-- Technical search -->
+                        <div class="rounded-[15px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] p-6">
+                        	<h2>
+                        		<button type="button" onclick="openTab(this,'technical_tab')">Technical Details</button>
+                        	</h2>
+                        	<div class="search_content ex-color" data-tab="technical_tab" data-name="vehicle-technical">
+                        		<h4>Fuel type</h4>
+                        		<ul class="search_ul fuel_check">
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="1" id="cc1">
+                        				<label for="cc1">Petrol</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="2" id="cc2">
+                        				<label for="cc2">Diesel</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="3" id="cc3">
+                        				<label for="cc3">Electric</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="4" id="cc4">
+                        				<label for="cc4">LPG</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="5" id="cc5">
+                        				<label for="cc5">Natural Gas</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="6" id="cc6">
+                        				<label for="cc6">Hybrid (petrol/electric)</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="7" id="cc7">
+                        				<label for="cc7">Hybrid (diesel/electric)</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="8" id="cc8">
+                        				<label for="cc8">Ethanol (FFV, E85, etc.)</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="9" id="cc9">
+                        				<label for="cc9">Hydrogen</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="fuel_id[]" value="10" id="cc10">
+                        				<label for="cc10">Other</label>
+                        			</li>
+                        		</ul>
+                        		<div class="input_selects">
+                        			<div class="flex gap-8 multi_input grid_min2">
+                        				<div class="single_input">
+                        					<label for="d_from">Displacement*</label>
+                        					<div class="input_text">
+                        						<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">From</button>
+                        						<input type="text" id="d_from" value="" name="displacement_from" hidden="">
+                        						<!-- input list or select list here -->
+                        						<ul class="select_list" data-dropdown="select_list" data-type="displacement">
+                        							<li data-id="">Any</li>
+                        							<li data-id="100" class="">100 cm³</li>
+                        							<li data-id="200" class="">200 cm³</li>
+                        							<li data-id="300" class="">300 cm³</li>
+                        							<li data-id="400" class="">400 cm³</li>
+                        							<li data-id="500" class="">500 cm³</li>
+                        							<li data-id="600" class="">600 cm³</li>
+                        							<li data-id="700" class="">700 cm³</li>
+                        							<li data-id="800" class="">800 cm³</li>
+                        							<li data-id="900" class="">900 cm³</li>
+                        							<li data-id="1000" class="">1000 cm³</li>
+                        							<li data-id="1500" class="">1500 cm³</li>
+                        							<li data-id="2000" class="">2000 cm³</li>
+                        							<li data-id="2500" class="">2500 cm³</li>
+                        							<li data-id="3000" class="">3000 cm³</li>
+                        							<li data-id="3500" class="">3500 cm³</li>
+                        							<li data-id="4000" class="">4000 cm³</li>
+                        							<li data-id="4500" class="">4500 cm³</li>
+                        							<li data-id="5000" class="">5000 cm³</li>
+                        						</ul>
+                        					</div>
+                        				</div>
+                        				<div class="hidden single_input">
+                        					<label for="d_to">hide</label>
+                        					<div class="input_text">
+                        						<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Until</button>
+                        						<input type="text" id="d_to" value="" name="displacement_until" hidden="">
+                        						<!-- input list or select list here -->
+                        						<ul class="select_list" data-dropdown="select_list" data-type="performance-end">
+                        							<li data-id="">Any</li>
+                        							<li data-id="100" class="">100 cm³</li>
+                        							<li data-id="200" class="">200 cm³</li>
+                        							<li data-id="300" class="">300 cm³</li>
+                        							<li data-id="400" class="">400 cm³</li>
+                        							<li data-id="500" class="">500 cm³</li>
+                        							<li data-id="600" class="">600 cm³</li>
+                        							<li data-id="700" class="">700 cm³</li>
+                        							<li data-id="800" class="">800 cm³</li>
+                        							<li data-id="900" class="">900 cm³</li>
+                        							<li data-id="1000" class="">1000 cm³</li>
+                        							<li data-id="1500" class="">1500 cm³</li>
+                        							<li data-id="2000" class="">2000 cm³</li>
+                        							<li data-id="2500" class="">2500 cm³</li>
+                        							<li data-id="3000" class="">3000 cm³</li>
+                        							<li data-id="3500" class="">3500 cm³</li>
+                        							<li data-id="4000" class="">4000 cm³</li>
+                        							<li data-id="4500" class="">4500 cm³</li>
+                        							<li data-id="5000" class="">5000 cm³</li>
+                        						</ul>
+                        					</div>
+                        				</div>
+                        			</div>
+                        			<div class="single_input d_center grid_max2">
+                        				<label>Transmission</label>
+                        				<ul class="gap-16 d_flex transmission type_check" id="trans" data-checkbox="car_transmission" data-search="technical_transmission">
+                        					<li class="single_radio ">
+                        						<input type="checkbox" value="1" name="transmission_id[]" id="tm1">
+                        						<label for="tm1">Automatic</label>
+                        					</li>
+                        					<li class="single_radio ">
+                        						<input type="checkbox" value="2" name="transmission_id[]" id="tm2">
+                        						<label for="tm2">Semi-Automatic</label>
+                        					</li>
+                        					<li class="single_radio ">
+                        						<input type="checkbox" value="3" name="transmission_id[]" id="tm3">
+                        						<label for="tm3">Mannual</label>
+                        					</li>
+                        				</ul>
+                        			</div>
+                        			<div class="flex gap-8 multi_input grid_min">
+                        				<div class="single_input grid_min">
+                        					<label for="c_from">Power*</label>
+                        					<div class="input_text">
+                        						<button type="button" class="select_btn" onclick="customSelect(event,this)">From</button>
+                        						<input type="text" for="c_from" value="" name="power_from" hidden="">
+                        						<!-- input list or select list here -->
+                        						<ul class="select_list" data-dropdown="select_list" data-type="power">
+                        							<li data-id="">Any</li>
+                        							<li data-id="50" class=""> 50 </li>
+                        							<li data-id="70" class=""> 70 </li>
+                        							<li data-id="90" class=""> 90 </li>
+                        							<li data-id="110" class=""> 110 </li>
+                        							<li data-id="130" class=""> 130 </li>
+                        							<li data-id="150" class=""> 150 </li>
+                        							<li data-id="170" class=""> 170 </li>
+                        							<li data-id="190" class=""> 190 </li>
+                        							<li data-id="210" class=""> 210 </li>
+                        							<li data-id="230" class=""> 230 </li>
+                        							<li data-id="250" class=""> 250 </li>
+                        							<li data-id="270" class=""> 270 </li>
+                        							<li data-id="290" class=""> 290 </li>
+                        							<li data-id="310" class=""> 310 </li>
+                        							<li data-id="330" class=""> 330 </li>
+                        							<li data-id="350" class=""> 350 </li>
+                        							<li data-id="370" class=""> 370 </li>
+                        							<li data-id="390" class=""> 390 </li>
+                        							<li data-id="410" class=""> 410 </li>
+                        							<li data-id="430" class=""> 430 </li>
+                        							<li data-id="450" class=""> 450 </li>
+                        							<li data-id="470" class=""> 470 </li>
+                        							<li data-id="490" class=""> 490 </li>
+                        							<li data-id="510" class=""> 510 </li>
+                        							<li data-id="560" class=""> 560 </li>
+                        							<li data-id="610" class=""> 610 </li>
+                        							<li data-id="660" class=""> 660 </li>
+                        							<li data-id="710" class=""> 710 </li>
+                        							<li data-id="760" class=""> 760 </li>
+                        							<li data-id="810" class=""> 810 </li>
+                        							<li data-id="860" class=""> 860 </li>
+                        							<li data-id="910" class=""> 910 </li>
+                        							<li data-id="960" class=""> 960 </li>
+                        							<li data-id="1010" class=""> 1010 </li>
+                        						</ul>
+                        					</div>
+                        				</div>
+                        				<div class="hidden single_input">
+                        					<label for="c_to">hide</label>
+                        					<div class="input_text">
+                        						<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Until</button>
+                        						<input type="text" id="c_to" value="" name="power_until" hidden="">
+                        						<!-- input list or select list here -->
+                        						<ul class="select_list" data-dropdown="select_list" data-type="performance-end">
+                        							<li data-id="">Any</li>
+                        							<li data-id="50" class=""> 50 </li>
+                        							<li data-id="70" class=""> 70 </li>
+                        							<li data-id="90" class=""> 90 </li>
+                        							<li data-id="110" class=""> 110 </li>
+                        							<li data-id="130" class=""> 130 </li>
+                        							<li data-id="150" class=""> 150 </li>
+                        							<li data-id="170" class=""> 170 </li>
+                        							<li data-id="190" class=""> 190 </li>
+                        							<li data-id="210" class=""> 210 </li>
+                        							<li data-id="230" class=""> 230 </li>
+                        							<li data-id="250" class=""> 250 </li>
+                        							<li data-id="270" class=""> 270 </li>
+                        							<li data-id="290" class=""> 290 </li>
+                        							<li data-id="310" class=""> 310 </li>
+                        							<li data-id="330" class=""> 330 </li>
+                        							<li data-id="350" class=""> 350 </li>
+                        							<li data-id="370" class=""> 370 </li>
+                        							<li data-id="390" class=""> 390 </li>
+                        							<li data-id="410" class=""> 410 </li>
+                        							<li data-id="430" class=""> 430 </li>
+                        							<li data-id="450" class=""> 450 </li>
+                        							<li data-id="470" class=""> 470 </li>
+                        							<li data-id="490" class=""> 490 </li>
+                        							<li data-id="510" class=""> 510 </li>
+                        							<li data-id="560" class=""> 560 </li>
+                        							<li data-id="610" class=""> 610 </li>
+                        							<li data-id="660" class=""> 660 </li>
+                        							<li data-id="710" class=""> 710 </li>
+                        							<li data-id="760" class=""> 760 </li>
+                        							<li data-id="810" class=""> 810 </li>
+                        							<li data-id="860" class=""> 860 </li>
+                        							<li data-id="910" class=""> 910 </li>
+                        							<li data-id="960" class=""> 960 </li>
+                        							<li data-id="1010" class=""> 1010 </li>
+                        						</ul>
+                        					</div>
+                        				</div>
+                        			</div>
+                        			<div class="single_input d_around grid_max">
+                        				<label>Power type</label>
+                        				<div class="gap-16 d_flex power_radio" id="hide" data-radio="power_type">
+                        					<div class="single_check ">
+                        						<input type="radio" name="power_id" value="1" id="PS">
+                        						<label for="PS">PS</label>
+                        					</div>
+                        					<div class="single_check ">
+                        						<input type="radio" name="power_id" value="2" id="kW">
+                        						<label for="kW">kW</label>
+                        					</div>
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="fuel_consumption">Fuel consumption (combined) up to</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)">Select</button>
+                        					<input type="text" id="vehicle-21" value="" name="fuel_consumption" hidden="">
+                        					<!-- input list or select list here -->
+                        					<ul class="select_list" data-dropdown="select_list" data-type="fuel_consumption">
+                        						<li data-id="1" class="">1L/100km</li>
+                        						<li data-id="2" class="">2L/100km</li>
+                        						<li data-id="3" class="">3L/100km</li>
+                        						<li data-id="4" class="">4L/100km</li>
+                        						<li data-id="5" class="">5L/100km</li>
+                        						<li data-id="6" class="">6L/100km</li>
+                        						<li data-id="7" class="">7L/100km</li>
+                        						<li data-id="8" class="">8L/100km</li>
+                        						<li data-id="9" class="">9L/100km</li>
+                        						<li data-id="10" class="">10L/100km</li>
+                        						<li data-id="15" class="">15L/100km</li>
+                        						<li data-id="20" class="">20L/100km</li>
+                        						<li data-id="25" class="">25L/100km</li>
+                        						<li data-id="30" class="">30L/100km</li>
+                        					</ul>
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="environmental_badge" class="info">Environmental badge</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)">Select</button>
+                        					<input type="text" id="environmental_badge" value="" name="badge_id" hidden="">
+                        					<!-- you can show here by php if condition -->
+                        					<ul class="select_list" data-dropdown="select_list" data-type="badge_id">
+                        						<li data-id="1" class="">Yellow Badge</li>
+                        						<li data-id="2" class="">Red Badge</li>
+                        						<li data-id="3" class="">Green Badge</li>
+                        						<li data-id="4" class="">No Badge</li>
+                        					</ul>
+                        					<!-- <p class="err_msg"> Incorrect or empty password</p> -->
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="emission_class" class="info">Emission class*</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)">Select</button>
+                        					<input type="text" id="emission_class" value="" name="emission_class_id" hidden="">
+                        					<!-- input list or select list here -->
+                        					<ul class="select_list" data-dropdown="select_list" data-type="emission_class_id">
+                        						<li data-id="1" class="">Euro 1</li>
+                        						<li data-id="2" class="">Euro 2</li>
+                        						<li data-id="3" class="">Euro 3</li>
+                        						<li data-id="4" class="">Euro 4</li>
+                        						<li data-id="5" class="">Euro 5</li>
+                        						<li data-id="6" class="">Euro 6</li>
+                        						<li data-id="7" class="">Euro 6d-TEMP</li>
+                        						<li data-id="8" class="">Euro 6d</li>
+                        						<li data-id="9" class="">Euro 6d-FINAL</li>
+                        					</ul>
+                        				</div>
+                        			</div>
+                        		</div>
+                        	</div>
+                        </div>
+                        <!-- Exterior color search -->
+                        <div class="rounded-[15px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] p-6">
+                        	<h2>
+                        		<button type="button" onclick="openTab(this,'exterior_tab')">Exterior</button>
+                        	</h2>
+                        	<div class="search_content ex-color" data-tab="exterior_tab" data-name="vehicle-exterior">
+                        		<h4>Exterior color</h4>
+                        		<ul class="search_ul ex_check">
+                        			<li class="single_radio beige ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl1" value="1">
+                        				<label for="cl1">Beige</label>
+                        			</li>
+                        			<li class="single_radio brown ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl2" value="2">
+                        				<label for="cl2">Brown</label>
+                        			</li>
+                        			<li class="single_radio gold ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl3" value="3">
+                        				<label for="cl3">Gold</label>
+                        			</li>
+                        			<li class="single_radio green ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl4" value="4">
+                        				<label for="cl4">Green</label>
+                        			</li>
+                        			<li class="single_radio red ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl5" value="5">
+                        				<label for="cl5">Red</label>
+                        			</li>
+                        			<li class="single_radio blue ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl6" value="6">
+                        				<label for="cl6">Blue</label>
+                        			</li>
+                        			<li class="single_radio yellow ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl7" value="7">
+                        				<label for="cl7">Yellow</label>
+                        			</li>
+                        			<li class="single_radio grey ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl8" value="8">
+                        				<label for="cl8">Grey</label>
+                        			</li>
+                        			<li class="single_radio orange ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl9" value="9">
+                        				<label for="cl9">Orange</label>
+                        			</li>
+                        			<li class="single_radio black ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl10" value="10">
+                        				<label for="cl10">Black</label>
+                        			</li>
+                        			<li class="single_radio violet ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl11" value="11">
+                        				<label for="cl11">Violet</label>
+                        			</li>
+                        			<li class="single_radio metallic ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl12" value="12">
+                        				<label for="cl12">Metallic</label>
+                        			</li>
+                        			<li class="single_radio silver ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl13" value="13">
+                        				<label for="cl13">Silver</label>
+                        			</li>
+                        			<li class="single_radio white ">
+                        				<input type="checkbox" name="ex_color_id[]" id="cl14" value="14">
+                        				<label for="cl14">White</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Trailer hitch</h4>
+                        		<ul class="search_ul ex_check">
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th1" value="1">
+                        				<label for="th1">Receiver Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th2" value="2">
+                        				<label for="th2">Bumper Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th3" value="3">
+                        				<label for="th3">Fifth-Wheel Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th4" value="4">
+                        				<label for="th4">Gooseneck Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th5" value="5">
+                        				<label for="th5">Weight Distribution Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th6" value="6">
+                        				<label for="th6">Pintle Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th7" value="7">
+                        				<label for="th7">Front Mount Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th8" value="8">
+                        				<label for="th8">Adjustable Ball Mount Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th9" value="9">
+                        				<label for="th9">RV Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th10" value="10">
+                        				<label for="th10">Bumper Pull Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th11" value="11">
+                        				<label for="th11">Custom and Specialty Hitches</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th12" value="12">
+                        				<label for="th12">Drop Hitch</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="hitch_id[]" id="th13" value="13">
+                        				<label for="th13">Multi-Ball Hitch</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Parking aid</h4>
+                        		<ul class="search_ul park_check">
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa1" value="1">
+                        				<label for="pa1">Rear Parking Sensors</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa2" value="2">
+                        				<label for="pa2">Front Parking Sensors</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa3" value="3">
+                        				<label for="pa3">360-Degree Camera System</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa4" value="4">
+                        				<label for="pa4">Rearview Camera</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa5" value="5">
+                        				<label for="pa5">Parking Assistance System</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa6" value="6">
+                        				<label for="pa6">Parallel Parking Assist</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa7" value="7">
+                        				<label for="pa7">Perpendicular Parking Assist</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa8" value="8">
+                        				<label for="pa8">Park Distance Control</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa9" value="9">
+                        				<label for="pa9">Automatic Parking System</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa10" value="10">
+                        				<label for="pa10">Park Assist Pilot</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa11" value="11">
+                        				<label for="pa11">Rear Cross Traffic Alert</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa12" value="12">
+                        				<label for="pa12">Parktronic</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa13" value="13">
+                        				<label for="pa13">Active Parking Assist</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa14" value="14">
+                        				<label for="pa14">Advanced Park Assist</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa15" value="15">
+                        				<label for="pa15">Surround View Monitor</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" name="parking_aid_id[]" id="pa16" value="16">
+                        				<label for="pa16">Smart Parking Assist</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Cruise control</h4>
+                        		<ul class="search_ul cruise1_radio" data-radio="cruise_control">
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn1" value="1">
+                        				<label for="cn1">Standard Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn2" value="2">
+                        				<label for="cn2">Adaptive Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn3" value="3">
+                        				<label for="cn3">Dynamic Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn4" value="4">
+                        				<label for="cn4">Intelligent Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn5" value="5">
+                        				<label for="cn5">Radar Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn6" value="6">
+                        				<label for="cn6">Traffic-Aware Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn7" value="7">
+                        				<label for="cn7">Cruise Control with Stop &amp; Go</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn8" value="8">
+                        				<label for="cn8">Predictive Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn9" value="9">
+                        				<label for="cn9">Lane Keeping Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn10" value="10">
+                        				<label for="cn10">Full-Speed Range Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn11" value="11">
+                        				<label for="cn11">Highway Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn12" value="12">
+                        				<label for="cn12">Advanced Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn13" value="13">
+                        				<label for="cn13">Super Cruise</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn14" value="14">
+                        				<label for="cn14">Cooperative Adaptive Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn15" value="15">
+                        				<label for="cn15">Automatic Cruise Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="cruise_id" id="cn16" value="16">
+                        				<label for="cn16">Predictive Eco Cruise Control</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Further equipment</h4>
+                        		<ul class="equipment eq_check">
+                        			<li class="single_radio">
+                        				<input id="ext1" type="checkbox" name="exterior_id[]" value="1">
+                        				<label for="ext1">Adaptive cornering lights</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext2" type="checkbox" name="exterior_id[]" value="2">
+                        				<label for="ext2">Bi-Xenon headlights</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext3" type="checkbox" name="exterior_id[]" value="3">
+                        				<label for="ext3">Glare-free high beam</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext4" type="checkbox" name="exterior_id[]" value="4">
+                        				<label for="ext4">Laser light</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext5" type="checkbox" name="exterior_id[]" value="5">
+                        				<label for="ext5">LED headlights</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext6" type="checkbox" name="exterior_id[]" value="6">
+                        				<label for="ext6">LED daytime running lights</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext7" type="checkbox" name="exterior_id[]" value="7">
+                        				<label for="ext7">Fog lights</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext8" type="checkbox" name="exterior_id[]" value="8">
+                        				<label for="ext8">Cornering light</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext9" type="checkbox" name="exterior_id[]" value="9">
+                        				<label for="ext9">Xenon headlights</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext10" type="checkbox" name="exterior_id[]" value="10">
+                        				<label for="ext10">Daytime running lights</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext11" type="checkbox" name="exterior_id[]" value="11">
+                        				<label for="ext11">High beam assistant</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext12" type="checkbox" name="exterior_id[]" value="12">
+                        				<label for="ext12">Light sensor</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext13" type="checkbox" name="exterior_id[]" value="13">
+                        				<label for="ext13">All wheel drive</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext14" type="checkbox" name="exterior_id[]" value="14">
+                        				<label for="ext14">Traction control</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext15" type="checkbox" name="exterior_id[]" value="15">
+                        				<label for="ext15">Rear Spoiler</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext16" type="checkbox" name="exterior_id[]" value="16">
+                        				<label for="ext16">Front Lip Spoiler</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext17" type="checkbox" name="exterior_id[]" value="17">
+                        				<label for="ext17">Side Skirts</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext18" type="checkbox" name="exterior_id[]" value="18">
+                        				<label for="ext18">Rear Diffuser</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext19" type="checkbox" name="exterior_id[]" value="19">
+                        				<label for="ext19">All-weather tires</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext20" type="checkbox" name="exterior_id[]" value="20">
+                        				<label for="ext20">Alloy wheels</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext21" type="checkbox" name="exterior_id[]" value="21">
+                        				<label for="ext21">Steel rims</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext22" type="checkbox" name="exterior_id[]" value="22">
+                        				<label for="ext22">Summer tires</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext23" type="checkbox" name="exterior_id[]" value="23">
+                        				<label for="ext23">Winter tires</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext24" type="checkbox" name="exterior_id[]" value="24">
+                        				<label for="ext24">Spare wheel</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext25" type="checkbox" name="exterior_id[]" value="25">
+                        				<label for="ext25">Breakdown kit</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext26" type="checkbox" name="exterior_id[]" value="26">
+                        				<label for="ext26">Heated windshield</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext27" type="checkbox" name="exterior_id[]" value="27">
+                        				<label for="ext27">Tinted Windows</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext28" type="checkbox" name="exterior_id[]" value="28">
+                        				<label for="ext28">Heated Mirrors</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext29" type="checkbox" name="exterior_id[]" value="29">
+                        				<label for="ext29">Power-Folding Mirrors</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext30" type="checkbox" name="exterior_id[]" value="30">
+                        				<label for="ext30">Rain-Sensing Wipers</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext31" type="checkbox" name="exterior_id[]" value="31">
+                        				<label for="ext31">Roof rails</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext32" type="checkbox" name="exterior_id[]" value="32">
+                        				<label for="ext32">Panorama roof</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext33" type="checkbox" name="exterior_id[]" value="33">
+                        				<label for="ext33">Sunroof</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext34" type="checkbox" name="exterior_id[]" value="34">
+                        				<label for="ext34">Roof Box</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext35" type="checkbox" name="exterior_id[]" value="35">
+                        				<label for="ext35">Distance warning</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext36" type="checkbox" name="exterior_id[]" value="36">
+                        				<label for="ext36">ESP</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext37" type="checkbox" name="exterior_id[]" value="37">
+                        				<label for="ext37">Speed limit system</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="ext38" type="checkbox" name="exterior_id[]" value="38">undefined<label for="ext38">Night vision assistant</label>
+                        			</li>
+                        			<li class="single_radio">undefined<input id="ext39" type="checkbox" name="exterior_id[]" value="39">undefined<label for="ext39">Emergency brake assistant</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext40" type="checkbox" name="exterior_id[]" value="40">undefined<label for="ext40">Blind Spot Assist</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext41" type="checkbox" name="exterior_id[]" value="41">undefined<label for="ext41">Lane keeping assistant</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext42" type="checkbox" name="exterior_id[]" value="42">undefined<label for="ext42">Traffic sign recognition</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext43" type="checkbox" name="exterior_id[]" value="43">undefined<label for="ext43">Electric tailgate</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext44" type="checkbox" name="exterior_id[]" value="44">undefined<label for="ext44">Electric immobiliser</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext45" type="checkbox" name="exterior_id[]" value="45">undefined<label for="ext45">Rain sensor</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext46" type="checkbox" name="exterior_id[]" value="46">undefined<label for="ext46">Tire pressure control</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext47" type="checkbox" name="exterior_id[]" value="47">undefined<label for="ext47">Headlight cleaning</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext48" type="checkbox" name="exterior_id[]" value="48">undefined<label for="ext48">Keyless central locking</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext49" type="checkbox" name="exterior_id[]" value="49">undefined<label for="ext49">Power steering</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext50" type="checkbox" name="exterior_id[]" value="50">undefined<label for="ext50">Automatic start/stop</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext51" type="checkbox" name="exterior_id[]" value="51">undefined<label for="ext51">Central locking system</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext52" type="checkbox" name="exterior_id[]" value="52">undefined<label for="ext52">Air suspension</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext53" type="checkbox" name="exterior_id[]" value="53">undefined<label for="ext53">Hill start assistant</label>undefined</li>undefined<li class="single_radio">undefined<input id="ext54" type="checkbox" name="exterior_id[]" value="54">undefined<label for="ext54">Sports suspension</label>undefined</li>undefined
+                        		</ul>undefined
+                        	</div>undefined
+                        </div>
+                        <!-- Interior color search -->
+                        <div class="rounded-[15px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] p-6">
+                        	<h2>
+                        		<button type="button" onclick="openTab(this,'interior_tab')">Interior</button>
+                        	</h2>
+                        	<div class="search_content ex-color" data-tab="interior_tab" data-name="vehicle-interior">
+                        		<h4>Interior color</h4>
+                        		<ul class="search_ul in_check">
+                        			<li class="single_radio beige ">
+                        				<input type="checkbox" id="col1" name="in_color_id[]" value="1">
+                        				<label for="col1">Beige</label>
+                        			</li>
+                        			<li class="single_radio brown ">
+                        				<input type="checkbox" id="col2" name="in_color_id[]" value="2">
+                        				<label for="col2">Brown</label>
+                        			</li>
+                        			<li class="single_radio gold ">
+                        				<input type="checkbox" id="col3" name="in_color_id[]" value="3">
+                        				<label for="col3">Gold</label>
+                        			</li>
+                        			<li class="single_radio green ">
+                        				<input type="checkbox" id="col4" name="in_color_id[]" value="4">
+                        				<label for="col4">Green</label>
+                        			</li>
+                        			<li class="single_radio red ">
+                        				<input type="checkbox" id="col5" name="in_color_id[]" value="5">
+                        				<label for="col5">Red</label>
+                        			</li>
+                        			<li class="single_radio blue ">
+                        				<input type="checkbox" id="col6" name="in_color_id[]" value="6">
+                        				<label for="col6">Blue</label>
+                        			</li>
+                        			<li class="single_radio yellow ">
+                        				<input type="checkbox" id="col7" name="in_color_id[]" value="7">
+                        				<label for="col7">Yellow</label>
+                        			</li>
+                        			<li class="single_radio grey ">
+                        				<input type="checkbox" id="col8" name="in_color_id[]" value="8">
+                        				<label for="col8">Grey</label>
+                        			</li>
+                        			<li class="single_radio orange ">
+                        				<input type="checkbox" id="col9" name="in_color_id[]" value="9">
+                        				<label for="col9">Orange</label>
+                        			</li>
+                        			<li class="single_radio black ">
+                        				<input type="checkbox" id="col10" name="in_color_id[]" value="10">
+                        				<label for="col10">Black</label>
+                        			</li>
+                        			<li class="single_radio violet ">
+                        				<input type="checkbox" id="col11" name="in_color_id[]" value="11">
+                        				<label for="col11">Violet</label>
+                        			</li>
+                        			<li class="single_radio metallic ">
+                        				<input type="checkbox" id="col12" name="in_color_id[]" value="12">
+                        				<label for="col12">Metallic</label>
+                        			</li>
+                        			<li class="single_radio silver ">
+                        				<input type="checkbox" id="col13" name="in_color_id[]" value="13">
+                        				<label for="col13">Silver</label>
+                        			</li>
+                        			<li class="single_radio white ">
+                        				<input type="checkbox" id="col14" name="in_color_id[]" value="14">
+                        				<label for="col14">White</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Interior material</h4>
+                        		<ul class="equipment in_check">
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m1" name="interior_material_id[]" value="1">
+                        				<label for="m1">Leather</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m2" name="interior_material_id[]" value="2">
+                        				<label for="m2">Fabric</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m3" name="interior_material_id[]" value="3">
+                        				<label for="m3">Vinyl</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m4" name="interior_material_id[]" value="4">
+                        				<label for="m4">Alcantara</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m5" name="interior_material_id[]" value="5">
+                        				<label for="m5">Suede</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m6" name="interior_material_id[]" value="6">
+                        				<label for="m6">Wood</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m7" name="interior_material_id[]" value="7">
+                        				<label for="m7">Metal</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m8" name="interior_material_id[]" value="8">
+                        				<label for="m8">Carbon Fiber</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="m9" name="interior_material_id[]" value="9">
+                        				<label for="m9">Plastic</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Airbags</h4>
+                        		<ul class="search_ul park2_check">
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a1" name="airbag_id[]" value="1">
+                        				<label for="a1">Driver Airbag</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a2" name="airbag_id[]" value="2">
+                        				<label for="a2">Passenger Airbag</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a3" name="airbag_id[]" value="3">
+                        				<label for="a3">Side Airbag</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a4" name="airbag_id[]" value="4">
+                        				<label for="a4">Curtain Airbag</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a5" name="airbag_id[]" value="5">
+                        				<label for="a5">Knee Airbag</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a6" name="airbag_id[]" value="6">
+                        				<label for="a6">Front Airbag</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a7" name="airbag_id[]" value="7">
+                        				<label for="a7">Rear Airbag</label>
+                        			</li>
+                        			<li class="single_radio ">
+                        				<input type="checkbox" id="a8" name="airbag_id[]" value="8">
+                        				<label for="a8">Center Airbag</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Air conditioning</h4>
+                        		<ul class="search_ul cruise2_radio" data-radio="air_condition">
+                        			<li class="single_check ">
+                        				<input type="radio" name="air_conditioning_id" id="ac1" value="1">
+                        				<label for="ac1">Manual Air Conditioning</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="air_conditioning_id" id="ac2" value="2">
+                        				<label for="ac2">Automatic Air Conditioning</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="air_conditioning_id" id="ac3" value="3">
+                        				<label for="ac3">Dual-Zone Automatic Climate Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="air_conditioning_id" id="ac4" value="4">
+                        				<label for="ac4">Tri-Zone Automatic Climate Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="air_conditioning_id" id="ac5" value="5">
+                        				<label for="ac5">Rear-seat Climate Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="air_conditioning_id" id="ac6" value="6">
+                        				<label for="ac6">Multi-zone Climate Control</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="air_conditioning_id" id="ac7" value="7">
+                        				<label for="ac7">No Air Conditioning</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Further equipment</h4>
+                        		<ul class="equipment eq2_check">
+                        			<li class="single_radio">
+                        				<input id="interior1" type="checkbox" name="interior_id[]" value="1">
+                        				<label for="interior1">Alarm system</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior2" type="checkbox" name="interior_id[]" value="2">
+                        				<label for="interior2">Hands free</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior3" type="checkbox" name="interior_id[]" value="3">
+                        				<label for="interior3">Emergency call system</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior4" type="checkbox" name="interior_id[]" value="4">
+                        				<label for="interior4">Fatigue warning</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior5" type="checkbox" name="interior_id[]" value="5">
+                        				<label for="interior5">Isofix passenger seat</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior6" type="checkbox" name="interior_id[]" value="6">
+                        				<label for="interior6">Leather Seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior7" type="checkbox" name="interior_id[]" value="7">
+                        				<label for="interior7">Heated Seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior8" type="checkbox" name="interior_id[]" value="8">
+                        				<label for="interior8">Ventilated Seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior9" type="checkbox" name="interior_id[]" value="9">
+                        				<label for="interior9">Power-adjustable Seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior10" type="checkbox" name="interior_id[]" value="10">
+                        				<label for="interior10">Memory Seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior11" type="checkbox" name="interior_id[]" value="11">
+                        				<label for="interior11">Rear Folding Seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior12" type="checkbox" name="interior_id[]" value="12">
+                        				<label for="interior12">Ambient lighting</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior13" type="checkbox" name="interior_id[]" value="13">
+                        				<label for="interior13">Lumbar support</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior14" type="checkbox" name="interior_id[]" value="14">
+                        				<label for="interior14">Massage seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior15" type="checkbox" name="interior_id[]" value="15">
+                        				<label for="interior15">Seat ventilation</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior16" type="checkbox" name="interior_id[]" value="16">
+                        				<label for="interior16">Heated seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior17" type="checkbox" name="interior_id[]" value="17">
+                        				<label for="interior17">Sports seats</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior18" type="checkbox" name="interior_id[]" value="18">
+                        				<label for="interior18">Auxiliary heater</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior19" type="checkbox" name="interior_id[]" value="19">
+                        				<label for="interior19">Heated Steering Wheel</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior20" type="checkbox" name="interior_id[]" value="20">
+                        				<label for="interior20">Ambient Lighting</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior21" type="checkbox" name="interior_id[]" value="21">
+                        				<label for="interior21">Keyless Entry</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior22" type="checkbox" name="interior_id[]" value="22">
+                        				<label for="interior22">Keyless Start</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior23" type="checkbox" name="interior_id[]" value="23">
+                        				<label for="interior23">Remote Start</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior24" type="checkbox" name="interior_id[]" value="24">
+                        				<label for="interior24">Android Auto</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior25" type="checkbox" name="interior_id[]" value="25">
+                        				<label for="interior25">Apple CarPlay</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior26" type="checkbox" name="interior_id[]" value="26">
+                        				<label for="interior26">CD player</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior27" type="checkbox" name="interior_id[]" value="27">
+                        				<label for="interior27">Music streaming integrated</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior28" type="checkbox" name="interior_id[]" value="28">
+                        				<label for="interior28">Voice control</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior29" type="checkbox" name="interior_id[]" value="29">
+                        				<label for="interior29">Tuner/Radio</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior30" type="checkbox" name="interior_id[]" value="30">
+                        				<label for="interior30">TV</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior31" type="checkbox" name="interior_id[]" value="31">
+                        				<label for="interior31">USB</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior32" type="checkbox" name="interior_id[]" value="32">
+                        				<label for="interior32">WLAN/Wifi hotspot</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior33" type="checkbox" name="interior_id[]" value="33">
+                        				<label for="interior33">Touchscreen Display</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior34" type="checkbox" name="interior_id[]" value="34">
+                        				<label for="interior34">Navigation System</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior35" type="checkbox" name="interior_id[]" value="35">
+                        				<label for="interior35">Bluetooth Connectivity</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior36" type="checkbox" name="interior_id[]" value="36">
+                        				<label for="interior36">USB Ports</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior37" type="checkbox" name="interior_id[]" value="37">
+                        				<label for="interior37">Wireless Charging Pad</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior38" type="checkbox" name="interior_id[]" value="38">
+                        				<label for="interior38">Premium Sound System</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior39" type="checkbox" name="interior_id[]" value="39">
+                        				<label for="interior39">Electric windows</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior40" type="checkbox" name="interior_id[]" value="40">
+                        				<label for="interior40">Electric side mirror</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior41" type="checkbox" name="interior_id[]" value="41">
+                        				<label for="interior41">Electric Seat adjustment</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior42" type="checkbox" name="interior_id[]" value="42">
+                        				<label for="interior42">Luggage compartment partition</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior43" type="checkbox" name="interior_id[]" value="43">
+                        				<label for="interior43">Auto interior mirror dimming</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior44" type="checkbox" name="interior_id[]" value="44">
+                        				<label for="interior44">Leather steering wheel</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior45" type="checkbox" name="interior_id[]" value="45">
+                        				<label for="interior45">Multifunctional steering wheel</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior46" type="checkbox" name="interior_id[]" value="46">
+                        				<label for="interior46">Smoking package</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior47" type="checkbox" name="interior_id[]" value="47">
+                        				<label for="interior47">Shift paddles</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior48" type="checkbox" name="interior_id[]" value="48">
+                        				<label for="interior48">Power Door Locks</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior49" type="checkbox" name="interior_id[]" value="49">
+                        				<label for="interior49">Power Mirrors</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior50" type="checkbox" name="interior_id[]" value="50">
+                        				<label for="interior50">Auto-dimming Rearview Mirror</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior51" type="checkbox" name="interior_id[]" value="51">
+                        				<label for="interior51">Push-button Start</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior52" type="checkbox" name="interior_id[]" value="52">
+                        				<label for="interior52">Automatic Emergency Braking</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior53" type="checkbox" name="interior_id[]" value="53">
+                        				<label for="interior53">Rearview Camera</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior54" type="checkbox" name="interior_id[]" value="54">
+                        				<label for="interior54">360-degree Camera</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior55" type="checkbox" name="interior_id[]" value="55">
+                        				<label for="interior55">Driver Assistance Package</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior56" type="checkbox" name="interior_id[]" value="56">
+                        				<label for="interior56">Center Console Storage</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior57" type="checkbox" name="interior_id[]" value="57">
+                        				<label for="interior57">Glove Compartment</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior58" type="checkbox" name="interior_id[]" value="58">
+                        				<label for="interior58">Door Pocket Storage</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input id="interior59" type="checkbox" name="interior_id[]" value="59">undefined<label for="interior59">Cup Holders</label>
+                        			</li>
+                        			<li class="single_radio">undefined<input id="interior60" type="checkbox" name="interior_id[]" value="60">undefined<label for="interior60">Fold-down Rear Armrest</label>undefined</li>undefined<li class="single_radio">undefined<input id="interior61" type="checkbox" name="interior_id[]" value="61">undefined<label for="interior61">Cargo Space</label>undefined</li>undefined
+                        		</ul>
+                        	</div>
+                        </div>
+                        <!-- Ad search -->
+                        <div class="rounded-[15px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] p-6">
+                        	<h2>
+                        		<button type="button" onclick="openTab(this,'ad_tab')">Ad. Details</button>
+                        	</h2>
+                        	<div class="search_content ex-color ad_detail" data-tab="ad_tab" data-name="vehicle-ad">
+                        		<h4>Provider</h4>
+                        		<ul class="equipment pro_radio" data-radio="provider">
+                        			<li class="single_check ">
+                        				<input type="radio" name="user_role_id" id="p1" value="1">
+                        				<label for="p1">Private</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="user_role_id" id="p2" value="2">
+                        				<label for="p2">Dealer</label>
+                        			</li>
+                        			<li class="single_check ">
+                        				<input type="radio" name="user_role_id" id="p3" value="3">
+                        				<label for="p3">Company</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Merchant ratings</h4>
+                        		<ul class="rating_ul add_radio" data-radio="merchant_rating">
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" value="" id="mr1">
+                        				<label for="mr1">Any</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" value="" id="mr2">
+                        				<label for="mr2"> 3 star <div>
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/empty-star.svg" alt="star">
+                        						<img src="/assets/img/empty-star.svg" alt="star">
+                        					</div>
+                        				</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" value="" id="mr3">
+                        				<label for="mr3"> 4 star <div>
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/empty-star.svg" alt="star">
+                        					</div>
+                        				</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" value="" id="mr4">
+                        				<label for="mr4"> 5 star <div>
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        						<img src="/assets/img/fill-star.svg" alt="star">
+                        					</div>
+                        				</label>
+                        			</li>
+                        		</ul>
+                        		<div class="damage_ul">
+                        			<div class="single_input">
+                        				<label for="vehicle-50">Damaged vehicles</label>
+                        				<div class="input_text">
+                        					<input type="text" id="vehicle-50" value="" name="title" placeholder="Placeholder text" onkeyup="inputType(event,this)">
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="vehicle-51">Trade, export / import</label>
+                        				<div class="input_text">
+                        					<input type="text" id="vehicle-51" value="" name="title" placeholder="Placeholder text" onkeyup="inputType(event,this)">
+                        				</div>
+                        			</div>
+                        			<div class="single_input">
+                        				<label for="vehicle-52">Seal of quality</label>
+                        				<div class="input_text">
+                        					<button type="button" class="select_btn" onclick="customSelect(event,this)" value="">Select</button>
+                        					<input type="text" id="seal_quality" value="" name="seal_quality_id" hidden="">
+                        					<!-- input list or select list here -->
+                        				</div>
+                        			</div>
+                        		</div>
+                        		<h4>Advertisement online since</h4>
+                        		<ul class="search_ul add_radio" data-radio="advertisement">
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" value="" id="d1">
+                        				<label for="d1">Any</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d2" value="1">
+                        				<label for="d2">1 day</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d4" value="3">
+                        				<label for="d4">3 day</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d6" value="5">
+                        				<label for="d6">5 day</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d11" value="10">
+                        				<label for="d11">10 day</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d16" value="15">
+                        				<label for="d16">15 day</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d21" value="20">
+                        				<label for="d21">20 day</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d26" value="25">
+                        				<label for="d26">25 day</label>
+                        			</li>
+                        			<li class="single_check">
+                        				<input type="radio" name="ad_online_since" id="d31" value="30">
+                        				<label for="d31">30 day</label>
+                        			</li>
+                        		</ul>
+                        		<h4>Additional info</h4>
+                        		<ul class="search_ul add_check">
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ad2" name="image" value="1">
+                        				<label for="ad2">Ads with pictures</label>
+                        			</li>
+                        			<li class="single_radio">
+                        				<input type="checkbox" id="ad3" name="video_link" value="1">
+                        				<label for="ad3">Ads with video links</label>
+                        			</li>
+                        		</ul>
+                        		<div class="single_input">
+                        			<label for="vehicle-27">Search vehicle by title</label>
+                        			<div class="input_text">
+                        				<input type="text" id="vehicle-27" value="" name="title" placeholder="e.g. driving mode switch, LTE, thermal insulation glazing…" onkeyup="inputType(event,this)">
+                        			</div>
+                        		</div>
+                        	</div>
+                        </div>
+                    </div>
+		        </form>
+            </div>
+        </main>
+        <!-- footer -->
+		<footer class="relative pt-[50px] overflow-hidden border-t-[2px] [border-image:linear-gradient(150deg,rgba(255,255,255,1),rgba(255,236,150,1),rgba(255,243,188,1))_1] after:absolute before:absolute before:left-0 before:-bottom-[7px] after:top-0 after:right-0 before:content-[url('/assets/images/footer-left-bg.png')] after:content-[url('/assets/images/footer-right-bg.png')] lg:before:-z-[0] before:-z-[10] after:-z-[10]">
+			<div class="max-w-[1220px] mx-auto w-full px-3 flex justify-between gap-6 md:flex-row flex-col">
+				<!-- footer logo and paragraph -->
+				<div class="md:max-w-[560px] w-full">
+					<a href="index.html" title="Go to homepage" class="text-[28px] font-black">Logo</a>
+					<p class="text-sm text-[#757575] mt-4 leading-[21px]">Driving innovation and luxury, we offer premium automobiles designed with performance, style, and comfort at the forefront. Experience the perfect blend of power and elegance.</p>
+				</div>
+				<!-- footer links -->
+				<div class="max-w-[520px] w-full flex md:justify-between flex-wrap md:gap-0 gap-8">
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">Company</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="index.html" title="Go to homepage">Home</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Search more cars">Top brands</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Search latest cars">Latest cars</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Go to listing cars">All listings</a>
+							</li>
+						</ul>
+					</nav>
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">User</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="login.html">Login</a>
+							</li>
+							<li>
+								<a href="login.html">Corporate login</a>
+							</li>
+							<li>
+								<a href="register.html">Register</a>
+							</li>
+						</ul>
+					</nav>
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">Legal</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="about.html">About us</a>
+							</li>
+							<li>
+								<a href="terms.html">Terms & conditions</a>
+							</li>
+							<li>
+								<a href="privacy.html">Privacy setting</a>
+							</li>
+							<li>
+								<a href="cookie.html">Cookies</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- subscribe input -->
+			<div class="mt-[50px] max-w-[420px] text-center mb-8 mx-auto w-full px-3">
+				<h4 class="text-[16px] font-semibold mb-3">Subscribe to our newsletter</h4>
+				<div class="flex">
+					<input type="text" class="h-10 rounded-l-[5px] border border-[#FFEA8A] w-full outline-none px-3 pl-10 bg-[url('/assets/images/email-icon.svg')] bg-no-repeat bg-left [background-position-x:12px]" name="newsletter" placeholder="Enter email">
+					<button class="h-10 px-[14px] bg-[#FFD100] rounded-r-[5px] font-semibold max-w-[120px] w-full flex-shrink-0 transition-all duration-200 ease-in hover:bg-[#E8BE00]">Subscribe</button>
+				</div>
+			</div>
+			<!-- copyright -->
+			<div class="border-t border-[#e9e9e9] p-[10px] text-center">
+				<p class="text-xs font-medium leading-4">© Copyright 2023. All Rights Reserved</p>
+			</div>
+		</footer>
+		<script src="assets/js/index.js"></script>
+	</body>
+</html>

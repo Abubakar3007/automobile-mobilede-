@@ -31,6 +31,57 @@
 				transform: translateX(0%);
 			}
 
+            .ad-step.active {
+                background-color: #FFD100;
+                color: white;
+            }
+
+            .ad-step.success{
+                background-color: #34C759;
+                border-color: #81BF84;
+            }
+
+            .list-item.active{
+                border-color: #FFD100;
+                color:#FFD100;
+            }
+
+            .select-dropdown.show{
+                max-height:260px;
+                opacity:1;
+                visibility:visible;
+            }
+
+            .no-scroll{
+                scrollbar-width:none;
+            }
+            
+            .no-scroll::-webkit-scrollbar{
+                display:none;
+            }
+
+            input::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            .select-dropdown::-webkit-scrollbar-track {
+                border-radius: 8px;
+                background: #E9E9E9;
+            }
+
+            .select-dropdown::-webkit-scrollbar {
+                width: 8px;
+                background-color: #E9E9E9;
+                border-radius: 10px;
+            }
+
+            .select-dropdown::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #fff;
+                width: 8px;
+            }
+
             .password-toggle-btn {
                 background-image: url(/assets/images/eye-open-btn.svg);
             }

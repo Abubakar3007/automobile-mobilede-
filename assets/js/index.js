@@ -132,22 +132,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Click on edit buttons then relative popup will open
     popupHandleButton.addEventListener("click", (e) => {
       e.stopPropagation();
+      document.body.style.overflowY = "hidden";
       editPopup.classList.add("show")
       editPopup.setAttribute("data-open", "true");
     });
 
     // Cancel popup button
-    cancelButton.addEventListener("click", function () {
+    cancelButton.addEventListener("click", () => closePopup());
+
+    function closePopup() {
       editPopup.classList.remove("show");
+      document.body.style.overflowY = "auto";
       editPopup.setAttribute("data-open", "false");
       editPopup.querySelector("form").reset();
-    })
+    }
 
     // When click outside of popup body
     document.addEventListener("click", (e) => {
       if (!e.target.closest(".popup-content")) {
-        editPopup.classList.remove("show");
-        editPopup.setAttribute("data-open", "false");
+        closePopup();
       }
     });
   }
@@ -157,6 +160,31 @@ document.addEventListener('DOMContentLoaded', () => {
   handleEditPopup("#password-popup", "#password-edit-btn"); // Edit password popup
   handleEditPopup("#name-popup", "#name-edit-btn"); // edit name popup
   handleEditPopup("#phone-popup", "#phone-edit-btn"); //  edit phone popup
+
+  // Profile picture tab
+  const pictureTabButtons = document.querySelectorAll(".pic-btn");
+  const pictureTabContent = document.querySelectorAll(".pic-tab");
+
+  if (!pictureTabButtons.length || !pictureTabContent.length) return;
+
+  pictureTabButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      // Toggle active state on buttons
+      pictureTabButtons.forEach(el => el.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Show selected tab and hide others
+      pictureTabContent.forEach((tab, i) => {
+        tab.style.display = i === index ? "block" : "none";
+      });
+    });
+  });
+
+  // Initialize first tab as active
+  pictureTabButtons[0].classList.add("active");
+  pictureTabContent.forEach((tab, i) => {
+    tab.style.display = i === 0 ? "block" : "none";
+  });
 
 });
 
@@ -311,4 +339,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// Read more and read less
+document.addEventListener("DOMContentLoaded", () => {
+  const readMoreButtons = document.querySelectorAll(".read-more-btn");
+  if (!readMoreButtons.length) return;
+
+  readMoreButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+      let wrapper = this.closest(".read-more-wrapper");
+      if (!wrapper) return;
+
+      let paragraph = wrapper.querySelector("p");
+      paragraph.classList.toggle("read");
+
+      this.innerText = this.innerText === "Read more" ? "Read less" : "Read more";
+    })
+  })
+})
 

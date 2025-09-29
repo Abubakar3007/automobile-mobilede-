@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/tailwind.min.css">
+		<title>Automobile</title>
+		<!-- google font cdn -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<style>
+			.search-input.active {
+				width: 100%;
+				max-width: 100%;
+				border-left: 1px solid #FFEA8A;
+				padding-inline: 12px;
+			}
+
+			.search-btn.active {
+				border-left: none;
+				border-radius: 0px 5px 5px 0px;
+			}
+
+			.show {
+				visibility: visible;
+				opacity: 1;
+			}
+
+			.menu-header.active {
+				transform: translateX(0%);
+			}
+
+            .ad-step.active {
+                background-color: #FFD100;
+                color: white;
+            }
+
+            .ad-step.success{
+                background-color: #34C759;
+                border-color: #81BF84;
+            }
+
+            .list-item.active{
+                border-color: #FFD100;
+                color:#FFD100;
+            }
+
+            .select-dropdown.show{
+                max-height:260px;
+                opacity:1;
+                visibility:visible;
+            }
+
+            .no-scroll{
+                scrollbar-width:none;
+            }
+            
+            .no-scroll::-webkit-scrollbar{
+                display:none;
+            }
+
+            input::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            .select-dropdown::-webkit-scrollbar-track {
+                border-radius: 8px;
+                background: #E9E9E9;
+            }
+
+            .select-dropdown::-webkit-scrollbar {
+                width: 8px;
+                background-color: #E9E9E9;
+                border-radius: 10px;
+            }
+
+            .select-dropdown::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #fff;
+                width: 8px;
+            }
+
+            .password-toggle-btn {
+                background-image: url(/assets/images/eye-open-btn.svg);
+            }
+
+            .password-toggle-btn.toggle {
+                background-image: url(/assets/images/eye-close-btn.svg);
+            }
+
+            .auth-btn.active {
+                background-color: #FFD100;
+                color: #313131;
+                font-weight: 600;
+            }
+
+            @media(min-width:1024px){
+                .home-header{
+                    height:110px;
+                    top:-46px
+                }
+            }
+
+            /* Chrome, Safari, Edge, Opera */
+            input[type=number]::-webkit-outer-spin-button,
+            input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+            
+            .right-wrapper{
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0.04%, rgba(0, 0, 0, 0.00) 99.96%);
+                backdrop-filter: blur(5px);
+            }
+            
+            .select-dropdown.show{
+                max-height:220px;
+            }
+
+		</style>
+	</head>
+	<body class="font-montserrat text-[#313131] text-sm">
+        <!-- header -->
+		<header class="sticky top-0 z-[10] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
+			<!-- header black -->
+			<!-- Header black show only on index page -->
+			<div class="py-3 bg-[#101010] text-right lg:block hidden" style="display:none">
+				<ul class="text-[#FFD100] font-medium space-x-4 max-w-[1200px] w-full sxl:px-0 px-3 mx-auto">
+					<li class="inline-block">
+						<a href="#">
+							<img src="assets/images/time.png" alt="" class="inline-block mr-1">
+							<span>Mon - Fri ( 10:00 - 18:00 )</span>
+						</a>
+					</li>
+					<li class="inline-block">
+						<a href="#">
+							<img src="assets/images/call.png" alt="" class="inline-block mr-1">
+							<span>+421 8956685986</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- header bottom -->
+			<div class="relative">
+				<!-- Yellow bg logo here -->
+				<!-- If index page then add here class home-header otherwise remove class home-header -->
+				<div class="absolute left-0 bg-[#FFD100] w-full content-[''] max-w-[calc(100%-(((100%-1200px)/2)+1200px)+140px)] [clip-path:polygon(100%_0,100%_0%,87%_100%,0_100%,0_0)] text-right lg:pr-16 pr-5 pl-5 lg:min-w-[144px] min-w-max h-16 top-0 flex items-center lg:justify-end justify-center">
+					<a href="index.html" title="Go to homepage">
+						<img src="assets/images/logo.png" alt="Logo" loading="lazy" class="w-20">
+					</a>
+				</div>
+				<!-- Right side wrapper -->
+				<div class="flex items-center lg:justify-between justify-end max-w-[1200px] w-full mx-auto sxl:pr-0 px-3 h-16 lg:pl-[145px]">
+					<!-- header left links -->
+					<div class="hidden lg:block">
+						<ul class="space-x-8 font-medium text-[#757575] capitalize">
+							<!-- which one is current page add class='text-[#313131] font-semibold' -->
+							<li class="inline-block">
+								<a href="index.html" title="Go to homepage" class="text-[#313131] font-semibold">Home</a>
+							</li>
+							<li class="inline-block">
+								<a href="listing.html">Buy a car</a>
+							</li>
+							<li class="inline-block">
+								<a href="post-ad.html">Sell a car</a>
+							</li>
+							<li class="inline-block">
+								<a href="contact.html">Contact us</a>
+							</li>
+						</ul>
+					</div>
+					<!-- header right side wrapper -->
+					<div class="flex gap-2 max-w-[500px] w-full justify-end">
+						<!-- search input -->
+						<div class="max-w-[342px] w-full relative justify-end flex-shrink-0 lg:flex hidden">
+							<input type="text" name="keyword" placeholder="Search a car of your choice" class="search-input max-w-[0px] w-0 absolute h-10 right-10 font-medium text-xs border border-[#FFEA8A] rounded-l-[5px] border-r-0 border-l-0 outline-none transition-all duration-300 ease-in" id="search-input">
+							<button type="button" id="search-btn" class="w-10 search-btn h-10 rounded-[5px] transition-all duration-300 ease-in border border-[#FFEA8A] grid place-items-center">
+								<img src="assets/images/search-icon.svg" alt="search logo">
+							</button>
+						</div>
+						<!-- Login wrapper -->
+						<div class="lg:max-w-[150px] lg:w-full flex-shrink-0 lg:block flex gap-3 items-center">
+							<!-- login button -->
+							<button id="login-btn" class="lg:h-10 h-9 lg:px-[14px] px-4 lg:text-sm text-[13px] lg:rounded-[5px] rounded-[25px] bg-[#FFD100] transition-all duration-300 ease-in font-semibold capitalize text-center lg:w-full hover:bg-[#E8BE00] flex-shrink-0">Login</button>
+							<!-- responsive favorite button -->
+							<a href="favorite.html" class="relative block lg:hidden">
+								<img src="assets/images/heart-line.svg" alt="Favorite cars">
+								<!-- total favorite items number -->
+								<div class="absolute text-white bg-[#313131] rounded-full -top-[6px] -right-[6px] h-4 w-4 text-[8px] flex items-center justify-center">2</div>
+							</a>
+							<!-- open menu button -->
+							<button id="menu-btn" class="lg:hidden border-2 border-[#FFD100] rounded-full h-9 w-9 grid place-items-center">
+								<img src="assets/images/menu-icon.svg" alt="Open menu button" class="w-[14px]">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- responsive menu content -->
+			<div class="lg:hidden">
+				<!-- header content -->
+				<div id="menu-content" class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-300 [-webkit-overflow-scrolling:touch] menu-header">
+					<!-- logo -->
+					<div class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6 flex justify-between items-center">
+						<a href="index.html" title="Go to homepage">
+                            <img src="assets/images/logo.png" alt="Logo" loading="lazy" class="object-cover w-20 h-10">
+                        </a>
+						<!--Close button  -->
+						<button id="close-menu" aria-label="Close responsive menu">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<g clip-path="url(#clip0_14_9062)">
+									<path d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z" fill="#313131"/>
+								</g>
+								<defs>
+									<clipPath id="clip0_14_9062">
+										<rect width="24" height="24" fill="white"/>
+									</clipPath>
+								</defs>
+							</svg>
+						</button>
+					</div>
+					<!-- User info list -->
+					<div class="font-medium">
+						<ul class="pb-4 mb-4 space-y-6 border-b border-[#e9e9e9]">
+							<li>
+								<a href="my-profile.html" title="Go to my profile">
+									<svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+										<path d="M3.33398 18.333C3.33398 16.5649 4.03636 14.8692 5.28661 13.619C6.53685 12.3687 8.23254 11.6663 10.0007 11.6663C11.7688 11.6663 13.4645 12.3687 14.7147 13.619C15.9649 14.8692 16.6673 16.5649 16.6673 18.333H15.0007C15.0007 17.0069 14.4739 15.7352 13.5362 14.7975C12.5985 13.8598 11.3267 13.333 10.0007 13.333C8.67457 13.333 7.4028 13.8598 6.46512 14.7975C5.52744 15.7352 5.00065 17.0069 5.00065 18.333H3.33398ZM10.0007 10.833C7.23815 10.833 5.00065 8.59551 5.00065 5.83301C5.00065 3.07051 7.23815 0.833008 10.0007 0.833008C12.7632 0.833008 15.0007 3.07051 15.0007 5.83301C15.0007 8.59551 12.7632 10.833 10.0007 10.833ZM10.0007 9.16634C11.8423 9.16634 13.334 7.67467 13.334 5.83301C13.334 3.99134 11.8423 2.49967 10.0007 2.49967C8.15898 2.49967 6.66732 3.99134 6.66732 5.83301C6.66732 7.67467 8.15898 9.16634 10.0007 9.16634Z" fill="#313131"></path>
+									</svg>
+									<span class="align-middle">My Profile</span>
+								</a>
+							</li>
+							<li>
+								<a href="saved-searches.html" title="Go to saved searches">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M4.16634 1.66699H15.833C16.054 1.66699 16.266 1.75479 16.4223 1.91107C16.5785 2.06735 16.6663 2.27931 16.6663 2.50033V18.4528C16.6664 18.5273 16.6465 18.6005 16.6088 18.6647C16.571 18.7289 16.5166 18.7818 16.4515 18.8179C16.3863 18.854 16.3126 18.8719 16.2381 18.8699C16.1637 18.8678 16.0911 18.8458 16.028 18.8062L9.99967 15.0253L3.97134 18.8053C3.90831 18.8449 3.83583 18.8669 3.76143 18.869C3.68702 18.8711 3.61341 18.8532 3.54825 18.8173C3.48309 18.7813 3.42876 18.7285 3.39091 18.6644C3.35306 18.6003 3.33306 18.5273 3.33301 18.4528V2.50033C3.33301 2.27931 3.42081 2.06735 3.57709 1.91107C3.73337 1.75479 3.94533 1.66699 4.16634 1.66699ZM14.9997 3.33366H4.99967V16.1937L9.99967 13.0595L14.9997 16.1937V3.33366Z" fill="#313131"></path>
+									</svg>
+									<span>Saved Searches</span>
+								</a>
+							</li>
+							<li>
+								<a href="favorite.html" title="Go to favorite">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M10.0002 3.77415C11.9577 2.01665 14.9827 2.07498 16.8685 3.96415C18.7535 5.85415 18.8185 8.86415 17.0652 10.8275L9.99852 17.9042L2.93352 10.8275C1.18019 8.86415 1.24602 5.84915 3.13019 3.96415C5.01769 2.07748 8.03685 2.01415 10.0002 3.77415ZM15.6885 5.14165C14.4385 3.88998 12.4219 3.83915 11.1135 5.01415L10.001 6.01248L8.88769 5.01498C7.57519 3.83832 5.56269 3.88998 4.30935 5.14332C3.06769 6.38498 3.00519 8.37248 4.14935 9.68582L9.99935 15.545L15.8494 9.68665C16.9944 8.37248 16.9319 6.38748 15.6885 5.14165Z" fill="#313131"></path>
+									</svg>
+									<span>Favorite</span>
+								</a>
+							</li>
+							<li>
+								<a href="my-ads.html">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M6.66667 3.33366H17.5V5.00033H6.66667V3.33366ZM2.5 2.91699H5V5.41699H2.5V2.91699ZM2.5 8.75033H5V11.2503H2.5V8.75033ZM2.5 14.5837H5V17.0837H2.5V14.5837ZM6.66667 9.16699H17.5V10.8337H6.66667V9.16699ZM6.66667 15.0003H17.5V16.667H6.66667V15.0003Z" fill="#313131"></path>
+									</svg>
+									<span>My ads</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="space-y-6">
+							<li>
+								<a href="listing.html" title="Buy a used cars">Buy a car</a>
+							</li>
+							<li>
+								<a href="post-ad.html" title="Go to sell car">Sell a car</a>
+							</li>
+						</ul>
+					</div>
+					<!-- Register button -->
+					<div class="absolute bottom-0 left-0 w-full p-4 text-center">
+						<button class="max-w-[50%] w-full mx-auto bg-[#FFD100] rounded-[5px] h-10 block font-semibold" id="register">Register</button>
+					</div>
+				</div>
+				<!-- header bg  -->
+				<div id="menu-bg" class="fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg hidden bg-black/80"></div>
+			</div>
+			<!-- Login popup -->
+			<div id="auth-popup" class="fixed inset-0 invisible w-full opacity-0 bg-black/80 h-[100vh] z-[1000]">
+				<div class="grid w-full h-full p-2 place-items-center">
+					<!-- Popup box -->
+					<div class="bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[15px] sm:p-6 p-4 relative max-w-[480px] w-full box">
+						<!-- Close login popup -->
+						<button id="close-auth" class="absolute right-4 top-4" aria-label="Close login popup" title="Close popup">
+							<img src="assets/images/cross-icon.svg" alt="Close login popup" class="w-4">
+						</button>
+						<!-- Login & Register popup -->
+						<div id="login-box" class="auth-box">
+							<h3 class="mt-3 mb-4 text-xl font-semibold text-center">Welcome Back</h3>
+							<!-- Select tab for login or register -->
+							<div class="flex sm:mb-[50px] mb-7 p-1 rounded-[50px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] max-w-[259px] w-full mx-auto">
+								<button class="h-8 font-semibold rounded-[50px] sm:text-base flex-1 text-[#757575] active auth-btn">Login</button>
+								<button class="h-8 font-medium rounded-[50px] sm:text-base flex-1 text-[#757575] auth-btn">Signup</button>
+							</div>
+							<!-- Login form -->
+							<form id="login-form" class="auth-form">
+								<!-- email and password -->
+								<div class="space-y-4">
+									<!-- email -->
+									<div>
+										<div class="relative">
+											<input type="text" id="email" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="email" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+										</div>
+										<!-- Error show here -->
+										<p class="mt-1 text-xs font-medium text-red">Please enter valid email</p>
+									</div>
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="password" name="password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border password-input border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-1/2 -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<p class="mt-1 text-xs font-medium text-red">Please enter correct password</p>
+									</div>
+								</div>
+								<!-- forget password link -->
+								<div class="flex items-center justify-between mt-2">
+									<!-- remember checkbox -->
+									<div>
+										<input type="checkbox" name="remember" id="remember" class="w-[18px] h-[18px] rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-3 checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[2px] checked:after:-rotate-45">
+										<label for="remember" class="align-middle font-medium text-[#757575] sm:text-sm text-xs cursor-pointer">Keep me logged in</label>
+									</div>
+									<!-- forget link -->
+									<button id="forgot-password-btn" type="button" class="text-xs font-semibold sm:text-sm">Forgot password?</button>
+								</div>
+								<!-- login button -->
+								<button type="submit" class="h-10 sm:mt-[50px] mt-7 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+									<span class="align-middle">Login</span>
+								</button>
+							</form>
+							<!-- Register form -->
+							<form id="register-form" class="hidden auth-form">
+								<!-- email and password -->
+								<div class="space-y-4">
+									<!-- email -->
+									<div>
+										<div class="relative">
+											<input type="text" id="email-register" name="email-register" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="email-register" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter valid email</p> -->
+									</div>
+									<!-- password -->
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="password-again" name="password" placeholder=" " autocomplete="off" class="peer password-input h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="password-again" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+									</div>
+									<!-- Confirm password -->
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="c-password" name="c-password" placeholder=" " autocomplete="off" class="peer password-input h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="c-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Re-enter password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+									</div>
+								</div>
+								<!-- Sign up button -->
+								<button type="submit" class="sm:mt-[50px] mt-7 h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+									<span class="align-middle">Sign up</span>
+								</button>
+							</form>
+							<!-- divider -->
+							<div class="flex gap-2 text-[#757575] font-medium mt-8 text-center before:flex-1 after:flex-1 before:h-[0.5px] after:h-[0.5px] before:bg-[#DEDEDE] after:bg-[#DEDEDE] before:block after:block items-center">
+								<span>Or Signup with</span>
+							</div>
+							<!-- facebook and google button -->
+							<div class="flex gap-2 mt-8">
+								<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+									<img src="assets/images/facebook.svg" alt="Facebook login" class="mx-auto">
+								</button>
+								<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+									<img src="assets/images/google.svg" alt="Google login" class="mx-auto">
+								</button>
+							</div>
+						</div>
+						<!-- forget password popup -->
+						<div id="forgot-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Forgot password</h3>
+								<p class="text-[#757575] sm:text-sm text-xs sm:leading-[21px] font-medium">You will receive an verification code on the registered email id to reset your password.</p>
+							</div>
+							<!-- Forget password form -->
+							<form id="forgot-form">
+								<!-- email -->
+								<div class="sm:mb-[50px] mb-7">
+									<div class="relative">
+										<input type="text" id="email-again" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="email-again" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter valid email</p> -->
+								</div>
+								<!-- Submit button -->
+								<button type="button" id="send-verification-btn" class="h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00] capitalize">
+									<span class="align-middle">Send verification code</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="forgot-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+						<!-- verification code popup -->
+						<div id="verification-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Enter verification code</h3>
+								<p class="font-medium sm:text-sm sm:leading-[21px] text-[#757575] text-xs">Enter the verification code you received on your email. <br>
+									<span class="text-[#BFBFBF]">kindly check your spam section too.</span>
+								</p>
+								<!-- otp send message when user click send again it button -->
+								<p class="mt-2 text-xs font-medium text-green">Otp successfully sent on your email</p>
+							</div>
+							<form id="verification-form">
+								<div class="flex justify-center gap-4 mb-4 otp-inputs">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+								</div>
+								<p class="text-center font-medium text-[#757575]">Didn’t receive OTP ? <a href="#" class="font-semibold text-[#313131]">Send again.</a>
+								</p>
+								<!-- Submit button -->
+								<button type="button" id="password-create-btn" class="h-10 mt-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<span class="align-middle">Create new password</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="verification-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+						<!-- change password -->
+						<div id="password-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Create new password</h3>
+								<p class="font-medium text-[#757575] sm:leading-[21px] sm:text-sm text-xs">Enter the verification code you received on your email.</p>
+							</div>
+							<!-- change password form -->
+							<form id="password-form">
+								<!-- new password -->
+								<div class="mb-4">
+									<div class="relative password-wrapper">
+										<input type="password" id="new-password" name="new-password" placeholder=" " autocomplete="off" class="password-input peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="new-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+										<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+								</div>
+								<!-- re password -->
+								<div>
+									<div class="relative password-wrapper">
+										<input type="password" id="re-password" name="re-password" placeholder=" " autocomplete="off" class="password-input peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="re-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Re-enter password</label>
+										<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+								</div>
+								<button type="button" class="h-10 sm:mt-[50px] mt-7 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<span class="align-middle">Update password</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="password-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+        <!-- listing page -->
+        <main class="md:pb-[100px] pb-12">
+        	<div class="max-w-[1200px] sxl:px-0 px-3 w-full mx-auto">
+        		<!-- Breadcrumb -->
+        		<nav aria-label="Breadcrumb" class="pt-8 sm:pb-[50px] pb-8 overflow-x-scroll whitespace-nowrap no-scroll">
+        			<ul class="text-xs text-[#757575] font-medium flex items-center gap-2">
+        				<li>
+        					<a href="index.html" title="Go to homepage" class="text-[#313131] hover:underline">Home</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li aria-current="page">Listing</li>
+        			</ul>
+        		</nav>
+                <!-- listing header -->
+                <div class="sticky top-16 mb-6 z-[50] bg-white transition-all duration-300 p-4 rounded-[12px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
+                    <!-- tab heading and filter button-->
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-2xl font-medium leading-9">Detailed search : Cars - used &amp; new</h1>
+                        <!-- saved search and filter button -->
+                        <div class="flex gap-4">
+                            <!-- save search button -->
+                            <button class="max-w-[150px] w-full font-medium">
+                                <img src="assets/images/saved-search.svg" alt="Saved search icon" class="inline-block mr-1">
+                                <span>Save this search</span>
+                            </button>
+                            <!-- sort by button -->
+                            <div class="relative w-[155px] custom-select">
+        						<!-- select button -->
+        						<button type="button" class="select-btn h-10 px-[14px] border border-[#FFD100] pl-9 text-[#FFD100] relative text-left font-medium w-full bg-[#FFFAE6] transition-all ease-in rounded-[5px] before:content-[url(/assets/images/sort-filter.svg)] before:absolute before:left-2 before:h-5 before:top-[50%] before:-translate-y-1/2">
+                                    <span>Sort by</span>
+                                    <span class="w-10 h-[38px] grid place-items-center absolute right-0 top-0 border-l border-[#FFD100]"><img src="assets/images/yellow-chevron-down.svg" alt="dropdown"></span>
+                                </button>
+        						<!-- when user select any value from ul li the current data-id add in input -->
+        						<input type="text" id="fuel-type" class="select-input" name="fuel-type" hidden>
+        						<!-- input list or select list here -->
+        						<div class="select-dropdown bg-white rounded-[6px] font-medium overflow-hidden shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        							<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        								<li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Latest</li>
+        								<li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Oldest</li>
+        								<li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Lowest price</li>
+                                        <li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Highest price</li>
+        							</ul>
+        						</div>
+        					</div>
+                        </div>
+                    </div>
+                    <!-- tab value dynamic append -->
+                    <div class="add_select" data-select="add_select">
+                        <ul class="add_filter d_flex" data-filter="colors"></ul>
+                        <ul class="add_filter d_flex" data-filter="radio"></ul>
+                    </div>
+		        </div>
+        		<!-- card and filter wrapper -->
+        		<div class="flex gap-6">
+        			<!-- filter wrapper -->
+        			<div class="max-w-[384px] w-full" data-popup="object_left">
+        				<div class="p-4 border border-[#e9e9e9] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[12px] bg-white h-fit">
+        					<span class="close_popup" onclick="closePopup('object_left')">
+        						<img src="assets/images/close_popup.svg" alt="">
+        					</span>
+        					<!-- filter head -->
+        					<div class="flex gap-2 text-center border-b border-[#e9e9e9] justify-center pb-4 mb-6">
+        						<img src="assets/images/filter-icon.svg" alt="filter icon">
+        						<h4 class="text-base font-semibold">Filter</h4>
+        					</div>
+        					<!-- Filter form -->
+        					<form>
+        						<!-- filter inputs -->
+        						<div class="space-y-6">
+        							<!-- vehicle type -->
+        							<div class="relative custom-select">
+        								<label for="vehicle-type" class="block mb-2 font-medium">Vehicle type*</label>
+        								<!-- custom select -->
+        								<div class="relative">
+        									<!-- select button -->
+        									<button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Select</button>
+        									<!-- when user select any value from ul li the current data-id add in input -->
+        									<input type="text" id="vehicle-type" class="select-input" name="vehicle-id" hidden>
+        									<!-- input list or select list here -->
+        									<div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        										<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        											<li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Car</li>
+        											<li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Motorbike</li>
+        											<li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Van/Minibus</li>
+        											<li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Bus</li>
+        										</ul>
+        									</div>
+        								</div>
+        							</div>
+        							<!-- vehicle category -->
+        							<div class="relative font-medium">
+        								<div>
+        									<h5 class="mb-2 leading-4">Vehicle category</h5>
+        									<p class="text-[#757575] leading-4">Any</p>
+        								</div>
+        								<!-- Change button -->
+        								<button class="absolute bottom-0 right-0 text-[#FFD100] font-semibold">Change</button>
+        							</div>
+        							<!-- Brand,model & variant -->
+        							<div class="relative font-medium">
+        								<div>
+        									<h5 class="mb-2 leading-4">Brand, model, variant</h5>
+        									<p class="text-[#757575] leading-4">Any</p>
+        								</div>
+        								<!-- Change button -->
+        								<button class="absolute bottom-0 right-0 text-[#FFD100] font-semibold">Change</button>
+        							</div>
+        							<!-- Vehicle condition -->
+        							<div class="relative font-medium">
+        								<div>
+        									<h5 class="mb-2 leading-4">Vehicle condition</h5>
+        									<p class="text-[#757575] leading-4">Any</p>
+        								</div>
+        								<!-- Change button -->
+        								<button class="absolute bottom-0 right-0 text-[#FFD100] font-semibold">Change</button>
+        							</div>
+        							<!-- Price (From to) -->
+        							<div class="flex gap-2">
+        								<!-- select price from -->
+        								<div class="flex-1 custom-select">
+        									<label for="price-from" class="block mb-2 font-medium">Price</label>
+        									<div class="relative">
+        										<button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">From</button>
+        										<input type="text" name="price" class="select-input" id="price-from" hidden>
+        										<!-- input list or select list here -->
+        										<div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        											<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        												<li data-id="0" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Any</li>
+        												<li data-id="500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 500</li>
+        												<li data-id="1000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 1,000</li>
+        												<li data-id="1500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 1,500</li>
+        												<li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 2,000</li>
+        												<li data-id="2500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 2,500</li>
+        												<li data-id="3000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 3,000</li>
+        												<li data-id="3500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 3,500</li>
+        												<li data-id="4000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 4,000</li>
+        												<li data-id="4500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 4,500</li>
+        												<li data-id="5000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 5,000</li>
+        												<li data-id="6000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 6,000</li>
+        												<li data-id="7000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 7,000</li>
+        												<li data-id="8000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 8,000</li>
+        												<li data-id="9000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 9,000</li>
+        												<li data-id="10000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 10,000</li>
+        												<li data-id="11000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 11,000</li>
+        												<li data-id="12000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 12,000</li>
+        												<li data-id="13000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 13,000</li>
+        												<li data-id="14000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 14,000</li>
+        												<li data-id="15000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 15,000</li>
+        												<li data-id="17500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 17,500</li>
+        												<li data-id="20000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 20,000</li>
+        												<li data-id="22500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 22,500</li>
+        												<li data-id="25000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 25,000</li>
+        												<li data-id="30000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 30,000</li>
+        												<li data-id="35000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 35,000</li>
+        												<li data-id="40000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 40,000</li>
+        												<li data-id="45000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 45,000</li>
+        												<li data-id="50000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 50,000</li>
+        												<li data-id="60000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 60,000</li>
+        												<li data-id="70000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 70,000</li>
+        												<li data-id="80000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 80,000</li>
+        												<li data-id="90000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 90,000</li>
+        												<li data-id="100000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 100,000</li>
+        												<li data-id="110000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 110,000</li>
+        												<li data-id="120000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 120,000</li>
+        												<li data-id="130000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 130,000</li>
+        												<li data-id="140000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 140,000</li>
+        												<li data-id="150000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 150,000</li>
+        											</ul>
+        										</div>
+        									</div>
+        								</div>
+        								<!-- select price to -->
+        								<div class="flex-1 custom-select">
+        									<label for="price-to" class="invisible block mb-2 font-medium">year*</label>
+        									<div class="relative">
+        										<button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Until</button>
+        										<input type="text" id="price-to" class="select-input" name="price" hidden>
+        										<!-- input list or select list here -->
+        										<div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        											<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        												<li data-id="0" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Any</li>
+        												<li data-id="500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 500</li>
+        												<li data-id="1000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 1,000</li>
+        												<li data-id="1500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 1,500</li>
+        												<li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 2,000</li>
+        												<li data-id="2500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 2,500</li>
+        												<li data-id="3000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 3,000</li>
+        												<li data-id="3500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 3,500</li>
+        												<li data-id="4000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 4,000</li>
+        												<li data-id="4500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 4,500</li>
+        												<li data-id="5000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 5,000</li>
+        												<li data-id="6000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 6,000</li>
+        												<li data-id="7000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 7,000</li>
+        												<li data-id="8000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 8,000</li>
+        												<li data-id="9000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 9,000</li>
+        												<li data-id="10000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 10,000</li>
+        												<li data-id="11000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 11,000</li>
+        												<li data-id="12000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 12,000</li>
+        												<li data-id="13000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 13,000</li>
+        												<li data-id="14000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 14,000</li>
+        												<li data-id="15000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 15,000</li>
+        												<li data-id="17500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 17,500</li>
+        												<li data-id="20000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 20,000</li>
+        												<li data-id="22500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 22,500</li>
+        												<li data-id="25000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 25,000</li>
+        												<li data-id="30000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 30,000</li>
+        												<li data-id="35000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 35,000</li>
+        												<li data-id="40000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 40,000</li>
+        												<li data-id="45000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 45,000</li>
+        												<li data-id="50000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 50,000</li>
+        												<li data-id="60000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 60,000</li>
+        												<li data-id="70000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 70,000</li>
+        												<li data-id="80000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 80,000</li>
+        												<li data-id="90000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 90,000</li>
+        												<li data-id="100000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 100,000</li>
+        												<li data-id="110000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 110,000</li>
+        												<li data-id="120000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 120,000</li>
+        												<li data-id="130000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 130,000</li>
+        												<li data-id="140000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 140,000</li>
+        												<li data-id="150000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">€ 150,000</li>
+        											</ul>
+        										</div>
+        									</div>
+        								</div>
+        							</div>
+        							<!-- registration date -->
+        							<div class="flex gap-2">
+        								<!-- select month -->
+        								<div class="flex-1 custom-select">
+        									<label for="month" class="block mb-2 font-medium">Registration date</label>
+        									<div class="relative">
+        										<button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">From</button>
+        										<input type="text" name="month" class="select-input" id="month" hidden>
+        										<!-- input list or select list here -->
+        										<div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        											<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        												<li data-id="1" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">January</li>
+        												<li data-id="2" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">February</li>
+        												<li data-id="3" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">March</li>
+        												<li data-id="4" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">April</li>
+        												<li data-id="5" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">May</li>
+        												<li data-id="6" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">June</li>
+        												<li data-id="7" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">July</li>
+        												<li data-id="8" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">August</li>
+        												<li data-id="9" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">September</li>
+        												<li data-id="10" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">October</li>
+        												<li data-id="11" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">November</li>
+        												<li data-id="12" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">December</li>
+        											</ul>
+        										</div>
+        									</div>
+        								</div>
+        								<!-- select year -->
+        								<div class="flex-1 custom-select">
+        									<label for="year" class="invisible block mb-2 font-medium">year*</label>
+        									<div class="relative">
+        										<button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Until</button>
+        										<input type="text" id="year" class="select-input" name="year" hidden>
+        										<!-- input list or select list here -->
+        										<div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        											<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        												<li data-id="2025" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2025</li>
+        												<li data-id="2024" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2024</li>
+        												<li data-id="2023" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2023</li>
+        												<li data-id="2022" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2022</li>
+        												<li data-id="2021" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2021</li>
+        												<li data-id="2020" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2020</li>
+        												<li data-id="2019" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2019</li>
+        												<li data-id="2018" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2018</li>
+        												<li data-id="2017" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2017</li>
+        												<li data-id="2016" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2016</li>
+        												<li data-id="2015" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2015</li>
+        												<li data-id="2014" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2014</li>
+        												<li data-id="2013" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2013</li>
+        												<li data-id="2012" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2012</li>
+        												<li data-id="2011" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2011</li>
+        												<li data-id="2010" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2010</li>
+        												<li data-id="2009" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2009</li>
+        												<li data-id="2008" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2008</li>
+        												<li data-id="2007" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2007</li>
+        												<li data-id="2006" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2006</li>
+        												<li data-id="2005" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2005</li>
+        												<li data-id="2004" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2004</li>
+        												<li data-id="2003" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2003</li>
+        												<li data-id="2002" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2002</li>
+        												<li data-id="2001" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2001</li>
+        												<li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2000</li>
+        												<li data-id="1999" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1999</li>
+        												<li data-id="1998" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1998</li>
+        												<li data-id="1997" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1997</li>
+        												<li data-id="1996" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1996</li>
+        												<li data-id="1995" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1995</li>
+        												<li data-id="1994" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1994</li>
+        												<li data-id="1993" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1993</li>
+        												<li data-id="1992" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1992</li>
+        												<li data-id="1991" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1991</li>
+        												<li data-id="1990" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1990</li>
+        												<li data-id="1989" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1989</li>
+        												<li data-id="1988" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1988</li>
+        												<li data-id="1987" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1987</li>
+        												<li data-id="1986" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1986</li>
+        												<li data-id="1985" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1985</li>
+        												<li data-id="1984" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1984</li>
+        												<li data-id="1983" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1983</li>
+        												<li data-id="1982" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1982</li>
+        												<li data-id="1981" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1981</li>
+        												<li data-id="1980" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1980</li>
+        												<li data-id="1979" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1979</li>
+        												<li data-id="1978" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1978</li>
+        												<li data-id="1977" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1977</li>
+        												<li data-id="1976" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1976</li>
+        												<li data-id="1975" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1975</li>
+        												<li data-id="1974" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1974</li>
+        												<li data-id="1973" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1973</li>
+        												<li data-id="1972" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1972</li>
+        												<li data-id="1971" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1971</li>
+        												<li data-id="1970" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1970</li>
+        												<li data-id="1969" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1969</li>
+        												<li data-id="1968" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1968</li>
+        												<li data-id="1967" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1967</li>
+        												<li data-id="1966" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1966</li>
+        												<li data-id="1965" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1965</li>
+        												<li data-id="1964" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1964</li>
+        												<li data-id="1963" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1963</li>
+        												<li data-id="1962" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1962</li>
+        												<li data-id="1961" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1961</li>
+        												<li data-id="1960" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1960</li>
+        												<li data-id="1959" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1959</li>
+        												<li data-id="1958" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1958</li>
+        												<li data-id="1957" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1957</li>
+        												<li data-id="1956" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1956</li>
+        												<li data-id="1955" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1955</li>
+        												<li data-id="1954" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1954</li>
+        												<li data-id="1953" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1953</li>
+        												<li data-id="1952" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1952</li>
+        												<li data-id="1951" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1951</li>
+        												<li data-id="1950" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1950</li>
+        												<li data-id="1949" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1949</li>
+        												<li data-id="1948" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1948</li>
+        												<li data-id="1947" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1947</li>
+        												<li data-id="1946" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1946</li>
+        												<li data-id="1945" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1945</li>
+        												<li data-id="1944" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1944</li>
+        												<li data-id="1943" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1943</li>
+        												<li data-id="1942" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1942</li>
+        												<li data-id="1941" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1941</li>
+        												<li data-id="1940" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1940</li>
+        												<li data-id="1939" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1939</li>
+        												<li data-id="1938" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1938</li>
+        												<li data-id="1937" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1937</li>
+        												<li data-id="1936" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1936</li>
+        												<li data-id="1935" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1935</li>
+        												<li data-id="1934" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1934</li>
+        												<li data-id="1933" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1933</li>
+        												<li data-id="1932" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1932</li>
+        												<li data-id="1931" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1931</li>
+        												<li data-id="1930" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1930</li>
+        												<li data-id="1929" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1929</li>
+        												<li data-id="1928" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1928</li>
+        												<li data-id="1927" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1927</li>
+        												<li data-id="1926" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1926</li>
+        												<li data-id="1925" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1925</li>
+        												<li data-id="1924" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1924</li>
+        												<li data-id="1923" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1923</li>
+        												<li data-id="1922" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1922</li>
+        												<li data-id="1921" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1921</li>
+        												<li data-id="1920" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1920</li>
+        												<li data-id="1919" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1919</li>
+        												<li data-id="1918" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1918</li>
+        												<li data-id="1917" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1917</li>
+        												<li data-id="1916" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1916</li>
+        												<li data-id="1915" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1915</li>
+        												<li data-id="1914" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1914</li>
+        												<li data-id="1913" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1913</li>
+        												<li data-id="1912" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1912</li>
+        												<li data-id="1911" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1911</li>
+        												<li data-id="1910" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1910</li>
+        												<li data-id="1909" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1909</li>
+        												<li data-id="1908" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1908</li>
+        												<li data-id="1907" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1907</li>
+        												<li data-id="1906" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1906</li>
+        												<li data-id="1905" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1905</li>
+        												<li data-id="1904" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1904</li>
+        												<li data-id="1903" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1903</li>
+        												<li data-id="1902" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1902</li>
+        												<li data-id="1901" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1901</li>
+        												<li data-id="1900" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1900</li>
+        											</ul>
+        										</div>
+        									</div>
+        								</div>
+        							</div>
+        							<!-- Mileage -->
+        							<div class="flex gap-2">
+        								<!-- select mileage from -->
+        								<div class="flex-1 custom-select">
+        									<label for="mileage-from" class="block mb-2 font-medium">Mileage</label>
+        									<div class="relative">
+        										<button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">From</button>
+        										<input type="text" name="mileage" class="select-input" id="mileage-from" hidden>
+        										<!-- input list or select list here -->
+        										<div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        											<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        												<li data-id="0" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Any</li>
+        												<li data-id="500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">500 km</li>
+        												<li data-id="1000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1,000 km</li>
+        												<li data-id="1500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1,500 km</li>
+        												<li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2,000 km</li>
+        												<li data-id="2500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2,500 km</li>
+        												<li data-id="3000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">3,000 km</li>
+        												<li data-id="3500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">3,500 km</li>
+        												<li data-id="4000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">4,000 km</li>
+        												<li data-id="4500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">4,500 km</li>
+        												<li data-id="5000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">5,000 km</li>
+        												<li data-id="6000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">6,000 km</li>
+        												<li data-id="7000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">7,000 km</li>
+        												<li data-id="8000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">8,000 km</li>
+        												<li data-id="9000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">9,000 km</li>
+        												<li data-id="10000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">10,000 km</li>
+        												<li data-id="11000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">11,000 km</li>
+        												<li data-id="12000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">12,000 km</li>
+        												<li data-id="13000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">13,000 km</li>
+        												<li data-id="14000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">14,000 km</li>
+        												<li data-id="15000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">15,000 km</li>
+        												<li data-id="17500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">17,500 km</li>
+        												<li data-id="20000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">20,000 km</li>
+        												<li data-id="22500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">22,500 km</li>
+        												<li data-id="25000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">25,000 km</li>
+        												<li data-id="30000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">30,000 km</li>
+        												<li data-id="35000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">35,000 km</li>
+        												<li data-id="40000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">40,000 km</li>
+        												<li data-id="45000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">45,000 km</li>
+        												<li data-id="50000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">50,000 km</li>
+        												<li data-id="60000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">60,000 km</li>
+        												<li data-id="70000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">70,000 km</li>
+        												<li data-id="80000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">80,000 km</li>
+        												<li data-id="90000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">90,000 km</li>
+        												<li data-id="100000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">100,000 km</li>
+        												<li data-id="110000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">110,000 km</li>
+        												<li data-id="120000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">120,000 km</li>
+        												<li data-id="130000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">130,000 km</li>
+        												<li data-id="140000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">140,000 km</li>
+        												<li data-id="150000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">150,000 km</li>
+        											</ul>
+        										</div>
+        									</div>
+        								</div>
+        								<!-- select mileage to -->
+        								<div class="flex-1 custom-select">
+        									<label for="mileage-to" class="invisible block mb-2 font-medium">mileage to</label>
+        									<div class="relative">
+        										<button type="button" class="select-btn h-11 px-[14px] border border-[#e9e9e9] text-left font-medium w-full bg-white transition-all ease-in rounded-[5px] focus:border-[#FFD100] bg-[url('/assets/images/chevron-down.svg')] bg-no-repeat bg-[right_12px_center]">Until</button>
+        										<input type="text" id="mileage-to" class="select-input" name="mileage" hidden>
+        										<!-- input list or select list here -->
+        										<div class="select-dropdown bg-white rounded-[6px] overflow-y-auto font-medium shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] absolute w-full z-[10] top-[100%] mt-1 max-h-[0px] transition-all duration-300 ease-in">
+        											<ul class="border border-[#E9E9E9] text-[#757575] px-2 rounded-[6px]">
+        												<li data-id="0" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">Any</li>
+        												<li data-id="500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">500 km</li>
+        												<li data-id="1000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1,000 km</li>
+        												<li data-id="1500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">1,500 km</li>
+        												<li data-id="2000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2,000 km</li>
+        												<li data-id="2500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">2,500 km</li>
+        												<li data-id="3000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">3,000 km</li>
+        												<li data-id="3500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">3,500 km</li>
+        												<li data-id="4000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">4,000 km</li>
+        												<li data-id="4500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">4,500 km</li>
+        												<li data-id="5000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">5,000 km</li>
+        												<li data-id="6000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">6,000 km</li>
+        												<li data-id="7000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">7,000 km</li>
+        												<li data-id="8000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">8,000 km</li>
+        												<li data-id="9000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">9,000 km</li>
+        												<li data-id="10000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">10,000 km</li>
+        												<li data-id="11000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">11,000 km</li>
+        												<li data-id="12000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">12,000 km</li>
+        												<li data-id="13000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">13,000 km</li>
+        												<li data-id="14000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">14,000 km</li>
+        												<li data-id="15000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">15,000 km</li>
+        												<li data-id="17500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">17,500 km</li>
+        												<li data-id="20000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">20,000 km</li>
+        												<li data-id="22500" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">22,500 km</li>
+        												<li data-id="25000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">25,000 km</li>
+        												<li data-id="30000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">30,000 km</li>
+        												<li data-id="35000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">35,000 km</li>
+        												<li data-id="40000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">40,000 km</li>
+        												<li data-id="45000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">45,000 km</li>
+        												<li data-id="50000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">50,000 km</li>
+        												<li data-id="60000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">60,000 km</li>
+        												<li data-id="70000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">70,000 km</li>
+        												<li data-id="80000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">80,000 km</li>
+        												<li data-id="90000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">90,000 km</li>
+        												<li data-id="100000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">100,000 km</li>
+        												<li data-id="110000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">110,000 km</li>
+        												<li data-id="120000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">120,000 km</li>
+        												<li data-id="130000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">130,000 km</li>
+        												<li data-id="140000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">140,000 km</li>
+        												<li data-id="150000" class="border-b border-[#e9e9e9] py-3 cursor-pointer leading-[17px] list-item hover:text-[#313131]">150,000 km</li>
+        											</ul>
+        										</div>
+        									</div>
+        								</div>
+        							</div>
+        							<!-- Vehicle location -->
+        							<div>
+        								<label for="vehicle-location" class="block mb-2 font-medium">Location</label>
+        								<div class="relative">
+        									<input type="text" value="" name="location" id="vehicle-location" placeholder="Enter location" class="w-full h-11 px-[14px] border border-[#e9e9e9] rounded-[5px] outline-none font-medium transition-all duration-200 ease focus:border-[#FFD100]">
+        									<!-- Location select dropdown -->
+        									<ul class="select_list"></ul>
+        								</div>
+        							</div>
+        							<!-- Fuel type -->
+        							<div class="relative font-medium">
+        								<div>
+        									<h5 class="mb-2 leading-4">Fuel type</h5>
+        									<p class="text-[#757575] leading-4">Any</p>
+        								</div>
+        								<!-- change button -->
+        								<button class="absolute bottom-0 right-0 text-[#FFD100] font-semibold">Change</button>
+        							</div>
+        							<!-- Performance -->
+        							<div class="relative font-medium">
+        								<div>
+        									<h5 class="mb-2 leading-4">Performance</h5>
+        									<p class="text-[#757575] leading-4">Any</p>
+        								</div>
+        								<!-- change button -->
+        								<button class="absolute bottom-0 right-0 text-[#FFD100] font-semibold">Change</button>
+        							</div>
+        							<!-- Transmission -->
+        							<div class="relative font-medium">
+        								<div>
+        									<h5 class="mb-2 leading-4">Transmission</h5>
+        									<p class="text-[#757575] leading-4">Any</p>
+        								</div>
+        								<!-- change button -->
+        								<button class="absolute bottom-0 right-0 text-[#FFD100] font-semibold">Change</button>
+        							</div>
+        							<!-- Exterior colors -->
+        							<div>
+        								<h5 class="mb-4 font-medium">Exterior color</h5>
+        								<!-- colors list -->
+        								<ul class="grid grid-cols-[repeat(auto-fill,_minmax(24px,_1fr))] gap-x-2 gap-y-4">
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl1" value="1" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#D7B67C] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl1" class="hidden">Beige</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl2" value="2" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#815E12] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl2" class="hidden">Brown</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl3" value="3" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F0D000] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl3" class="hidden">Gold</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl4" value="4" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#84BA1F] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl4" class="hidden">Green</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl5" value="5" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F53D3A] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl5" class="hidden">Red</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl6" value="6" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#436FDE] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl6" class="hidden">Blue</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl7" value="7" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F1D200] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl7" class="hidden">Yellow</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl8" value="8" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#ABABAB] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl8" class="hidden">Silver</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl9" value="9" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F67E07] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl9" class="hidden">Orange</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl10" value="10" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#333333] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl10" class="hidden">Metallic</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl11" value="11" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#9262FF] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl11" class="hidden">Violet</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl12" value="12" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#1E1F24] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl12" class="hidden">Black</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl13" value="13" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F3F3F3] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-[#1E1F24] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl13" class="hidden">Gray</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="cl14" value="14" class="w-5 h-5 appearance-none rounded-[2px] border border-[#dedede] bg-[#fff] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-[#1E1F24] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="cl14" class="hidden">White</label>
+        									</li>
+        								</ul>
+        							</div>
+        							<!-- Interior color -->
+        							<div>
+        								<h5 class="mb-4 font-medium">Interior color</h5>
+        								<!-- Color list -->
+        								<ul class="grid grid-cols-[repeat(auto-fill,_minmax(24px,_1fr))] gap-x-2 gap-y-4">
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-1" value="1" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#D7B67C] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-1" class="hidden">Beige</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-2" value="2" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#815E12] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-2" class="hidden">Brown</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-3" value="3" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F0D000] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-3" class="hidden">Gold</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-4" value="4" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#84BA1F] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-4" class="hidden">Green</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-5" value="5" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F53D3A] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-5" class="hidden">Red</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-6" value="6" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#436FDE] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-6" class="hidden">Blue</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-7" value="7" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F1D200] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-7" class="hidden">Yellow</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-8" value="8" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#ABABAB] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-8" class="hidden">Silver</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-9" value="9" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F67E07] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for=in-9" class="hidden">Orange</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-10" value="10" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#333333] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-10" class="hidden">Metallic</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-11" value="11" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#9262FF] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-11" class="hidden">Violet</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-12" value="12" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#1E1F24] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-12" class="hidden">Black</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-13" value="13" class="w-5 h-5 appearance-none rounded-[2px] border border-transparent bg-[#F3F3F3] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-[#1E1F24] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-13" class="hidden">Gray</label>
+        									</li>
+        									<li>
+        										<input type="checkbox" name="ex_color_id[]" id="in-14" value="14" class="w-5 h-5 appearance-none rounded-[2px] border border-[#dedede] bg-[#fff] cursor-pointer relative checked:after:content-[''] checked:after:block checked:after:w-[13px] checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-[#1E1F24] checked:after:absolute checked:after:top-[4px] checked:after:left-[3px] checked:after:-rotate-45">
+        										<label for="in-14" class="hidden">White</label>
+        									</li>
+        								</ul>
+        							</div>
+        							<!-- Air condition -->
+        							<div>
+        								<h5 class="mb-4 font-medium">Air conditioning</h5>
+        								<ul class="space-y-2">
+        									<li>
+        										<input type="radio" name="air_conditioning_id" id="ac1" value="1" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="ac1" class="cursor-pointer">Manual Air Conditioning</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air_conditioning_id" id="ac2" value="2" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="ac2" class="cursor-pointer">Automatic Air Conditioning</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air_conditioning_id" id="ac3" value="3" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="ac3" class="cursor-pointer">Dual-Zone Automatic Climate Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air_conditioning_id" id="ac4" value="4" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="ac4" class="cursor-pointer">Tri-Zone Automatic Climate Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air_conditioning_id" id="ac5" value="5" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="ac5" class="cursor-pointer">Rear-seat Climate Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air_conditioning_id" id="ac6" value="6" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="ac6" class="cursor-pointer">Multi-zone Climate Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air_conditioning_id" id="ac7" value="7" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="ac7" class="cursor-pointer">No Air Conditioning</label>
+        									</li>
+        								</ul>
+        							</div>
+        							<!-- Cruise control -->
+        							<div>
+        								<h5 class="mb-4 font-medium">Cruise control</h5>
+        								<ul class="space-y-2">
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn1" value="1" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn1" class="align-middle cursor-pointer">Standard Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn2" value="2" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn2" class="align-middle cursor-pointer">Adaptive Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn3" value="3" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn3" class="align-middle cursor-pointer">Dynamic Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn4" value="4" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn4" class="align-middle cursor-pointer">Intelligent Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn5" value="5" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn5" class="align-middle cursor-pointer">Radar Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn6" value="6" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn6" class="align-middle cursor-pointer">Traffic-Aware Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn7" value="7" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn7" class="align-middle cursor-pointer">Cruise Control with Stop &amp; Go</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn8" value="8" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn8" class="align-middle cursor-pointer">Predictive Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn9" value="9" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn9" class="align-middle cursor-pointer">Lane Keeping Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn10" value="10" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn10" class="align-middle cursor-pointer">Full-Speed Range Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn11" value="11" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn11" class="align-middle cursor-pointer">Highway Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn12" value="12" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn12" class="align-middle cursor-pointer">Advanced Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn13" value="13" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn13" class="align-middle cursor-pointer">Super Cruise</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn14" value="14" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn14" class="align-middle cursor-pointer">Cooperative Adaptive Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn15" value="15" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn15" class="align-middle cursor-pointer">Automatic Cruise Control</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="cruise_id" id="cn16" value="16" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="cn16" class="align-middle cursor-pointer">Predictive Eco Cruise Control</label>
+        									</li>
+        								</ul>
+        							</div>
+        							<!-- Provider -->
+        							<div>
+        								<h5 class="mb-4 font-medium">Provider</h5>
+        								<ul class="space-y-2">
+        									<li>
+        										<input type="radio" name="user_role_id" id="p1" value="1" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="p1" class="align-middle cursor-pointer">Private</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="user_role_id" id="p2" value="2" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="p2" class="align-middle cursor-pointer">Dealer</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="user_role_id" id="p3" value="3" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="p3" class="align-middle cursor-pointer">Company</label>
+        									</li>
+        								</ul>
+        							</div>
+        							<!-- Rating -->
+        							<div>
+        								<h5 class="mb-4 font-medium">Merchant rating</h5>
+        								<ul class="space-y-2">
+        									<li>
+        										<input type="radio" name="air" id="c18" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="c18">Any</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air" id="c19" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="c19" class="space-x-[2px]">
+        											<span class="align-middle">3 star</span>
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/empty-star.svg" alt="Star empty" class="inline-block">
+        											<img src="assets/images/empty-star.svg" alt="Star empty" class="inline-block">
+        										</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air" id="c20" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="c20" class="space-x-[2px]">
+        											<span class="align-middle">4 star</span>
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/empty-star.svg" alt="Star empty" class="inline-block">
+        										</label>
+        									</li>
+        									<li>
+        										<input type="radio" name="air" id="c21" class="border appearance-none border-[#FFD100] w-5 h-5 mr-[2px] checked:after:w-[10px] checked:after:h-[10px] checked:after:bg-[#FFD100] relative checked:after:absolute checked:after:top-[50%] checked:after:-translate-x-1/2 checked:after:left-[50%] checked:after:rounded-full checked:after:-translate-y-1/2 rounded-full align-middle cursor-pointer">
+        										<label for="c21" class="space-x-[2px]">
+        											<span class="align-middle">5 star</span>
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        											<img src="assets/images/fill-star.svg" alt="Star fill" class="inline-block">
+        										</label>
+        									</li>
+        								</ul>
+        							</div>
+        						</div>
+        						<!-- filter search button -->
+        						<div class="mt-6 border-t border-[#e9e9e9] pt-4 text-center">
+        							<button class="block mb-2 w-full h-10 rounded-[5px] font-semibold bg-[#FFD100] transition-all duration-200 ease hover:bg-[#E8BE00]" id="listingSearchBtn">
+        								<img src="assets/images/search-icon.svg" alt="filter search" class="inline-block mr-1">
+        								<span class="align-middle">Search</span>
+        							</button>
+        							<a href="" class="text-base font-medium">Advance filter</a>
+        						</div>
+        					</form>
+        				</div>
+        			</div>
+        			<!-- cards container -->
+        			<div class="max-w-[792px] w-full">
+                        <!-- cards -->
+                        <div class="space-y-6">
+                            <!-- listing card -->
+                            <div class="sm:p-4 p-3 rounded-[12px] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] border border-[#e9e9e9] flex gap-4 sm:flex-row flex-col">
+                                <!-- card left container -->
+                                <div class="sm:max-w-[300px] w-full">
+                                    <!-- card big image -->
+                                    <div class="relative rounded-[5px] overflow-hidden">
+                                        <!-- car image -->
+                                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank">
+                                            <img src="assets/images/car-image1.jpg" alt="Car image" class="object-cover sm:h-[200px] w-full" loading="lazy">
+                                            <!-- car number -->
+                                            <div class="absolute bottom-0 left-0 bg-black/50 py-[6px] px-2 text-white font-semibold flex items-center gap-1 rounded-[0px_5px_0px_0px] sm:text-sm text-xs">
+                                                <img src="assets/images/more-images.svg" alt="more images">
+                                                <span>1 Photos</span>
+                                            </div>
+                                        </a>
+                                        <!-- favorite button -->
+                                        <button title="Remove favorite" class="absolute top-0 right-0 bg-black/50 py-[6px] px-2 text-white font-semibold rounded-[0px_0px_0px_5px] sm:text-sm text-xs">
+                                            <!-- filed heart svg -->
+                                            <svg class="inline-block" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" role="img">
+                                                <path fill="none" stroke="#FFF" stroke-width="2"  d="M12.1 21.35l-1.1-1C5.14 15.28 2 12.1 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.6-3.14 6.78-9 11.85l-0.9.85z"/>
+                                            </svg>
+                                            <span class="align-middle">Add to favorite</span>
+                                        </button>
+                                    </div>
+                                    <!-- card small images -->
+                                    <div class="grid grid-cols-3 gap-2 mt-2">
+                                        <!-- small image -->
+                                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="flex-1 block rounded-[5px] overflow-hidden">
+                                            <img src="assets/images/car-image2.jpg" alt="Car image" class="object-cover w-full h-[88px]" loading="lazy">
+                                        </a>
+                                        <!-- small image -->
+                                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="flex-1 block rounded-[5px] overflow-hidden">
+                                            <img src="assets/images/car-image4.jpg" alt="Car image" class="object-cover w-full h-[88px]" loading="lazy">
+                                        </a>
+                                        <!-- small image -->
+                                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank" class="flex-1 block rounded-[5px] overflow-hidden">
+                                            <img src="assets/images/car-image5.jpg" alt="Car image" class="object-cover w-full h-[88px]" loading="lazy">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- card right container -->
+                                <div class="sm:max-w-[594px] w-full flex justify-between flex-col">
+                                    <h3 class="text-[18px] font-medium line-clamp-1 text-ellipsis mb-4 hover:text-[#FFD100]">
+                                        <a href="object-detail.html" title="525d F10 3 litre 6 cylinder sedan" target="_blank">525d F10 3 litre 6 cylinder sedan</a>
+                                    </h3>
+                                    <!-- features -->
+                                    <ul class="flex flex-wrap items-center mb-4 text-xs font-medium gap-x-2 lg:gap-x-4 lg:text-sm">
+                                        <li class="leding-6 before:content-[url(/assets/images/double-check.svg)] before:mr-2 before:align-middle">Adaptive cornering lights</li>
+                                        <li class="leading-6 text-[#757575] before:content-[url(/assets/images/plus-icon.svg)] before:mr-2 before:align-sub">19 more</li>
+                                    </ul>
+                                    <!-- category -->
+                                    <div class="flex mb-4 sm:pb-0 pb-3 sm:border-b-0 border-b border-[#e9e9e9]">
+                                        <!-- fuel type -->
+                                        <div class="lg:flex border-r border-[#e9e9e9] sxl:pr-4 pr-2 gap-2 items-center lg:flex-none flex-1 lg:text-left text-center">
+                                            <img src="assets/images/fuel-image.svg" alt="fuel image" class="w-6 mx-auto sxl:mx-0 sxl:w-auto">
+                                            <div>
+                                                <span class="text-xs font-medium text-[#757575]">Fuel type</span>
+                                                <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel</h4>
+                                            </div>
+                                        </div>
+                                        <!-- Mileage -->
+                                        <div class="lg:flex border-r border-[#e9e9e9] sxl:pr-4 pr-2 gap-2 lg:pl-4 pl-2 items-center lg:flex-none flex-1 lg:text-left text-center">
+                                            <img src="assets/images/timer-image.svg" alt="fuel image" class="w-6 mx-auto sxl:mx-0 sxl:w-auto">
+                                            <div>
+                                                <span class="text-xs font-medium text-[#757575]">Mileage</span>
+                                                <h4 class="font-medium line-clamp-1 text-ellipsis">Diesel KMPL</h4>
+                                            </div>
+                                        </div>
+                                        <!-- Transmission -->
+                                        <div class="items-center flex-1 gap-2 pl-2 text-center sxl:pl-4 lg:flex lg:flex-none lg:text-left">
+                                            <img src="assets/images/transmission-image.svg" alt="fuel image" class="w-6 mx-auto sxl:mx-0 sxl:w-auto"><div><span class="text-xs font-medium text-[#757575]">Transmission</span><h4 class="font-medium line-clamp-1 text-ellipsis">Semi-Automatic</h4></div>
+                                        </div>
+                                    </div>
+                                    <!-- price -->
+                                    <h4 class="text-2xl font-bold text-[#FFD100]">$123,123</h4>
+                                    <!-- agent details -->
+                                    <a href="agent.html" title="agent details" class="mt-2 rounded-[8px] border border-[#e9e9e9] p-2 sm:block hidden">
+                                        <div class="flex gap-2">
+                                            <div class="w-[100px] block overflow-hidden rounded-[5px]">
+                                                <img src="assets/images/car-image1.jpg" alt="Agent image" class="w-full h-[72px]">
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1 font-medium line-clamp-1 text-ellipsis">Abubakar Azmi</h5>
+                                                <ul class="space-y-1 text-[#757575] font-medium text-xs">
+                                                    <li>
+                                                        <span>Tel:</span>
+                                                        <span>+421 7704013187</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>Location:</span>
+                                                        <span>Slovakia</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- pagination -->
+                        <div class="mt-[50px] flex justify-center items-center gap-2">
+                            <!-- prev button -->
+                            <a href="listing.html" title="Go to previous pages" class="font-semibold text-[#FFD100]">
+                                <img src="assets/images/chevron-left-yellow.png" alt="Chevron left" class="inline-block mr-1">
+                                <span>Previous</span>
+                            </a>
+                            <!-- pagination number -->
+							<ul class="space-x-1">
+                                <li class="inline-block">
+                                    <!-- which page is open add bg-[#FFD100] & border-[#FFD100] -->
+                                    <a href="" aria-label="Current page" title="Go to page 1" class="w-9 h-9 border border-[#FFEA8A] font-medium rounded-[5px] grid place-items-center bg-[#FFD100] boerder-[#FFD100] text-[#313131]">1</a>
+                                </li>
+                                <li class="inline-block">
+                                    <a href="" title="Go to page 2" class="w-9 h-9 border border-[#FFEA8A] text-[#757575] font-medium rounded-[5px] grid place-items-center">2</a>
+                                </li>
+                                <li class="inline-block">
+                                    <a href="" title="Go to page 3" class="w-9 h-9 border border-[#FFEA8A] text-[#757575] font-medium rounded-[5px] grid place-items-center">3</a>
+                                </li>
+                                <li class="inline-block">
+                                    <a href="" title="Go to page 4" class="w-9 h-9 border border-[#FFEA8A] text-[#757575] font-medium rounded-[5px] grid place-items-center">4</a>
+                                </li>
+                                <li class="inline-block">
+                                    <a href="" title="Go to page 5" class="w-9 h-9 border border-[#FFEA8A] text-[#757575] font-medium rounded-[5px] grid place-items-center">5</a>
+                                </li>
+                            </ul>
+                            <!-- Next button -->
+                            <a href="listing.html" title="Go to next pages" class="font-semibold text-[#FFD100]">
+                                <span>Next</span>
+                                <img src="assets/images/right-chevron-yellow.png" alt="Chevron right" class="inline-block ml-1">
+                            </a>
+						</div>
+        			</div>
+        		</div>
+        	</div>
+        </main>
+        <!-- footer -->
+		<footer class="relative sm:pt-[50px] pt-8 overflow-hidden border-t-[2px] [border-image:linear-gradient(150deg,rgba(255,255,255,1),rgba(255,236,150,1),rgba(255,243,188,1))_1] after:absolute before:absolute before:left-0 before:-bottom-[7px] after:top-0 after:right-0 before:content-[url('/assets/images/footer-left-bg.png')] after:content-[url('/assets/images/footer-right-bg.png')] lg:before:-z-[0] before:-z-[10] after:-z-[10]">
+			<div class="max-w-[1220px] mx-auto w-full px-3 flex justify-between gap-6 md:flex-row flex-col">
+				<!-- footer logo and paragraph -->
+				<div class="md:max-w-[560px] w-full">
+					<a href="index.html" title="Go to homepage">
+						<img src="assets/images/logo.png" alt="Logo" loading="lazy" class="object-cover w-20 h-10">
+					</a>
+					<p class="text-sm text-[#757575] mt-4 leading-[21px]">Driving innovation and luxury, we offer premium automobiles designed with performance, style, and comfort at the forefront. Experience the perfect blend of power and elegance.</p>
+				</div>
+				<!-- footer links -->
+				<div class="max-w-[520px] w-full flex md:justify-between flex-wrap md:gap-0 gap-8">
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">Company</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="index.html" title="Go to homepage">Home</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Search more cars">Top brands</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Search latest cars">Latest cars</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Go to listing cars">All listings</a>
+							</li>
+						</ul>
+					</nav>
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">User</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="login.html">Login</a>
+							</li>
+							<li>
+								<a href="login.html">Corporate login</a>
+							</li>
+							<li>
+								<a href="register.html">Register</a>
+							</li>
+						</ul>
+					</nav>
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">Legal</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="about.html">About us</a>
+							</li>
+							<li>
+								<a href="terms.html">Terms & conditions</a>
+							</li>
+							<li>
+								<a href="privacy.html">Privacy setting</a>
+							</li>
+							<li>
+								<a href="cookie.html">Cookies</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- subscribe input -->
+			<div class="mt-[50px] max-w-[420px] text-center mb-8 mx-auto w-full px-3">
+				<h4 class="text-[16px] font-semibold mb-3">Subscribe to our newsletter</h4>
+				<div class="flex">
+					<input type="text" class="h-11 rounded-l-[5px] border border-[#FFEA8A] w-full outline-none px-3 pl-10 bg-[url('/assets/images/email-icon.svg')] bg-no-repeat bg-left [background-position-x:12px]" name="newsletter" placeholder="Enter email">
+					<button class="h-11 px-[14px] bg-[#FFD100] rounded-r-[5px] font-semibold sm:max-w-[120px] sm:w-full flex-shrink-0 transition-all duration-200 ease-in hover:bg-[#E8BE00]">Subscribe</button>
+				</div>
+			</div>
+			<!-- copyright -->
+			<div class="border-t border-[#e9e9e9] p-[10px] text-center">
+				<p class="text-xs font-medium leading-4">© Copyright 2023. All Rights Reserved</p>
+			</div>
+		</footer>
+		<script src="assets/js/index.js"></script>
+	</body>
+</html>

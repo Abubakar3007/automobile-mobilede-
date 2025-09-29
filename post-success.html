@@ -1,538 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/tailwind.min.css">
+		<title>Automobile</title>
+		<!-- google font cdn -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<style>
+			.search-input.active {
+				width: 100%;
+				max-width: 100%;
+				border-left: 1px solid #FFEA8A;
+				padding-inline: 12px;
+			}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/tailwind.min.css">
-    <title>Automobile</title>
-    <!-- google font cdn -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <style>
-        .search-input.active {
-            width: 100%;
-            max-width: 100%;
-            border-left: 1px solid #FFEA8A;
-            padding-inline: 12px;
-        }
+			.search-btn.active {
+				border-left: none;
+				border-radius: 0px 5px 5px 0px;
+			}
 
-        .search-btn.active {
-            border-left: none;
-            border-radius: 0px 5px 5px 0px;
-        }
+			.show {
+				visibility: visible;
+				opacity: 1;
+			}
 
-        .show {
-            visibility: visible;
-            opacity: 1;
-        }
+			.menu-header.active {
+				transform: translateX(0%);
+			}
 
-        .menu-header.active {
-            transform: translateX(0%);
-        }
-    </style>
-</head>
+            .ad-step.active {
+                background-color: #FFD100;
+                color: white;
+            }
 
-<body class="font-montserrat text-[#313131] text-sm">
-    <!-- header -->
-    <header class="sticky top-0 z-[10] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
-        <!-- header black -->
-        <div class="py-3 bg-[#101010] text-right lg:block hidden">
-            <ul class="text-[#FFD100] font-medium space-x-4 max-w-[1200px] w-full px-3 mx-auto">
-                <li class="inline-block">
-                    <a href="#">
-                        <img src="assets/images/time.png" alt="" class="inline-block">
-                        <span>Mon - Fri ( 10:00 - 18:00 )</span>
-                    </a>
-                </li>
-                <li class="inline-block">
-                    <a href="tel:+421 8956685986">
-                        <img src="assets/images/call.png" alt="" class="inline-block">
-                        <span>+421 8956685986</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- header bottom -->
-        <div class="relative">
-            <div
-                class="absolute left-0 bg-[#FFD100] w-full content-[''] max-w-[calc(100%-(((100%-1200px)/2)+1200px)+140px)] [clip-path:polygon(100%_0,100%_0%,87%_100%,0_100%,0_0)] text-right lg:pr-16 pr-5 pl-5 lg:min-w-[144px] min-w-max lg:h-[109px] h-16 lg:-top-[46px] top-0 flex items-center lg:justify-end justify-center">
-                <a href="index.html" title="Go to homepage" class="lg:text-[28px] text-2xl font-black">Logo</a>
-            </div>
-            <div
-                class="flex items-center lg:justify-between justify-end max-w-[1200px] w-full mx-auto px-3 h-16 pl-[140px]">
-                <!-- header left links -->
-                <div class="hidden lg:block">
-                    <ul class="space-x-8 font-medium text-[#757575] capitalize">
-                        <!-- which one is current page add class='text-[#313131] font-semibold' -->
-                        <li class="inline-block">
-                            <a href="index.html" title="Go to homepage" class="text-[#313131] font-semibold">Home</a>
-                        </li>
-                        <li class="inline-block">
-                            <a href="listing.html">Buy a car</a>
-                        </li>
-                        <li class="inline-block">
-                            <a href="post-ad.html">Sell a car</a>
-                        </li>
-                        <li class="inline-block">
-                            <a href="contact.html">Contact us</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- header right side wrapper -->
-                <div class="flex gap-2 max-w-[500px] w-full justify-end">
-                    <!-- search input -->
-                    <div class="max-w-[342px] w-full relative justify-end flex-shrink-0 lg:flex hidden">
-                        <input type="text" name="keyword" placeholder="Search a car of your choice"
-                            class="search-input max-w-[0px] w-0 absolute h-10 right-10 font-medium text-xs border border-[#FFEA8A] rounded-l-[5px] border-r-0 border-l-0 outline-none transition-all duration-300 ease-in"
-                            id="search-input">
-                        <button type="button" id="search-btn"
-                            class="w-10 search-btn h-10 rounded-[5px] transition-all duration-300 ease-in border border-[#FFEA8A] grid place-items-center">
-                            <img src="assets/images/search-icon.svg" alt="search logo">
-                        </button>
-                    </div>
-                    <div class="lg:max-w-[150px] lg:w-full flex-shrink-0 lg:block flex gap-3 items-center">
-                        <!-- login button -->
-                        <button
-                            class="lg:h-10 h-9 lg:px-[14px] px-4 lg:text-base text-[13px] lg:rounded-[5px] rounded-[25px] bg-[#FFD100] transition-all duration-300 ease-in font-semibold capitalize text-center lg:w-full hover:bg-[#E8BE00] flex-shrink-0">Login</button>
-                        <!-- favorite button -->
-                        <a href="" class="relative block lg:hidden">
-                            <img src="assets/images/heart-line.svg" alt="Favorite cars">
-                            <div
-                                class="absolute text-white bg-[#313131] rounded-full -top-[6px] -right-[6px] h-4 w-4 text-[8px] flex items-center justify-center">
-                                2</div>
+            .ad-step.success{
+                background-color: #34C759;
+                border-color: #81BF84;
+            }
+
+            .list-item.active{
+                border-color: #FFD100;
+                color:#FFD100;
+            }
+
+            .select-dropdown.show{
+                max-height:260px;
+                opacity:1;
+                visibility:visible;
+            }
+
+            .no-scroll{
+                scrollbar-width:none;
+            }
+            
+            .no-scroll::-webkit-scrollbar{
+                display:none;
+            }
+
+            input::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            .select-dropdown::-webkit-scrollbar-track {
+                border-radius: 8px;
+                background: #E9E9E9;
+            }
+
+            .select-dropdown::-webkit-scrollbar {
+                width: 8px;
+                background-color: #E9E9E9;
+                border-radius: 10px;
+            }
+
+            .select-dropdown::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: #fff;
+                width: 8px;
+            }
+
+            .password-toggle-btn {
+                background-image: url(/assets/images/eye-open-btn.svg);
+            }
+
+            .password-toggle-btn.toggle {
+                background-image: url(/assets/images/eye-close-btn.svg);
+            }
+
+            .auth-btn.active {
+                background-color: #FFD100;
+                color: #313131;
+                font-weight: 600;
+            }
+
+            @media(min-width:1024px){
+                .home-header{
+                    height:110px;
+                    top:-46px
+                }
+            }
+
+            /* Chrome, Safari, Edge, Opera */
+            input[type=number]::-webkit-outer-spin-button,
+            input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+            
+            .right-wrapper{
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0.04%, rgba(0, 0, 0, 0.00) 99.96%);
+                backdrop-filter: blur(5px);
+            }
+            
+            .select-dropdown.show{
+                max-height:220px;
+            }
+		</style>
+	</head>
+	<body class="font-montserrat text-[#313131] text-sm">
+        <!-- header -->
+		<header class="sticky top-0 z-[10] bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)]">
+			<!-- header black -->
+			<!-- Header black show only on index page -->
+			<div class="py-3 bg-[#101010] text-right lg:block hidden" style="display:none">
+				<ul class="text-[#FFD100] font-medium space-x-4 max-w-[1200px] w-full sxl:px-0 px-3 mx-auto">
+					<li class="inline-block">
+						<a href="#">
+							<img src="assets/images/time.png" alt="" class="inline-block mr-1">
+							<span>Mon - Fri ( 10:00 - 18:00 )</span>
+						</a>
+					</li>
+					<li class="inline-block">
+						<a href="#">
+							<img src="assets/images/call.png" alt="" class="inline-block mr-1">
+							<span>+421 8956685986</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- header bottom -->
+			<div class="relative">
+				<!-- Yellow bg logo here -->
+				<!-- If index page then add here class home-header otherwise remove class home-header -->
+				<div class="absolute left-0 bg-[#FFD100] w-full content-[''] max-w-[calc(100%-(((100%-1200px)/2)+1200px)+140px)] [clip-path:polygon(100%_0,100%_0%,87%_100%,0_100%,0_0)] text-right lg:pr-16 pr-5 pl-5 lg:min-w-[144px] min-w-max h-16 top-0 flex items-center lg:justify-end justify-center">
+					<a href="index.html" title="Go to homepage">
+						<img src="assets/images/logo.png" alt="Logo" loading="lazy" class="w-20">
+					</a>
+				</div>
+				<!-- Right side wrapper -->
+				<div class="flex items-center lg:justify-between justify-end max-w-[1200px] w-full mx-auto sxl:pr-0 px-3 h-16 lg:pl-[145px]">
+					<!-- header left links -->
+					<div class="hidden lg:block">
+						<ul class="space-x-8 font-medium text-[#757575] capitalize">
+							<!-- which one is current page add class='text-[#313131] font-semibold' -->
+							<li class="inline-block">
+								<a href="index.html" title="Go to homepage" class="text-[#313131] font-semibold">Home</a>
+							</li>
+							<li class="inline-block">
+								<a href="listing.html">Buy a car</a>
+							</li>
+							<li class="inline-block">
+								<a href="post-ad.html">Sell a car</a>
+							</li>
+							<li class="inline-block">
+								<a href="contact.html">Contact us</a>
+							</li>
+						</ul>
+					</div>
+					<!-- header right side wrapper -->
+					<div class="flex gap-2 max-w-[500px] w-full justify-end">
+						<!-- search input -->
+						<div class="max-w-[342px] w-full relative justify-end flex-shrink-0 lg:flex hidden">
+							<input type="text" name="keyword" placeholder="Search a car of your choice" class="search-input max-w-[0px] w-0 absolute h-10 right-10 font-medium text-xs border border-[#FFEA8A] rounded-l-[5px] border-r-0 border-l-0 outline-none transition-all duration-300 ease-in" id="search-input">
+							<button type="button" id="search-btn" class="w-10 search-btn h-10 rounded-[5px] transition-all duration-300 ease-in border border-[#FFEA8A] grid place-items-center">
+								<img src="assets/images/search-icon.svg" alt="search logo">
+							</button>
+						</div>
+						<!-- Login wrapper -->
+						<div class="lg:max-w-[150px] lg:w-full flex-shrink-0 lg:block flex gap-3 items-center">
+							<!-- login button -->
+							<button id="login-btn" class="lg:h-10 h-9 lg:px-[14px] px-4 lg:text-sm text-[13px] lg:rounded-[5px] rounded-[25px] bg-[#FFD100] transition-all duration-300 ease-in font-semibold capitalize text-center lg:w-full hover:bg-[#E8BE00] flex-shrink-0">Login</button>
+							<!-- responsive favorite button -->
+							<a href="favorite.html" class="relative block lg:hidden">
+								<img src="assets/images/heart-line.svg" alt="Favorite cars">
+								<!-- total favorite items number -->
+								<div class="absolute text-white bg-[#313131] rounded-full -top-[6px] -right-[6px] h-4 w-4 text-[8px] flex items-center justify-center">2</div>
+							</a>
+							<!-- open menu button -->
+							<button id="menu-btn" class="lg:hidden border-2 border-[#FFD100] rounded-full h-9 w-9 grid place-items-center">
+								<img src="assets/images/menu-icon.svg" alt="Open menu button" class="w-[14px]">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- responsive menu content -->
+			<div class="lg:hidden">
+				<!-- header content -->
+				<div id="menu-content" class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-300 [-webkit-overflow-scrolling:touch] menu-header">
+					<!-- logo -->
+					<div class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6 flex justify-between items-center">
+						<a href="index.html" title="Go to homepage">
+                            <img src="assets/images/logo.png" alt="Logo" loading="lazy" class="object-cover w-20 h-10">
                         </a>
-                        <!-- open menu button -->
-                        <button
-                            class="lg:hidden border-2 border-[#FFD100] rounded-full h-9 w-9 grid place-items-center">
-                            <img src="assets/images/menu-icon.svg" alt="Open menu button" class="w-[14px]">
-                        </button>
-                    </div>
-                    <!-- login button -->
-                </div>
-
-            </div>
-        </div>
-        <!-- responsive header -->
-        <div class="hidden">
-            <div
-                class="p-5 w-[320px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] h-full top-0 left-0 -translate-x-[100%] fixed bg-white z-[9999] overflow-y-auto transition ease duration-500 [-webkit-overflow-scrolling:touch] menu-header active">
-                <!-- logo -->
-                <div class="p-3 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[5px] mb-6">
-                    <a href="index.html" title="Go to homepage" class="text-2xl font-black">Logo</a>
-                </div>
-                <div class="nav-top">
-                    <ul class="gap-16 flex_col">
-                        <li>
-                            <a href="/profile/">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
-                                    <path
-                                        d="M3.33398 18.333C3.33398 16.5649 4.03636 14.8692 5.28661 13.619C6.53685 12.3687 8.23254 11.6663 10.0007 11.6663C11.7688 11.6663 13.4645 12.3687 14.7147 13.619C15.9649 14.8692 16.6673 16.5649 16.6673 18.333H15.0007C15.0007 17.0069 14.4739 15.7352 13.5362 14.7975C12.5985 13.8598 11.3267 13.333 10.0007 13.333C8.67457 13.333 7.4028 13.8598 6.46512 14.7975C5.52744 15.7352 5.00065 17.0069 5.00065 18.333H3.33398ZM10.0007 10.833C7.23815 10.833 5.00065 8.59551 5.00065 5.83301C5.00065 3.07051 7.23815 0.833008 10.0007 0.833008C12.7632 0.833008 15.0007 3.07051 15.0007 5.83301C15.0007 8.59551 12.7632 10.833 10.0007 10.833ZM10.0007 9.16634C11.8423 9.16634 13.334 7.67467 13.334 5.83301C13.334 3.99134 11.8423 2.49967 10.0007 2.49967C8.15898 2.49967 6.66732 3.99134 6.66732 5.83301C6.66732 7.67467 8.15898 9.16634 10.0007 9.16634Z"
-                                        fill="#fff"></path>
-                                </svg>
-                                <span>My Profile</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/profile/saved_search/">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
-                                    <path
-                                        d="M4.16634 1.66699H15.833C16.054 1.66699 16.266 1.75479 16.4223 1.91107C16.5785 2.06735 16.6663 2.27931 16.6663 2.50033V18.4528C16.6664 18.5273 16.6465 18.6005 16.6088 18.6647C16.571 18.7289 16.5166 18.7818 16.4515 18.8179C16.3863 18.854 16.3126 18.8719 16.2381 18.8699C16.1637 18.8678 16.0911 18.8458 16.028 18.8062L9.99967 15.0253L3.97134 18.8053C3.90831 18.8449 3.83583 18.8669 3.76143 18.869C3.68702 18.8711 3.61341 18.8532 3.54825 18.8173C3.48309 18.7813 3.42876 18.7285 3.39091 18.6644C3.35306 18.6003 3.33306 18.5273 3.33301 18.4528V2.50033C3.33301 2.27931 3.42081 2.06735 3.57709 1.91107C3.73337 1.75479 3.94533 1.66699 4.16634 1.66699ZM14.9997 3.33366H4.99967V16.1937L9.99967 13.0595L14.9997 16.1937V3.33366Z"
-                                        fill="#ffffff"></path>
-                                </svg>
-                                <span>Saved Searches</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/profile/my_favorite/">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
-                                    <path
-                                        d="M10.0002 3.77415C11.9577 2.01665 14.9827 2.07498 16.8685 3.96415C18.7535 5.85415 18.8185 8.86415 17.0652 10.8275L9.99852 17.9042L2.93352 10.8275C1.18019 8.86415 1.24602 5.84915 3.13019 3.96415C5.01769 2.07748 8.03685 2.01415 10.0002 3.77415ZM15.6885 5.14165C14.4385 3.88998 12.4219 3.83915 11.1135 5.01415L10.001 6.01248L8.88769 5.01498C7.57519 3.83832 5.56269 3.88998 4.30935 5.14332C3.06769 6.38498 3.00519 8.37248 4.14935 9.68582L9.99935 15.545L15.8494 9.68665C16.9944 8.37248 16.9319 6.38748 15.6885 5.14165Z"
-                                        fill="#ffffff"></path>
-                                </svg>
-                                <span>Favorite</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/profile/my_ads/">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                                    fill="none">
-                                    <path
-                                        d="M6.66667 3.33366H17.5V5.00033H6.66667V3.33366ZM2.5 2.91699H5V5.41699H2.5V2.91699ZM2.5 8.75033H5V11.2503H2.5V8.75033ZM2.5 14.5837H5V17.0837H2.5V14.5837ZM6.66667 9.16699H17.5V10.8337H6.66667V9.16699ZM6.66667 15.0003H17.5V16.667H6.66667V15.0003Z"
-                                        fill="#ffffff"></path>
-                                </svg>
-                                <span>My ads</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="gap-16 flex_col">
-                        <li>
-                            <a href="/listing/" class="">Buy a car</a>
-                        </li>
-                        <li>
-                            <a href="/post_ad/" class="">Sell a car</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full p-4 text-center">
-                    <button class="max-w-[50%] w-full mx-auto bg-[#FFEF47] rounded-[5px] h-10 block font-semibold"
-                        id="register">Register</button>
-                </div>
-            </div>
-            <div
-                class="opacity-0 invisible fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg show bg-[rgba(0,0,0,0.5)]">
-                <button aria-label="Close responsive menu" class="absolute top-6 right-[5px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
-                        <g clip-path="url(#clip0_14_9062)">
-                            <path
-                                d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z"
-                                fill="#fff" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_14_9062">
-                                <rect width="24" height="24" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div class="hidden popup auth_pop" data-popup="login_popup">
-            <!-- login and register popup -->
-            <div class="popup_content auth_hidden login_pop active" data-content="login_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Welcome <span>Back</span>
-                    </h2>
-                    <div class="flex auth_tab">
-                        <button class="active">Login</button>
-                        <button>Signup</button>
-                    </div>
-                </div>
-                <form id="loginSignupForm">
-                    <div class="gap-16 form_input flex_col">
-                        <div class="single_input">
-                            <!-- <div class="form-item input_text error_class"> -->
-                            <div class="form-item input_text">
-                                <input type="text" id="email" name="email" autocomplete="off" required="">
-                                <label for="email">Email</label>
-                                <!-- <p class="error_msg">Please enter valid.</p> -->
-                            </div>
-                        </div>
-                        <div class="single_input">
-                            <div class="form-item input_text">
-                                <input type="password" id="password" name="password" autocomplete="off" required=""
-                                    onclick="showSuggestion(event,this)">
-                                <label for="password">Password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/show_password.svg" alt="password logo">
-                                </span>
-                                <div class="suggestion">
-                                    <p>Password must have :</p>
-                                    <ul>
-                                        <li>min. 8 characters</li>
-                                        <li>a special character</li>
-                                        <li>a number</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_input confirm_passwd">
-                            <div class="form-item input_text">
-                                <input type="password" id="re-password" name="confirm_password" autocomplete="off"
-                                    required="">
-                                <label for="re-password">Re-enter password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/show_password.svg" alt="password logo">
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="login_info d_flex d_between">
-                        <div class="single_radio">
-                            <input type="checkbox" name="keep_login" value="1" id="check_login">
-                            <label for="check_login">Keep me logged in</label>
-                        </div>
-                        <a href="#" onclick="movePopup('forget_content')">Forget password?</a>
-                    </div>
-                    <div class="gap-32 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="loginBtn">
-                            <img src="/assets/img/login_auth.svg" alt="login image">
-                            <span>Login</span>
-                        </button>
-                        <div class="gap-8 divider d_flex">
-                            <span></span>
-                            <span>Or Signup with</span>
-                            <span></span>
-                        </div>
-                        <div class="flex gap-8 social_btn">
-                            <a href="#">
-                                <img src="/assets/img/facebook.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="/assets/img/google.svg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- forget password popup -->
-            <div class="popup_content forget_popup" data-content="forget_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Forgot password</h2>
-                    <p>You will receive an verification code on the registered email id to reset your password.</p>
-                </div>
-                <form id="forgotPasswordForm">
-                    <div class="single_input">
-                        <div class="form-item input_text">
-                            <input type="text" name="email" id="email2" autocomplete="off" required="">
-                            <label for="email2">Email</label>
-                        </div>
-                    </div>
-                    <div class="gap-16 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="sendCodeBtn"> Send verification Code
-                            <img src="/assets/img/forget_pass.png" alt="login image">
-                        </button>
-                        <a href="#!" onclick="movePopup('login_content')">Back to login</a>
-                    </div>
-                </form>
-            </div>
-            <!-- verification code popup -->
-            <div class="popup_content forget_popup otp_popup" data-content="otp_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Enter verification code</h2>
-                    <p>Enter the verification code you received on your email. <br>
-                        <span>kindly check your spam section too.</span>
-                    </p>
-                </div>
-                <form id="otpForm">
-                    <div class="gap-16 otp_inputs flex_col d_center">
-                        <ul class="gap-16 d_flex">
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                            <li>
-                                <input type="text" name="code[]" maxlength="1">
-                            </li>
-                        </ul>
-                        <p>Didn’t receive OTP ? <a href="#" id="sendAgain"> Send again.</a>
-                        </p>
-                    </div>
-                    <div class="gap-16 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="createPasswordBtn"> Create new password
-                            <img src="/assets/img/forget_pass.png" alt="login image">
-                        </button>
-                        <a href="#" onclick="movePopup('forget_content')">Back</a>
-                    </div>
-                </form>
-            </div>
-            <!-- change password -->
-            <div class="popup_content forget_popup" data-content="update_content">
-                <span class="close_popup" onclick="closePopup('login_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <div class="popup_header">
-                    <h2>Create new password</h2>
-                    <p>Enter the verification code you received on your email.</p>
-                </div>
-                <form id="updatePasswordForm">
-                    <div class="gap-16 form_input flex_col">
-                        <div class="single_input">
-                            <div class="form-item input_text">
-                                <input type="password" name="password" id="password2" autocomplete="off" required=""
-                                    onclick="showSuggestion(event,this)">
-                                <label for="password2">New Password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                </span>
-                                <div class="suggestion">
-                                    <p>Password must have :</p>
-                                    <ul>
-                                        <li>min. 8 characters</li>
-                                        <li>a special character</li>
-                                        <li>a number</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_input confirm_passwd">
-                            <div class="form-item input_text">
-                                <input type="password" name="confirm_password" id="re-password2" autocomplete="off"
-                                    required="">
-                                <label for="re-password2">Re-enter password</label>
-                                <span class="password_icon" onclick="passwordToggle(this)">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                    <img src="/assets/img/hide_password.svg" alt="password logo">
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gap-16 auth_btns flex_col">
-                        <button type="button" class="btn_bg medium_btn" id="updatePasswordBtn"> Update password <img
-                                src="/assets/img/forget_pass.png" alt="login image">
-                        </button>
-                        <a href="#!" onclick="movePopup('otp_content')">Back</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- success popup for all-->
-        <div class="hidden popup success_popup" data-popup="success_popup">
-            <div class="success_content">
-                <p>Your email has been updated successfully.</p>
-            </div>
-        </div>
-        <!-- logout pop up -->
-        <div class="hidden popup logout" data-popup="logout_popup">
-            <div class="popup_content">
-                <span class="close_popup" onclick="closePopup('logout_popup')">
-                    <img src="/assets/img/close_popup.svg" alt="">
-                </span>
-                <h3>Confirm Logout</h3>
-                <p>Are you sure you want to logout?</p>
-                <div class="gap-16 d_flex">
-                    <button class="btn_nobg medium_btn">Cancel</button>
-                    <button class="btn_bg medium_btn">Logout</button>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- post success -->
-    <main class="md:pb-[100px] pb-12">
-        <div class="max-w-[1200px] w-full mx-auto px-3">
-            <!-- Breadcrumb -->
-            <nav aria-label="Breadcrumb" class="pt-8 sm:pb-[50px] pb-8">
-                <ul class="text-xs text-[#757575] font-medium flex items-center gap-2">
-                    <li><a href="index.html" title="Go to homepage" class="text-[#313131] hover:underline">Home</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad.html" title="Post ad step 1" class="text-[#313131] hover:underline">Basic details</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-2.html" title="Post ad step 2" class="text-[#313131] hover:underline">Technical details</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-3.html" title="Post ad step 3" class="text-[#313131] hover:underline">Exterior details</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-4.html" title="Post ad step 4" class="text-[#313131] hover:underline">Interior details</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-5.html" title="Post ad step 5" class="text-[#313131] hover:underline">Photos</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li><a href="post-ad-6.html" title="Post ad step 6" class="text-[#313131] hover:underline">Preview</a></li>
-                    <li><img src="assets/images/right-chevron.svg" alt="Next"></li>
-                    <li aria-current="page">Post success</li>
-                </ul>
-            </nav>
-            <!-- success content -->
-            <div class="text-center max-w-[520px] w-full mx-auto">
-			    <img src="assets/images/post-success-image.png" alt="Post success image" loading="lazy" class="mx-auto mb-8">
-				<p class="font-medium text-[#757575] mb-6">Your advertisement has been <span class="font-semibold text-[#FFD100]">posted successfully</span>, you can edit the ad details anytime by going to your my ads section.</p>
-				<a href="my-ads.html" class="max-w-[220px] w-full h-10 mx-auto bg-[#FFD100] font-semibold px-[14px] rounded-[5px] block leading-[40px] transition-all duration-200 ease-in hover:bg-[#E8BE00]" title="Go to my ads section">
-				    <img src="assets/images/my-ads-logo.svg" alt="my ads" class="inline-block mr-1">
-                    <span>My ads</span>
-                </a>
-		    </div>
-        </div>
-    </main>
-    <!-- footer -->
-    <footer
-        class="relative pt-[50px] overflow-hidden border-t-[2px] [border-image:linear-gradient(150deg,rgba(255,255,255,1),rgba(255,236,150,1),rgba(255,243,188,1))_1] after:absolute before:absolute before:left-0 before:-bottom-[7px] after:top-0 after:right-0 before:content-[url('/assets/images/footer-left-bg.png')] after:content-[url('/assets/images/footer-right-bg.png')] lg:before:-z-[0] before:-z-[10] after:-z-[10]">
-        <div class="max-w-[1220px] mx-auto w-full px-3 flex justify-between gap-6 md:flex-row flex-col">
-            <!-- footer logo and paragraph -->
-            <div class="md:max-w-[560px] w-full">
-                <a href="index.html" title="Go to homepage" class="text-[28px] font-black">Logo</a>
-                <p class="text-sm text-[#757575] mt-4 leading-[21px]">Driving innovation and luxury, we offer premium
-                    automobiles designed with performance, style, and comfort at the forefront. Experience the perfect
-                    blend of power and elegance.</p>
-            </div>
-            <!-- footer links -->
-            <div class="max-w-[520px] w-full flex md:justify-between flex-wrap md:gap-0 gap-8">
-                <nav>
-                    <h4 class="text-[16px] font-semibold mb-3">Company</h4>
-                    <ul class="space-y-2 font-medium">
-                        <li>
-                            <a href="index.html" title="Go to homepage">Home</a>
-                        </li>
-                        <li>
-                            <a href="listing.html" title="Search more cars">Top brands</a>
-                        </li>
-                        <li>
-                            <a href="listing.html" title="Search latest cars">Latest cars</a>
-                        </li>
-                        <li>
-                            <a href="listing.html" title="Go to listing cars">All listings</a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav>
-                    <h4 class="text-[16px] font-semibold mb-3">User</h4>
-                    <ul class="space-y-2 font-medium">
-                        <li>
-                            <a href="login.html">Login</a>
-                        </li>
-                        <li>
-                            <a href="login.html">Corporate login</a>
-                        </li>
-                        <li>
-                            <a href="register.html">Register</a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav>
-                    <h4 class="text-[16px] font-semibold mb-3">Legal</h4>
-                    <ul class="space-y-2 font-medium">
-                        <li>
-                            <a href="about.html">About us</a>
-                        </li>
-                        <li>
-                            <a href="terms.html">Terms & conditions</a>
-                        </li>
-                        <li>
-                            <a href="privacy.html">Privacy setting</a>
-                        </li>
-                        <li>
-                            <a href="cookie.html">Cookies</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- subscribe input -->
-        <div class="mt-[50px] max-w-[420px] text-center mb-8 mx-auto w-full px-3">
-            <h4 class="text-[16px] font-semibold mb-3">Subscribe to our newsletter</h4>
-            <div class="flex">
-                <input type="text"
-                    class="h-10 rounded-l-[5px] border border-[#FFEA8A] w-full outline-none px-3 pl-10 bg-[url('/assets/images/email-icon.svg')] bg-no-repeat bg-left [background-position-x:12px]"
-                    name="newsletter" placeholder="Enter email">
-                <button
-                    class="h-10 px-[14px] bg-[#FFD100] rounded-r-[5px] font-semibold max-w-[120px] w-full flex-shrink-0 transition-all duration-200 ease-in hover:bg-[#E8BE00]">Subscribe</button>
-            </div>
-        </div>
-        <!-- copyright -->
-        <div class="border-t border-[#e9e9e9] p-[10px] text-center">
-            <p class="text-xs font-medium leading-4">© Copyright 2023. All Rights Reserved</p>
-        </div>
-    </footer>
-    <script src="assets/js/index.js"></script>
-</body>
-
+						<!--Close button  -->
+						<button id="close-menu" aria-label="Close responsive menu">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<g clip-path="url(#clip0_14_9062)">
+									<path d="M12 10.5862L16.95 5.63623L18.364 7.05023L13.414 12.0002L18.364 16.9502L16.95 18.3642L12 13.4142L7.04999 18.3642L5.63599 16.9502L10.586 12.0002L5.63599 7.05023L7.04999 5.63623L12 10.5862Z" fill="#313131"/>
+								</g>
+								<defs>
+									<clipPath id="clip0_14_9062">
+										<rect width="24" height="24" fill="white"/>
+									</clipPath>
+								</defs>
+							</svg>
+						</button>
+					</div>
+					<!-- User info list -->
+					<div class="font-medium">
+						<ul class="pb-4 mb-4 space-y-6 border-b border-[#e9e9e9]">
+							<li>
+								<a href="my-profile.html" title="Go to my profile">
+									<svg class="inline-block mr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+										<path d="M3.33398 18.333C3.33398 16.5649 4.03636 14.8692 5.28661 13.619C6.53685 12.3687 8.23254 11.6663 10.0007 11.6663C11.7688 11.6663 13.4645 12.3687 14.7147 13.619C15.9649 14.8692 16.6673 16.5649 16.6673 18.333H15.0007C15.0007 17.0069 14.4739 15.7352 13.5362 14.7975C12.5985 13.8598 11.3267 13.333 10.0007 13.333C8.67457 13.333 7.4028 13.8598 6.46512 14.7975C5.52744 15.7352 5.00065 17.0069 5.00065 18.333H3.33398ZM10.0007 10.833C7.23815 10.833 5.00065 8.59551 5.00065 5.83301C5.00065 3.07051 7.23815 0.833008 10.0007 0.833008C12.7632 0.833008 15.0007 3.07051 15.0007 5.83301C15.0007 8.59551 12.7632 10.833 10.0007 10.833ZM10.0007 9.16634C11.8423 9.16634 13.334 7.67467 13.334 5.83301C13.334 3.99134 11.8423 2.49967 10.0007 2.49967C8.15898 2.49967 6.66732 3.99134 6.66732 5.83301C6.66732 7.67467 8.15898 9.16634 10.0007 9.16634Z" fill="#313131"></path>
+									</svg>
+									<span class="align-middle">My Profile</span>
+								</a>
+							</li>
+							<li>
+								<a href="saved-searches.html" title="Go to saved searches">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M4.16634 1.66699H15.833C16.054 1.66699 16.266 1.75479 16.4223 1.91107C16.5785 2.06735 16.6663 2.27931 16.6663 2.50033V18.4528C16.6664 18.5273 16.6465 18.6005 16.6088 18.6647C16.571 18.7289 16.5166 18.7818 16.4515 18.8179C16.3863 18.854 16.3126 18.8719 16.2381 18.8699C16.1637 18.8678 16.0911 18.8458 16.028 18.8062L9.99967 15.0253L3.97134 18.8053C3.90831 18.8449 3.83583 18.8669 3.76143 18.869C3.68702 18.8711 3.61341 18.8532 3.54825 18.8173C3.48309 18.7813 3.42876 18.7285 3.39091 18.6644C3.35306 18.6003 3.33306 18.5273 3.33301 18.4528V2.50033C3.33301 2.27931 3.42081 2.06735 3.57709 1.91107C3.73337 1.75479 3.94533 1.66699 4.16634 1.66699ZM14.9997 3.33366H4.99967V16.1937L9.99967 13.0595L14.9997 16.1937V3.33366Z" fill="#313131"></path>
+									</svg>
+									<span>Saved Searches</span>
+								</a>
+							</li>
+							<li>
+								<a href="favorite.html" title="Go to favorite">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M10.0002 3.77415C11.9577 2.01665 14.9827 2.07498 16.8685 3.96415C18.7535 5.85415 18.8185 8.86415 17.0652 10.8275L9.99852 17.9042L2.93352 10.8275C1.18019 8.86415 1.24602 5.84915 3.13019 3.96415C5.01769 2.07748 8.03685 2.01415 10.0002 3.77415ZM15.6885 5.14165C14.4385 3.88998 12.4219 3.83915 11.1135 5.01415L10.001 6.01248L8.88769 5.01498C7.57519 3.83832 5.56269 3.88998 4.30935 5.14332C3.06769 6.38498 3.00519 8.37248 4.14935 9.68582L9.99935 15.545L15.8494 9.68665C16.9944 8.37248 16.9319 6.38748 15.6885 5.14165Z" fill="#313131"></path>
+									</svg>
+									<span>Favorite</span>
+								</a>
+							</li>
+							<li>
+								<a href="my-ads.html">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="inline-block mr-1">
+										<path d="M6.66667 3.33366H17.5V5.00033H6.66667V3.33366ZM2.5 2.91699H5V5.41699H2.5V2.91699ZM2.5 8.75033H5V11.2503H2.5V8.75033ZM2.5 14.5837H5V17.0837H2.5V14.5837ZM6.66667 9.16699H17.5V10.8337H6.66667V9.16699ZM6.66667 15.0003H17.5V16.667H6.66667V15.0003Z" fill="#313131"></path>
+									</svg>
+									<span>My ads</span>
+								</a>
+							</li>
+						</ul>
+						<ul class="space-y-6">
+							<li>
+								<a href="listing.html" title="Buy a used cars">Buy a car</a>
+							</li>
+							<li>
+								<a href="post-ad.html" title="Go to sell car">Sell a car</a>
+							</li>
+						</ul>
+					</div>
+					<!-- Register button -->
+					<div class="absolute bottom-0 left-0 w-full p-4 text-center">
+						<button class="max-w-[50%] w-full mx-auto bg-[#FFD100] rounded-[5px] h-10 block font-semibold" id="register">Register</button>
+					</div>
+				</div>
+				<!-- header bg  -->
+				<div id="menu-bg" class="fixed left-0 top-0 w-full h-full z-[999] transition-all duration-200 ease-in header-bg hidden bg-black/80"></div>
+			</div>
+			<!-- Login popup -->
+			<div id="auth-popup" class="fixed inset-0 invisible w-full opacity-0 bg-black/80 h-[100vh] z-[1000]">
+				<div class="grid w-full h-full p-2 place-items-center">
+					<!-- Popup box -->
+					<div class="bg-white shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] rounded-[15px] sm:p-6 p-4 relative max-w-[480px] w-full box">
+						<!-- Close login popup -->
+						<button id="close-auth" class="absolute right-4 top-4" aria-label="Close login popup" title="Close popup">
+							<img src="assets/images/cross-icon.svg" alt="Close login popup" class="w-4">
+						</button>
+						<!-- Login & Register popup -->
+						<div id="login-box" class="auth-box">
+							<h3 class="mt-3 mb-4 text-xl font-semibold text-center">Welcome Back</h3>
+							<!-- Select tab for login or register -->
+							<div class="flex sm:mb-[50px] mb-7 p-1 rounded-[50px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.08)] max-w-[259px] w-full mx-auto">
+								<button class="h-8 font-semibold rounded-[50px] sm:text-base flex-1 text-[#757575] active auth-btn">Login</button>
+								<button class="h-8 font-medium rounded-[50px] sm:text-base flex-1 text-[#757575] auth-btn">Signup</button>
+							</div>
+							<!-- Login form -->
+							<form id="login-form" class="auth-form">
+								<!-- email and password -->
+								<div class="space-y-4">
+									<!-- email -->
+									<div>
+										<div class="relative">
+											<input type="text" id="email" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="email" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+										</div>
+										<!-- Error show here -->
+										<p class="mt-1 text-xs font-medium text-red">Please enter valid email</p>
+									</div>
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="password" name="password" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border password-input border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-1/2 -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<p class="mt-1 text-xs font-medium text-red">Please enter correct password</p>
+									</div>
+								</div>
+								<!-- forget password link -->
+								<div class="flex items-center justify-between mt-2">
+									<!-- remember checkbox -->
+									<div>
+										<input type="checkbox" name="remember" id="remember" class="w-[18px] h-[18px] rounded-[2px] border border-[#FFD100] align-middle cursor-pointer mr-[2px] relative appearance-none checked:after:content-[''] checked:after:block checked:after:w-3 checked:after:h-[6px] checked:after:border-l-2 checked:after:border-b-2 checked:after:border-white checked:bg-[#FFD100] checked:after:absolute checked:after:top-[4px] checked:after:left-[2px] checked:after:-rotate-45">
+										<label for="remember" class="align-middle font-medium text-[#757575] sm:text-sm text-xs cursor-pointer">Keep me logged in</label>
+									</div>
+									<!-- forget link -->
+									<button id="forgot-password-btn" type="button" class="text-xs font-semibold sm:text-sm">Forgot password?</button>
+								</div>
+								<!-- login button -->
+								<button type="submit" class="h-10 sm:mt-[50px] mt-7 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+									<span class="align-middle">Login</span>
+								</button>
+							</form>
+							<!-- Register form -->
+							<form id="register-form" class="hidden auth-form">
+								<!-- email and password -->
+								<div class="space-y-4">
+									<!-- email -->
+									<div>
+										<div class="relative">
+											<input type="text" id="email-register" name="email-register" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="email-register" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter valid email</p> -->
+									</div>
+									<!-- password -->
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="password-again" name="password" placeholder=" " autocomplete="off" class="peer password-input h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="password-again" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+									</div>
+									<!-- Confirm password -->
+									<div>
+										<div class="relative password-wrapper">
+											<input type="password" id="c-password" name="c-password" placeholder=" " autocomplete="off" class="peer password-input h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+											<label for="c-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Re-enter password</label>
+											<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+										</div>
+										<!-- Error show here -->
+										<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+									</div>
+								</div>
+								<!-- Sign up button -->
+								<button type="submit" class="sm:mt-[50px] mt-7 h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<img src="assets/images/login-icon.svg" alt="login image" class="inline-block mr-1">
+									<span class="align-middle">Sign up</span>
+								</button>
+							</form>
+							<!-- divider -->
+							<div class="flex gap-2 text-[#757575] font-medium mt-8 text-center before:flex-1 after:flex-1 before:h-[0.5px] after:h-[0.5px] before:bg-[#DEDEDE] after:bg-[#DEDEDE] before:block after:block items-center">
+								<span>Or Signup with</span>
+							</div>
+							<!-- facebook and google button -->
+							<div class="flex gap-2 mt-8">
+								<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+									<img src="assets/images/facebook.svg" alt="Facebook login" class="mx-auto">
+								</button>
+								<button class="flex-1 p-[10px] rounded-[5px] border border-[#dedede] bg-white text-center block">
+									<img src="assets/images/google.svg" alt="Google login" class="mx-auto">
+								</button>
+							</div>
+						</div>
+						<!-- forget password popup -->
+						<div id="forgot-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Forgot password</h3>
+								<p class="text-[#757575] sm:text-sm text-xs sm:leading-[21px] font-medium">You will receive an verification code on the registered email id to reset your password.</p>
+							</div>
+							<!-- Forget password form -->
+							<form id="forgot-form">
+								<!-- email -->
+								<div class="sm:mb-[50px] mb-7">
+									<div class="relative">
+										<input type="text" id="email-again" name="email" placeholder=" " autocomplete="off" class="peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="email-again" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Email</label>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter valid email</p> -->
+								</div>
+								<!-- Submit button -->
+								<button type="button" id="send-verification-btn" class="h-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00] capitalize">
+									<span class="align-middle">Send verification code</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="forgot-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+						<!-- verification code popup -->
+						<div id="verification-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Enter verification code</h3>
+								<p class="font-medium sm:text-sm sm:leading-[21px] text-[#757575] text-xs">Enter the verification code you received on your email. <br>
+									<span class="text-[#BFBFBF]">kindly check your spam section too.</span>
+								</p>
+								<!-- otp send message when user click send again it button -->
+								<p class="mt-2 text-xs font-medium text-green">Otp successfully sent on your email</p>
+							</div>
+							<form id="verification-form">
+								<div class="flex justify-center gap-4 mb-4 otp-inputs">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+									<input type="text" name="code[]" maxlength="1" class="w-11 h-11 rounded-[5px] border border-[#ededed] outline-none transition-all durtion-200 ease focus:border-[#FFD100] text-center">
+								</div>
+								<p class="text-center font-medium text-[#757575]">Didn’t receive OTP ? <a href="#" class="font-semibold text-[#313131]">Send again.</a>
+								</p>
+								<!-- Submit button -->
+								<button type="button" id="password-create-btn" class="h-10 mt-10 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<span class="align-middle">Create new password</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="verification-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+						<!-- change password -->
+						<div id="password-box" class="hidden auth-box">
+							<div class="text-center sm:mb-[50px] mb-7">
+								<h3 class="mt-3 mb-4 text-xl font-semibold">Create new password</h3>
+								<p class="font-medium text-[#757575] sm:leading-[21px] sm:text-sm text-xs">Enter the verification code you received on your email.</p>
+							</div>
+							<!-- change password form -->
+							<form id="password-form">
+								<!-- new password -->
+								<div class="mb-4">
+									<div class="relative password-wrapper">
+										<input type="password" id="new-password" name="new-password" placeholder=" " autocomplete="off" class="password-input peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="new-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Password</label>
+										<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+								</div>
+								<!-- re password -->
+								<div>
+									<div class="relative password-wrapper">
+										<input type="password" id="re-password" name="re-password" placeholder=" " autocomplete="off" class="password-input peer h-11 px-[14px] border border-[#e9e9e9] transition-all ease duration-200 focus:border-[#FFD100] w-full outline-none rounded-[5px] font-medium" required>
+										<label for="re-password" class="absolute left-[14px] font-medium text-[#757575] bg-white px-1 transition-all duration-300 ease top-1/2 -translate-y-1/2 text-sm peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#757575] peer-focus:top-0 peer-focus:text-xs peer-focus:text-[#FFD100] peer-[&:not(:placeholder-shown)]:top-0 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-[#757575]">Re-enter password</label>
+										<button type="button" class="bg-no-repeat password-toggle-btn absolute top-[50%] -translate-y-1/2 right-[14px] w-4 h-4"></button>
+									</div>
+									<!-- Error show here -->
+									<!-- <p class="mt-1 text-xs font-medium text-red">Please enter correct password</p> -->
+								</div>
+								<button type="button" class="h-10 sm:mt-[50px] mt-7 rounded-[5px] bg-[#FFD100] transition-all duration-200 ease font-semibold w-full block hover:bg-[#E8BE00]">
+									<span class="align-middle">Update password</span>
+									<img src="assets/images/black-arrow-right.png" alt="Chevron right" class="inline-block ml-1">
+								</button>
+							</form>
+							<!-- Back button -->
+							<button id="password-back-btn" class="mt-4 font-semibold text-[#FFD100] text-center block mx-auto">Back to login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+        <!-- post success -->
+        <main class="md:pb-[100px] pb-12">
+        	<div class="max-w-[1200px] w-full mx-auto px-3">
+        		<!-- Breadcrumb -->
+        		<nav aria-label="Breadcrumb" class="pt-8 sm:pb-[50px] pb-8 no-scroll overflow-x-scroll whitespace-nowrap">
+        			<ul class="text-xs text-[#757575] font-medium flex items-center gap-2">
+        				<li>
+        					<a href="index.html" title="Go to homepage" class="text-[#313131] hover:underline">Home</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li>
+        					<a href="post-ad.html" title="Post ad step 1" class="text-[#313131] hover:underline">Basic details</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li>
+        					<a href="post-ad-2.html" title="Post ad step 2" class="text-[#313131] hover:underline">Technical details</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li>
+        					<a href="post-ad-3.html" title="Post ad step 3" class="text-[#313131] hover:underline">Exterior details</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li>
+        					<a href="post-ad-4.html" title="Post ad step 4" class="text-[#313131] hover:underline">Interior details</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li>
+        					<a href="post-ad-5.html" title="Post ad step 5" class="text-[#313131] hover:underline">Photos</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li>
+        					<a href="post-ad-6.html" title="Post ad step 6" class="text-[#313131] hover:underline">Preview</a>
+        				</li>
+        				<li class="flex-shrink-0">
+        					<img src="assets/images/right-chevron.svg" alt="Next">
+        				</li>
+        				<li aria-current="page">Post success</li>
+        			</ul>
+        		</nav>
+        		<!-- success content -->
+        		<div class="text-center max-w-[520px] w-full mx-auto">
+        			<img src="assets/images/post-success-image.png" alt="Post success image" loading="lazy" class="mx-auto mb-8">
+        			<p class="font-medium text-[#757575] mb-6">Your advertisement has been <span class="font-semibold text-[#FFD100]">posted successfully</span>, you can edit the ad details anytime by going to your my ads section. </p>
+        			<a href="my-ads.html" class="max-w-[220px] w-full h-10 mx-auto bg-[#FFD100] font-semibold px-[14px] rounded-[5px] block leading-[40px] transition-all duration-200 ease-in hover:bg-[#E8BE00]" title="Go to my ads section">
+        				<img src="assets/images/my-ads-logo.svg" alt="my ads" class="inline-block mr-1">
+        				<span class="align-middle">My ads</span>
+        			</a>
+        		</div>
+        	</div>
+        </main>
+		<!-- footer -->
+		<footer class="relative sm:pt-[50px] pt-8 overflow-hidden border-t-[2px] [border-image:linear-gradient(150deg,rgba(255,255,255,1),rgba(255,236,150,1),rgba(255,243,188,1))_1] after:absolute before:absolute before:left-0 before:-bottom-[7px] after:top-0 after:right-0 before:content-[url('/assets/images/footer-left-bg.png')] after:content-[url('/assets/images/footer-right-bg.png')] lg:before:-z-[0] before:-z-[10] after:-z-[10]">
+			<div class="max-w-[1220px] mx-auto w-full px-3 flex justify-between gap-6 md:flex-row flex-col">
+				<!-- footer logo and paragraph -->
+				<div class="md:max-w-[560px] w-full">
+					<a href="index.html" title="Go to homepage">
+						<img src="assets/images/logo.png" alt="Logo" loading="lazy" class="object-cover w-20 h-10">
+					</a>
+					<p class="text-sm text-[#757575] mt-4 leading-[21px]">Driving innovation and luxury, we offer premium automobiles designed with performance, style, and comfort at the forefront. Experience the perfect blend of power and elegance.</p>
+				</div>
+				<!-- footer links -->
+				<div class="max-w-[520px] w-full flex md:justify-between flex-wrap md:gap-0 gap-8">
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">Company</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="index.html" title="Go to homepage">Home</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Search more cars">Top brands</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Search latest cars">Latest cars</a>
+							</li>
+							<li>
+								<a href="listing.html" title="Go to listing cars">All listings</a>
+							</li>
+						</ul>
+					</nav>
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">User</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="login.html">Login</a>
+							</li>
+							<li>
+								<a href="login.html">Corporate login</a>
+							</li>
+							<li>
+								<a href="register.html">Register</a>
+							</li>
+						</ul>
+					</nav>
+					<nav>
+						<h4 class="text-[16px] font-semibold mb-3">Legal</h4>
+						<ul class="space-y-2 font-medium">
+							<li>
+								<a href="about.html">About us</a>
+							</li>
+							<li>
+								<a href="terms.html">Terms & conditions</a>
+							</li>
+							<li>
+								<a href="privacy.html">Privacy setting</a>
+							</li>
+							<li>
+								<a href="cookie.html">Cookies</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- subscribe input -->
+			<div class="mt-[50px] max-w-[420px] text-center mb-8 mx-auto w-full px-3">
+				<h4 class="text-[16px] font-semibold mb-3">Subscribe to our newsletter</h4>
+				<div class="flex">
+					<input type="text" class="h-11 rounded-l-[5px] border border-[#FFEA8A] w-full outline-none px-3 pl-10 bg-[url('/assets/images/email-icon.svg')] bg-no-repeat bg-left [background-position-x:12px]" name="newsletter" placeholder="Enter email">
+					<button class="h-11 px-[14px] bg-[#FFD100] rounded-r-[5px] font-semibold sm:max-w-[120px] sm:w-full flex-shrink-0 transition-all duration-200 ease-in hover:bg-[#E8BE00]">Subscribe</button>
+				</div>
+			</div>
+			<!-- copyright -->
+			<div class="border-t border-[#e9e9e9] p-[10px] text-center">
+				<p class="text-xs font-medium leading-4">© Copyright 2023. All Rights Reserved</p>
+			</div>
+		</footer>
+		<script src="assets/js/index.js"></script>
+	</body>
 </html>
