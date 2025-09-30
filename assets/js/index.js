@@ -358,3 +358,25 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
+// car type checked
+document.addEventListener('DOMContentLoaded', () => {
+  const carTypeInputs = document.querySelectorAll(".car-type-input input");
+  if (!carTypeInputs.length) return;
+
+  carTypeInputs.forEach(input => {
+    input.addEventListener("input", function () {
+      let parent = this.closest(".car-type-input");
+      if (!parent) return;
+
+      let inputImages = parent.querySelectorAll("img");
+      if (this.checked) {
+        inputImages[0].style.display = "none";
+        inputImages[1].style.display = "block";
+      }
+      else {
+        inputImages[1].style.display = "none";
+        inputImages[0].style.display = "block";
+      }
+    })
+  })
+})
